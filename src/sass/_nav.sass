@@ -1,0 +1,16 @@
+.main-nav
+    position: fixed
+    z-index: 3
+    top: 0
+    left: 0
+    width: 100%
+    background: $primaryColor
+    padding: 30px
+    box-sizing: border-box
+    +mainFlex
+    +mainTransition
+
+    &.sticky
+        padding-top: 20px
+        padding-bottom: 20px
+        background: rgba($primaryColor, 0.7)

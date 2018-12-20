@@ -33,7 +33,7 @@ gulp.task( 'babel', ['concat-dev'], () => {
 // merge js
 gulp.task('concat-dev', () => {
     // return gulp.src('./src/js/scripts/**/*.js')
-    return gulp.src(['./src/js/scripts/test.js', './src/js/scripts/second-test.js'])
+    return gulp.src(['./src/js/lib/*.js', './src/js/scripts/*.js'])
         .pipe( concat('script.js') )
         .pipe( gulp.dest('./src/js') );
 });
@@ -91,8 +91,8 @@ gulp.task( 'copyimg', () => {
 // watch
 gulp.task('watch', () => {
     // livereload.listen();
-    gulp.watch( './src/sass/**/*.sass', ['sass-dev', 'sass-prod'] );
-    gulp.watch( './src/js/scripts/**/*.js', ['babel'] );
+    gulp.watch( './src/sass/*', ['sass-dev', 'sass-prod'] );
+    gulp.watch( './src/js/scripts/*', ['babel'] );
     gulp.watch( './src/js/script.js', ['uglifyjs'] );
     // gulp.watch( './src/js/script.js', ['uglifyjs'] );
     gulp.watch( './src/*.html', ['html'] );

@@ -1,6 +1,1 @@
-const myFn = ( msg ) => {
-    console.log( msg );
-}
-
-myFn( 'this is second-test.js' );
-console.log( 'ass' );
+console.log( 'test 2' );
