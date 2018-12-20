@@ -1,0 +1,1 @@
+"use strict";var s="Testing!";console.log(s);var o=function(s){console.log(s)};o("this is second-test.js"),console.log("ass");
