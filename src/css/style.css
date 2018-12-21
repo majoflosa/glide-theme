@@ -1061,7 +1061,7 @@ input[type="reset"]:hover {
 }
 
 .landing-section {
-  padding: 30px 0;
+  padding: 60px 0;
   box-sizing: border-box;
 }
 
@@ -1069,10 +1069,60 @@ input[type="reset"]:hover {
   width: 90%;
   max-width: 960px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .landing-section-title {
+  margin-top: 0;
   text-align: center;
+}
+
+.landing-clients.landing-section .landing-section-inner {
+  max-width: none;
+}
+
+.landing-clients-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+}
+
+.landing-clients-item {
+  background: #f7f7f7;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.landing-clients-item img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
+  .landing-clients-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing-clients-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .landing-clients-list {
+    display: block;
+  }
+  .landing-clients-item {
+    width: auto;
+    max-width: 120px;
+    margin: 15px auto;
+  }
 }
 
 .landing-what-we-do {

@@ -1,0 +1,58 @@
+$gridItemHeight: 120px
+    
+.landing-clients
+    &.landing-section
+        .landing-section-inner
+            max-width: none
+    
+    &-list
+        // text-align: center
+        // +mainFlex(center, initial)
+        // height: 100%
+        display: grid
+        grid-template-columns: repeat(6, 1fr)
+        grid-gap: 10px
+
+    &-item
+        // +mainFlex(center, center)
+        // position: relative
+        // width: 10%
+        // box-sizing: border-box
+        // padding: 20px
+        // margin: 1%
+        // background: $lightGrey
+        background: $lightGrey
+        padding: 15px
+        display: flex
+        justify-content: center
+        align-items: center
+        height: $gridItemHeight
+
+        img
+            display: block
+            max-width: 100%
+            margin: 0 auto
+
+
+@media screen and (max-width: 1024px)
+    .landing-clients
+        &-list
+            grid-template-columns: repeat(3, 1fr)
+
+@media screen and (max-width: 600px)
+    .landing-clients
+        &-list
+            grid-template-columns: repeat(2, 1fr)
+
+@media screen and (max-width: 380px)
+    .landing-clients
+        &-list
+            display: block
+
+        &-item
+            // display: block
+            // height: auto
+            width: auto
+            max-width: $gridItemHeight
+            margin: 15px auto
+
