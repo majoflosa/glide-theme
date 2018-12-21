@@ -21,13 +21,13 @@
         display: flex
         width: 90%
         margin: 0 auto
-        div
+        & > div
             width: 47%
             margin: 0 1%
             display: inline-block
             box-sizing: border-box
         &-left
-            text-align: left
+            text-align: right
         &-right
             text-align: center
 
@@ -50,3 +50,19 @@
         padding: 14px 24px
         display: inline-block
         margin: 20px auto 0
+
+
+@media screen and (max-width: 960px)
+    .splash-scroll-down
+        display: none
+
+    .splash
+        .splash-content
+            display: block
+
+            &-left, &-right, & > div
+                display: block
+                width: auto
+                max-width: none
+                text-align: center
+                

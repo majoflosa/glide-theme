@@ -23,3 +23,22 @@
             text-decoration: none
             color: darken(#ffffff, 10%)
 
+.menu-button
+    /* Customize your menu button */
+    display: none
+    padding: 8px 12px
+    background: #ffffff
+    text-transform: uppercase
+
+
+    
+@media screen and (max-width: 960px)
+    .main-nav
+        position: initial
+    .menu-button
+        display: inline-block
+    .main-nav-links
+        display: none
+        &.open
+            display: block
+

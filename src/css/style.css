@@ -947,7 +947,7 @@ input[type="reset"]:hover {
   margin: 0 auto;
 }
 
-.splash-content div {
+.splash-content > div {
   width: 47%;
   margin: 0 1%;
   display: inline-block;
@@ -955,7 +955,7 @@ input[type="reset"]:hover {
 }
 
 .splash-content-left {
-  text-align: left;
+  text-align: right;
 }
 
 .splash-content-right {
@@ -983,6 +983,21 @@ input[type="reset"]:hover {
   padding: 14px 24px;
   display: inline-block;
   margin: 20px auto 0;
+}
+
+@media screen and (max-width: 960px) {
+  .splash-scroll-down {
+    display: none;
+  }
+  .splash .splash-content {
+    display: block;
+  }
+  .splash .splash-content-left, .splash .splash-content-right, .splash .splash-content > div {
+    display: block;
+    width: auto;
+    max-width: none;
+    text-align: center;
+  }
 }
 
 .main-nav {
@@ -1020,6 +1035,29 @@ input[type="reset"]:hover {
 .main-nav-link:hover {
   text-decoration: none;
   color: #e6e6e6;
+}
+
+.menu-button {
+  /* Customize your menu button */
+  display: none;
+  padding: 8px 12px;
+  background: #ffffff;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 960px) {
+  .main-nav {
+    position: initial;
+  }
+  .menu-button {
+    display: inline-block;
+  }
+  .main-nav-links {
+    display: none;
+  }
+  .main-nav-links.open {
+    display: block;
+  }
 }
 
 .landing-section {
