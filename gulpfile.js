@@ -90,11 +90,9 @@ gulp.task( 'copyimg', () => {
 =============================================== */
 // watch
 gulp.task('watch', () => {
-    // livereload.listen();
-    gulp.watch( './src/sass/*', ['sass-dev', 'sass-prod'] );
+    gulp.watch( './src/sass/**/*.sass', ['sass-dev', 'sass-prod'] );
     gulp.watch( './src/js/scripts/*', ['babel'] );
     gulp.watch( './src/js/script.js', ['uglifyjs'] );
-    // gulp.watch( './src/js/script.js', ['uglifyjs'] );
     gulp.watch( './src/*.html', ['html'] );
     gulp.watch( './src/img/*', ['copyimg'] );
 });

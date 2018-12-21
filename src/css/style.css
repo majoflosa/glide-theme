@@ -1008,7 +1008,37 @@ input[type="reset"]:hover {
 .main-nav.sticky {
   padding-top: 20px;
   padding-bottom: 20px;
-  background: rgba(136, 136, 136, 0.7);
+  background: rgba(136, 136, 136, 0.95);
+}
+
+.main-nav-link {
+  display: inline-block;
+  margin: 0 8px;
+  color: #ffffff;
+}
+
+.main-nav-link:hover {
+  text-decoration: none;
+  color: #e6e6e6;
+}
+
+.landing-section {
+  padding: 30px 0;
+  box-sizing: border-box;
+}
+
+.landing-section-inner {
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.landing-section-title {
+  text-align: center;
+}
+
+.landing-what-we-do {
+  background: #cccccc;
 }
 
 .wrap {

@@ -51,13 +51,13 @@ function () {
         return;
       } else if (window.scrollY > this.heightAboveNav && !this.isSticky) {
         // user is scrolling past sticking point while nav is in initial state
-        this.$nav.classList.add(this.stickyClass);
-        this.$mainWrap.style.marginTop = this.$nav.offsetHeight + 'px';
+        this.$nav.classList.add(this.stickyClass); // this.$mainWrap.style.marginTop = this.$nav.offsetHeight + 'px';
+
         this.isSticky = true;
       } else {
         // set nav back to initial state if scrolling back to sticking point
-        this.$nav.classList.remove(this.stickyClass);
-        this.$mainWrap.style.marginTop = 0;
+        this.$nav.classList.remove(this.stickyClass); // this.$mainWrap.style.marginTop = 0;
+
         this.isSticky = false;
       }
     }
@@ -70,7 +70,7 @@ function () {
 window.addEventListener('load', function () {
   var stickyNav = new StickyNav({
     navSelector: '.main-nav',
-    mainWrapSelector: '.content-wrap',
+    mainWrapSelector: '.page-wrap',
     stickyClass: 'sticky'
   });
 });
