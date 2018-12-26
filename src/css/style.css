@@ -1137,6 +1137,20 @@ input[type="reset"]:hover {
   text-align: center;
 }
 
+.landing-portfolio-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 5px;
+}
+
+.landing-portfolio-item {
+  background: #f7f7f7;
+}
+
+.landing-portfolio-item .portfolio-img {
+  width: 100%;
+}
+
 .wrap {
   width: 90%;
   max-width: 900px;
