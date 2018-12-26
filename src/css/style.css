@@ -1125,8 +1125,16 @@ input[type="reset"]:hover {
   }
 }
 
-.landing-what-we-do {
-  background: #cccccc;
+.landing-services-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.landing-services-item {
+  background: #f7f7f7;
+  padding: 30px;
+  text-align: center;
 }
 
 .wrap {

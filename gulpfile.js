@@ -1,12 +1,8 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const concat = require('gulp-concat');
-// const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
-const ts = require('gulp-typescript');
-const copy = require('gulp-copy');
-const livereload = require('gulp-livereload');
 
 /* ============================================== 
     DEVELOPMENT TASKS
@@ -19,11 +15,6 @@ gulp.task( 'sass-dev', () => {
         .pipe( gulp.dest('./src/css') );
 });
 
-// gulp.task( 'ts', () => {
-//     return gulp.src( './src/ts/**/*.ts' )
-//         .pipe( ts({outFile: 'ts-output.js'}) )
-//         .pipe( gulp.dest( './src/js') );
-// });
 gulp.task( 'babel', ['concat-dev'], () => {
     return gulp.src( './src/js/script.js' )
         .pipe( babel({ presets: ['@babel/env'] }) )
@@ -32,7 +23,6 @@ gulp.task( 'babel', ['concat-dev'], () => {
 
 // merge js
 gulp.task('concat-dev', () => {
-    // return gulp.src('./src/js/scripts/**/*.js')
     return gulp.src(['./src/js/lib/*.js', './src/js/scripts/*.js'])
         .pipe( concat('script.js') )
         .pipe( gulp.dest('./src/js') );
@@ -42,16 +32,6 @@ gulp.task('concat-dev', () => {
 /* ============================================== 
     PRODUCTION TASKS
 =============================================== */
-// minify html
-// const minhtmlOptions = {
-//     collapseWhitespace: true,
-//     removeComments: true
-// };
-// gulp.task('minify-html', () => {
-//     return gulp.src( './src/*.html' )
-//         .pipe( htmlmin(minhtmlOptions) )
-//         .pipe( gulp.dest('./dist') );
-// });
 gulp.task( 'html', () => {
     return gulp.src( './src/*.html' )
         .pipe( gulp.dest('./dist') );
@@ -62,12 +42,6 @@ gulp.task('sass-prod', () => {
         .pipe( sass({outputStyle: 'compressed'}).on('error', sass.logError) )
         .pipe( gulp.dest( './dist/css') );
 });
-
-// gulp.task('concat-prod', () => {
-//     return gulp.src( './src/js/**/*.js' )
-//         .pipe( concat('script.js') )
-//         .pipe( gulp.dest('./src/js/') );
-// });
 
 const uglifyOption = {
     mangle: { toplevel: true },
@@ -91,14 +65,8 @@ gulp.task( 'copyimg', () => {
 // watch
 gulp.task('watch', () => {
     gulp.watch( './src/sass/**/*.sass', ['sass-dev', 'sass-prod'] );
-    gulp.watch( './src/js/scripts/*', ['babel'] );
+    gulp.watch( ['./src/js/lib/*', './src/js/scripts/*'], ['babel'] );
     gulp.watch( './src/js/script.js', ['uglifyjs'] );
     gulp.watch( './src/*.html', ['html'] );
     gulp.watch( './src/img/*', ['copyimg'] );
 });
-
-// gulp.task( 'serve', () => {
-//     livereload({ start: true });
-// });
-
-// gulp.task( 'start', ['serve', 'watch']);
