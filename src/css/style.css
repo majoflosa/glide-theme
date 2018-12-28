@@ -1132,15 +1132,36 @@ input[type="reset"]:hover {
 }
 
 .landing-services-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: initial;
+  flex-wrap: wrap;
 }
 
 .landing-services-item {
   background: #f7f7f7;
   padding: 30px;
+  box-sizing: border-box;
   text-align: center;
+  margin: 1%;
+  flex: 0 0 31%;
+}
+
+@media screen and (max-width: 960px) {
+  .landing-services-item {
+    flex: 0 0 48%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing-services-list {
+    display: block;
+  }
+  .landing-services-item {
+    display: block;
+    width: auto;
+  }
 }
 
 .landing-portfolio-list {
