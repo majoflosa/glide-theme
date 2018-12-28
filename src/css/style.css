@@ -1202,9 +1202,10 @@ input[type="reset"]:hover {
 
 .landing-articles-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: initial;
+  flex-wrap: wrap;
 }
 
 .landing-articles-item {
@@ -1213,6 +1214,30 @@ input[type="reset"]:hover {
   margin: 1%;
   flex: 0 0 23%;
   padding: 15px;
+}
+
+@media screen and (max-width: 960px) {
+  .landing-articles-list {
+    justify-content: flex-start;
+  }
+  .landing-articles-item {
+    flex: 0 0 31%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .landing-articles-item {
+    flex: 0 0 48%;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .landing-articles-list {
+    display: block;
+  }
+  .landing-articles-item {
+    display: block;
+  }
 }
 
 .landing-pricing-list {
@@ -1265,6 +1290,80 @@ input[type="reset"]:hover {
 
 .landing-pricing-item-footer {
   text-align: center;
+}
+
+@media screen and (max-width: 720px) {
+  .landing-pricing-list {
+    display: block;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+  .landing-pricing-item {
+    display: block;
+    margin: 30px auto;
+  }
+}
+
+.landing-testimonials-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: initial;
+}
+
+.landing-testimonials-item-author {
+  flex: 0 0 25%;
+}
+
+.landing-testimonials-item-author img {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 99px;
+}
+
+.landing-testimonials-item-content p {
+  margin-top: 0;
+  font-size: 1.2em;
+  font-size: 1.2rem;
+}
+
+.landing-testimonials-item-content .signature {
+  text-align: right;
+}
+
+.landing-testimonials-item-content .signature em {
+  color: #919191;
+  font-size: 0.9em;
+}
+
+@media screen and (max-width: 720px) {
+  .landing-testimonials-item {
+    display: block;
+  }
+  .landing-testimonials-item-author {
+    display: block;
+    margin: 0 0 15px;
+  }
+  .landing-testimonials-item-content .signature {
+    text-align: left;
+  }
+}
+
+.landing-contact-form {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.landing-contact-form-buttons {
+  margin: 0 3px 0 0;
+}
+
+.footer {
+  background: #2b2b2b;
+  padding: 30px;
+  color: #ffffff;
 }
 
 .wrap {

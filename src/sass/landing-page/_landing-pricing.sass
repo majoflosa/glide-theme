@@ -4,7 +4,6 @@
 
     &-item
         background: $lightGrey
-        // flex: 1 0 auto
         padding: 15px
         box-sizing: border-box
         margin: 1%
@@ -31,3 +30,13 @@
                 margin: 10px
         &-footer
             text-align: center
+
+@media screen and (max-width: 720px)
+    .landing-pricing
+        &-list
+            display: block
+            max-width: 420px
+            margin: 0 auto
+        &-item
+            display: block
+            margin: 30px auto
