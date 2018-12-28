@@ -1165,17 +1165,55 @@ input[type="reset"]:hover {
 }
 
 .landing-portfolio-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: initial;
+  flex-wrap: wrap;
 }
 
 .landing-portfolio-item {
   background: #f7f7f7;
+  flex: 0 0 32%;
+  margin: 5px 0.5%;
 }
 
 .landing-portfolio-item .portfolio-img {
-  width: 100%;
+  display: block;
+}
+
+@media screen and (max-width: 720px) {
+  .landing-portfolio-item {
+    flex: 0 0 49%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .landing-portfolio-list {
+    display: block;
+  }
+  .landing-portfolio-item {
+    display: block;
+  }
+}
+
+.landing-about-content {
+  text-align: center;
+}
+
+.landing-articles-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: initial;
+}
+
+.landing-articles-item {
+  box-sizing: border-box;
+  background: #f7f7f7;
+  margin: 1%;
+  flex: 0 0 23%;
+  padding: 15px;
 }
 
 .wrap {
