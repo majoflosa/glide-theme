@@ -1082,7 +1082,6 @@ input[type="reset"]:hover {
 }
 
 .landing-clients-list {
-  border: 1px dashed #dddddd;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -1214,6 +1213,58 @@ input[type="reset"]:hover {
   margin: 1%;
   flex: 0 0 23%;
   padding: 15px;
+}
+
+.landing-pricing-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: initial;
+}
+
+.landing-pricing-item {
+  background: #f7f7f7;
+  padding: 15px;
+  box-sizing: border-box;
+  margin: 1%;
+}
+
+.landing-pricing-item-header {
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+}
+
+.landing-pricing-item-title {
+  margin-top: 0;
+}
+
+.landing-pricing-item-price {
+  font-size: 1.75em;
+  font-size: 1.75rem;
+  margin-bottom: 0;
+}
+
+.landing-pricing-item-term {
+  margin-top: 0;
+  color: #919191;
+}
+
+.landing-pricing-item-body {
+  padding: 15px;
+}
+
+.landing-pricing-item-body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.landing-pricing-item-body li {
+  margin: 10px;
+}
+
+.landing-pricing-item-footer {
+  text-align: center;
 }
 
 .wrap {
