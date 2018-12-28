@@ -6,27 +6,16 @@ $gridItemHeight: 120px
             max-width: none
     
     &-list
-        // text-align: center
-        // +mainFlex(center, initial)
-        // height: 100%
-        display: grid
-        grid-template-columns: repeat(6, 1fr)
-        grid-gap: 10px
+        border: 1px dashed #dddddd
+        text-align: center
+        +mainFlex(center, initial)
 
     &-item
-        // +mainFlex(center, center)
-        // position: relative
-        // width: 10%
-        // box-sizing: border-box
-        // padding: 20px
-        // margin: 1%
-        // background: $lightGrey
+        +mainFlex(center, center)
+        box-sizing: border-box
+        padding: 20px
+        margin: 3px
         background: $lightGrey
-        padding: 15px
-        display: flex
-        justify-content: center
-        align-items: center
-        height: $gridItemHeight
 
         img
             display: block
@@ -37,12 +26,15 @@ $gridItemHeight: 120px
 @media screen and (max-width: 1024px)
     .landing-clients
         &-list
-            grid-template-columns: repeat(3, 1fr)
+            flex-wrap: wrap
+        &-item
+            flex: 1 0 32%
+
 
 @media screen and (max-width: 600px)
     .landing-clients
-        &-list
-            grid-template-columns: repeat(2, 1fr)
+        &-item
+            flex: 0 0 48%
 
 @media screen and (max-width: 380px)
     .landing-clients
@@ -50,9 +42,5 @@ $gridItemHeight: 120px
             display: block
 
         &-item
-            // display: block
-            // height: auto
-            width: auto
-            max-width: $gridItemHeight
-            margin: 15px auto
+            display: block
 

@@ -1082,18 +1082,23 @@ input[type="reset"]:hover {
 }
 
 .landing-clients-list {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
+  border: 1px dashed #dddddd;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: initial;
+  flex-direction: initial;
 }
 
 .landing-clients-item {
-  background: #f7f7f7;
-  padding: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 120px;
+  flex-direction: initial;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 3px;
+  background: #f7f7f7;
 }
 
 .landing-clients-item img {
@@ -1104,13 +1109,16 @@ input[type="reset"]:hover {
 
 @media screen and (max-width: 1024px) {
   .landing-clients-list {
-    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+  }
+  .landing-clients-item {
+    flex: 1 0 32%;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .landing-clients-list {
-    grid-template-columns: repeat(2, 1fr);
+  .landing-clients-item {
+    flex: 0 0 48%;
   }
 }
 
@@ -1119,9 +1127,7 @@ input[type="reset"]:hover {
     display: block;
   }
   .landing-clients-item {
-    width: auto;
-    max-width: 120px;
-    margin: 15px auto;
+    display: block;
   }
 }
 
