@@ -1078,7 +1078,7 @@ input[type="reset"]:hover {
 }
 
 .landing-clients-list {
-  border: 1px dashed red;
+  width: 1000px;
   position: relative;
   overflow: hidden;
 }
@@ -1099,7 +1099,6 @@ input[type="reset"]:hover {
   flex-direction: initial;
   box-sizing: border-box;
   padding: 20px;
-  border: 1px solid #f7f7f7;
 }
 
 .landing-clients-item img {
@@ -1110,16 +1109,17 @@ input[type="reset"]:hover {
 
 @media screen and (max-width: 1024px) {
   .landing-clients-list {
+    width: 600px;
     flex-wrap: wrap;
-  }
-  .landing-clients-item {
-    flex: 1 0 32%;
   }
 }
 
 @media screen and (max-width: 600px) {
+  .landing-clients-list {
+    width: 350px;
+  }
   .landing-clients-item {
-    flex: 0 0 48%;
+    flex: 0 0 175px;
   }
 }
 

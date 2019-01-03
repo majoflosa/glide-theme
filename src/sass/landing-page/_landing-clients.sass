@@ -1,12 +1,12 @@
 $gridItemHeight: 120px
     
 .landing-clients
-    // &.landing-section
-    //     .landing-section-inner
-    //         max-width: none
+    &.landing-section
+        .landing-section-inner
     
     &-list
-        border: 1px dashed red
+        // border: 1px dashed red
+        width: 1000px
         position: relative
         overflow: hidden
 
@@ -21,7 +21,7 @@ $gridItemHeight: 120px
         padding: 20px
         // margin: 0 5%
         // background: $lightGrey
-        border: 1px solid $lightGrey
+        // border: 1px solid $lightGrey
 
         img
             display: block
@@ -31,15 +31,19 @@ $gridItemHeight: 120px
 
 @media screen and (max-width: 1024px)
     .landing-clients
+        // &-inner-list
         &-list
+            width: 600px
             flex-wrap: wrap
-        &-item
-            flex: 1 0 32%
+        // &-item
+        //     flex: 1 0 32%
 
 @media screen and (max-width: 600px)
     .landing-clients
+        &-list
+            width: 350px
         &-item
-            flex: 0 0 48%
+            flex: 0 0 175px
 
 @media screen and (max-width: 380px)
     .landing-clients
