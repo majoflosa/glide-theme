@@ -1,11 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:300,400,700|Overpass:400,600");
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: "Heebo", sans-serif;
   color: #777777;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: sans-serif;
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+  color: #444444;
 }
 
 a, a:active, a:visited {
@@ -252,6 +255,7 @@ select {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -290,6 +294,7 @@ select {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -334,6 +339,7 @@ input[type="button"], input[type="submit"] {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -365,6 +371,7 @@ input[type="button"].primary-border {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -396,6 +403,7 @@ input[type="button"].secondary {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -427,6 +435,7 @@ input[type="button"].secondary-border {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -458,6 +467,7 @@ input[type="reset"] {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -489,6 +499,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -520,6 +531,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -551,6 +563,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -587,6 +600,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -622,6 +636,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -653,6 +668,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -684,6 +700,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -715,6 +732,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -748,6 +766,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -795,6 +814,7 @@ input[type="reset"]:hover {
   text-transform: uppercase;
   border: 1px solid;
   cursor: pointer;
+  font-family: "Overpass", sans-serif;
   font-size: inherit;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -1026,13 +1046,13 @@ input[type="reset"]:hover {
   background: rgba(136, 136, 136, 0.95);
 }
 
-.main-nav-link {
+.main-nav-link, .main-nav a {
   display: inline-block;
   margin: 0 8px;
   color: #ffffff;
 }
 
-.main-nav-link:hover {
+.main-nav-link:hover, .main-nav a:hover {
   text-decoration: none;
   color: #e6e6e6;
 }
@@ -1077,8 +1097,18 @@ input[type="reset"]:hover {
   text-align: center;
 }
 
+.landing-clients {
+  padding: 10px 0;
+  border-bottom: 1px solid #dddddd;
+}
+
+.landing-clients .landing-section-inner {
+  max-width: none;
+}
+
 .landing-clients-list {
   width: 1000px;
+  margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
