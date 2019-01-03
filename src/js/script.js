@@ -3672,6 +3672,82 @@ window.addEventListener('load', function () {
   });
 });
 
+var InfiniteCarousel =
+/*#__PURE__*/
+function () {
+  function InfiniteCarousel(options) {
+    _classCallCheck(this, InfiniteCarousel);
+
+    this.$wrap = document.querySelector(options.wrapSelector);
+    this.$innerWrap = this.$wrap.querySelector(options.innerWrapSelector);
+    this.$itemsCollection = this.$wrap.querySelectorAll(options.itemsSelector);
+    this.$items = _toConsumableArray(this.$itemsCollection);
+    this.timeInterval = options.timeInterval;
+    this.playInterval = null;
+    this.currentIndex = 0;
+    this.init = this.init.bind(this);
+    this.bindEvents = this.bindEvents.bind(this);
+    this.playCarousel = this.playCarousel.bind(this);
+    this.nextItem = this.nextItem.bind(this);
+    this.previousItem = this.previousItem.bind(this);
+    this.init();
+  }
+
+  _createClass(InfiniteCarousel, [{
+    key: "init",
+    value: function init() {
+      var _this = this;
+
+      this.$items.forEach(function (item) {
+        return _this.$innerWrap.appendChild(item.cloneNode(true));
+      });
+      this.bindEvents();
+    }
+  }, {
+    key: "bindEvents",
+    value: function bindEvents() {
+      this.playCarousel();
+    }
+  }, {
+    key: "playCarousel",
+    value: function playCarousel() {
+      this.playInterval = setInterval(this.nextItem, this.timeInterval);
+    }
+  }, {
+    key: "nextItem",
+    value: function nextItem() {
+      if (this.currentIndex > this.$items.length) this.currentIndex = 0;
+
+      if (this.currentIndex === 0) {
+        TweenMax.to(this.$innerWrap, 0, {
+          x: 0
+        });
+      } else {
+        TweenMax.to(this.$innerWrap, 0.25, {
+          x: "-=".concat(this.$items[0].offsetWidth)
+        });
+      }
+
+      this.currentIndex++;
+    }
+  }, {
+    key: "previousItem",
+    value: function previousItem() {}
+  }]);
+
+  return InfiniteCarousel;
+}();
+
+window.addEventListener('load', function () {
+  var clientsCarousel = new InfiniteCarousel({
+    wrapSelector: '.landing-clients-list',
+    innerWrapSelector: '.landing-clients-inner-list',
+    itemsSelector: '.landing-clients-item',
+    timeInterval: 3000 // milliseconds
+
+  });
+});
+
 var ScrollDownButton =
 /*#__PURE__*/
 function () {

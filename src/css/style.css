@@ -1077,27 +1077,29 @@ input[type="reset"]:hover {
   text-align: center;
 }
 
-.landing-clients.landing-section .landing-section-inner {
-  max-width: none;
+.landing-clients-list {
+  border: 1px dashed red;
+  position: relative;
+  overflow: hidden;
 }
 
-.landing-clients-list {
+.landing-clients-inner-list {
   text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: initial;
   flex-direction: initial;
 }
 
 .landing-clients-item {
+  flex: 0 0 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: initial;
   box-sizing: border-box;
   padding: 20px;
-  margin: 3px;
-  background: #f7f7f7;
+  border: 1px solid #f7f7f7;
 }
 
 .landing-clients-item img {
