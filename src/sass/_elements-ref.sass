@@ -9,17 +9,46 @@
         margin: 0 15px 15px 0
         height: 100px
 
+.color-wrap
+    position: relative
+    .dark, .light
+        display: block
+        margin: 0
+        position: absolute
+        right: 0
+        width: 30px
+        height: 50%
+    .dark
+        top: 0
+    .light
+        bottom: 0
+
 .primary-color 
     background: $primaryColor
-    width: 35%
+    width: 40%
+        
+    .dark
+        background: $darkPrimaryColor
+    .light
+        background: $lightPrimaryColor
 
 .secondary-color
     background: $secondaryColor
-    width: 15%
+    width: 20%
+
+    .dark
+        background: $darkSecondaryColor
+    .light
+        background: $lightSecondaryColor
 
 .third-color
     background: $thirdColor
-    width: 5%
+    width: 10%
+
+    .dark
+        background: $darkThirdColor
+    .light
+        background: $lightThirdColor
 
 .light-grey
     background: $lightGrey
@@ -32,3 +61,18 @@
 .dark-grey
     background: $darkGrey
     width: 10%
+
+
+.splash-test-section
+    background: $darkSecondaryColor
+    padding: 200px 0
+
+    .inner
+        text-align: center
+        color: #ffffff
+        width: 90%
+        max-width: 600px
+        margin: 0 auto
+
+    h1
+        color: #ffffff
