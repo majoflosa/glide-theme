@@ -5,7 +5,8 @@ class InfiniteCarousel {
         this.$itemsCollection = this.$wrap.querySelectorAll( options.itemsSelector );
         this.$items = [...this.$itemsCollection];
 
-        this.timeInterval = options.timeInterval;
+        this.timeInterval = options.timeInterval || 5000;
+        this.transitionDuration = options.transitionDuration || 0.4;
         this.playInterval = null;
         this.currentIndex = 0;
 
@@ -35,8 +36,9 @@ class InfiniteCarousel {
         if ( this.currentIndex > this.$items.length ) this.currentIndex = 0;
         if ( this.currentIndex === 0 ) {
             TweenMax.to( this.$innerWrap, 0, {x: 0} );
+            TweenMax.to( this.$innerWrap, this.transitionDuration, {x: `-=${(this.$items[0].offsetWidth)}`} );
         } else {
-            TweenMax.to( this.$innerWrap, 0.25, {x: `-=${(this.$items[0].offsetWidth)}`} );
+            TweenMax.to( this.$innerWrap, this.transitionDuration, {x: `-=${(this.$items[0].offsetWidth)}`} );
         }
 
         this.currentIndex++;
@@ -52,6 +54,7 @@ window.addEventListener('load', () => {
         wrapSelector: '.landing-clients-list',
         innerWrapSelector: '.landing-clients-inner-list',
         itemsSelector: '.landing-clients-item',
-        timeInterval: 3000 // milliseconds
+        timeInterval: 5000, // milliseconds
+        transitionDuration: 0.4 // seconds
     })
 });

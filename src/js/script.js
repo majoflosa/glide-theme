@@ -3682,7 +3682,8 @@ function () {
     this.$innerWrap = this.$wrap.querySelector(options.innerWrapSelector);
     this.$itemsCollection = this.$wrap.querySelectorAll(options.itemsSelector);
     this.$items = _toConsumableArray(this.$itemsCollection);
-    this.timeInterval = options.timeInterval;
+    this.timeInterval = options.timeInterval || 5000;
+    this.transitionDuration = options.transitionDuration || 0.4;
     this.playInterval = null;
     this.currentIndex = 0;
     this.init = this.init.bind(this);
@@ -3722,8 +3723,11 @@ function () {
         TweenMax.to(this.$innerWrap, 0, {
           x: 0
         });
+        TweenMax.to(this.$innerWrap, this.transitionDuration, {
+          x: "-=".concat(this.$items[0].offsetWidth)
+        });
       } else {
-        TweenMax.to(this.$innerWrap, 0.25, {
+        TweenMax.to(this.$innerWrap, this.transitionDuration, {
           x: "-=".concat(this.$items[0].offsetWidth)
         });
       }
@@ -3743,7 +3747,9 @@ window.addEventListener('load', function () {
     wrapSelector: '.landing-clients-list',
     innerWrapSelector: '.landing-clients-inner-list',
     itemsSelector: '.landing-clients-item',
-    timeInterval: 3000 // milliseconds
+    timeInterval: 5000,
+    // milliseconds
+    transitionDuration: 0.4 // seconds
 
   });
 });

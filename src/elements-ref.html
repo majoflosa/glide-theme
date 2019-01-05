@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav class="main-nav">
+    <nav class="main-nav" style="position: static">
         <div class="main-nav-logo"><a href="index.html">Logo</a></div>
 
         <button class="menu-button">Menu</button>
@@ -20,9 +20,11 @@
         </div>
     </nav>
     
-    <div class="wrap" style="margin-top: 120px;">
+    <div class="wrap">
         <h1>Element Reference</h1>
+        <hr>
         <section class="color-section">
+            <h2>Color Palette</h2>
             <div class="palette">
                 <div class="primary-color color-wrap">
                     <div class="dark"></div>
@@ -48,9 +50,9 @@
 
         <section class="splash-test-section">
             <div class="inner">
-                <h1>Mauris sed viverra purus</h1>
+                <h1>Mauris sed <span>viverra</span> purus</h1>
                 <p>Pellentesque imperdiet fringilla ex, ut mattis nisi vehicula ac. Proin dictum, libero non mollis lobortis, purus neque pharetra dolor, at feugiat dolor quam consectetur odio.</p>
-                <button class="btn--third">Get Started</button>
+                <button class="btn--primary-light">Get Started</button>
             </div>
         </section>
 
@@ -84,24 +86,64 @@ let Constructor = function( name ) {
         <hr>
 
         <section class="element-section">
+            <h1>Buttons</h1>
             <div>
                 <button class="btn--primary">Primary</button>
                 <button class="btn--primary-border">Primary</button>
+                <button class="btn--primary" disabled>Primary disabled</button>
+                <button class="btn--primary-border" disabled>Primary disabled</button>
+            </div>
+            <br>
+            <div>
+                <button class="btn--primary-dark">Primary dark</button>
+                <button class="btn--primary-dark-border">Primary dark</button>
+                <button class="btn--primary-light">Primary light</button>
+                <button class="btn--primary-light-border">Primary light</button>
+            </div>
+            <br>
+            <div>
+                <button class="btn--secondary">Secondary</button>
+                <button class="btn--secondary-border">Secondary</button>
+                <button class="btn--secondary" disabled>Secondary disabled</button>
+                <button class="btn--secondary-border" disabled>Secondary disabled</button>
+            </div>
+            <br>
+            <div>
+                <button class="btn--secondary-dark">Secondary dark</button>
+                <button class="btn--secondary-dark-border">Secondary dark</button>
+                <button class="btn--secondary-light">Secondary light</button>
+                <button class="btn--secondary-light-border">Secondary light</button>
+            </div>
+            <br>
+            <div>
+                <button class="btn--third">Third</button>
+                <button class="btn--third-border">Third</button>
+                <button class="btn--third" disabled>Third disabled</button>
+                <button class="btn--third-border" disabled>Third disabled</button>
+            </div>
+            <br>
+            <div>
+                <button class="btn--third-dark">Third dark</button>
+                <button class="btn--third-dark-border">Third dark</button>
+                <button class="btn--third-light">Third light</button>
+                <button class="btn--third-light-border">Third light</button>
             </div>
             <br>
             <div>
                 <button class="btn--neutral">Neutral</button>
                 <button class="btn--neutral-border">Neutral</button>
+                <button class="btn--neutral-border" disabled>Neutral Disabled</button>
             </div>
             <br>
-            <div>
+            <!-- <div>
                 <button class="btn--danger">Danger</button>
                 <button class="btn--danger-border">Danger</button>
+                <button class="btn--danger-border" disabled>Danger</button>
             </div>
-            <br>
+            <br> -->
             <div>
-                <button class="btn--primary-disabled">Disabled</button>
-                <button class="btn--primary-border-disabled">Disabled</button>
+                <button class="btn--neutral-disabled">Disabled</button>
+                <button class="btn--neutral-border-disabled">Disabled</button>
             </div>
             <br>
             <div>
@@ -112,6 +154,7 @@ let Constructor = function( name ) {
         <hr>
 
         <section class="element-section">
+            <h1>Forms</h1>
             <div class="form__item one-third">
                 <label for="">Text</label>
                 <input type="text" placeholder="This is a placeholder">
@@ -191,6 +234,7 @@ let Constructor = function( name ) {
         <hr>
 
         <section class="element-section">
+            <h1>Images and Image Alignment</h1>
             <img 
                 src="https://images.pexels.com/photos/1139556/pexels-photo-1139556.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=900" 
                 alt="demo picture" 
