@@ -4,8 +4,10 @@ class StickyNav {
         this.$nav = document.querySelector( options.navSelector );
         // wrapper element for all content under nav
         this.$mainWrap = document.querySelector( options.mainWrapSelector );
-        // nav separation from top of page
-        this.heightAboveNav = this.$nav.offsetTop;
+        this.$splash = this.$mainWrap.querySelector( '.splash' );
+
+        // Y coordinate of point where nav should become sticky
+        this.stickPoint = this.$splash.offsetHeight - this.$nav.offsetHeight;
         // css class to add to make the nav bar stick
         this.stickyClass = options.stickyClass;
 
@@ -41,10 +43,10 @@ class StickyNav {
     stick() {
         if ( window.innerWidth < 960 ) return false;
 
-        if ( window.scrollY > this.heightAboveNav && this.isSticky ) {
+        if ( window.scrollY > this.stickPoint && this.isSticky ) {
             // do nothing if nav is already in sticky state, and user is scrolling past sticking point
             return;
-        } else if ( window.scrollY > this.heightAboveNav && !this.isSticky ) {
+        } else if ( window.scrollY > this.stickPoint && !this.isSticky ) {
             // user is scrolling past sticking point while nav is in initial state
             this.$nav.classList.add( this.stickyClass );
 

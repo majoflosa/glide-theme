@@ -3754,6 +3754,70 @@ window.addEventListener('load', function () {
   });
 });
 
+var LayeredPlxBanner =
+/*#__PURE__*/
+function () {
+  function LayeredPlxBanner(elements) {
+    _classCallCheck(this, LayeredPlxBanner);
+
+    this.elements = elements;
+    this.$banner = document.querySelector(elements.banner);
+    this.bannerHt = this.$banner.offsetHeight;
+    this.init = this.init.bind(this);
+    this.bindEvents = this.bindEvents.bind(this);
+    this.parallax = this.parallax.bind(this);
+    this.init();
+  }
+
+  _createClass(LayeredPlxBanner, [{
+    key: "init",
+    value: function init() {
+      var layer1 = this.elements.layers[0];
+      layer1.initialTop = this.$banner.offsetHeight * 0.8;
+      layer1.element.style.top = layer1.initialTop + 'px';
+      var layer2 = this.elements.layers[1];
+      layer2.initialTop = this.$banner.offsetHeight * 0.7;
+      layer2.element.style.top = layer2.initialTop + 'px';
+      var layer3 = this.elements.layers[2];
+      layer3.initialTop = this.$banner.offsetHeight * 0.3;
+      layer3.element.style.top = layer3.initialTop + 'px';
+      this.bindEvents();
+    }
+  }, {
+    key: "bindEvents",
+    value: function bindEvents() {
+      window.addEventListener('scroll', this.parallax);
+    }
+  }, {
+    key: "parallax",
+    value: function parallax() {
+      this.elements.layers.forEach(function (layer) {
+        layer.element.style.top = layer.initialTop - window.scrollY * layer.scrollRatio + 'px';
+      });
+    }
+  }]);
+
+  return LayeredPlxBanner;
+}();
+
+window.addEventListener('load', function () {
+  var layerElements = _toConsumableArray(document.querySelectorAll('.plx-layer'));
+
+  var layers = layerElements.map(function (layer) {
+    return {
+      element: layer,
+      initialTop: 300,
+      scrollRatio: 0.75
+    };
+  });
+  layers[1].scrollRatio = 0.25;
+  layers[2].scrollRatio = 0.35;
+  var splashPlx = new LayeredPlxBanner({
+    banner: '.splash',
+    layers: layers
+  });
+});
+
 var ScrollDownButton =
 /*#__PURE__*/
 function () {
@@ -3806,9 +3870,10 @@ function () {
     // nav element
     this.$nav = document.querySelector(options.navSelector); // wrapper element for all content under nav
 
-    this.$mainWrap = document.querySelector(options.mainWrapSelector); // nav separation from top of page
+    this.$mainWrap = document.querySelector(options.mainWrapSelector);
+    this.$splash = this.$mainWrap.querySelector('.splash'); // Y coordinate of point where nav should become sticky
 
-    this.heightAboveNav = this.$nav.offsetTop; // css class to add to make the nav bar stick
+    this.stickPoint = this.$splash.offsetHeight - this.$nav.offsetHeight; // css class to add to make the nav bar stick
 
     this.stickyClass = options.stickyClass; // track whether or not the nav has is in the sticky state
 
@@ -3844,10 +3909,10 @@ function () {
     value: function stick() {
       if (window.innerWidth < 960) return false;
 
-      if (window.scrollY > this.heightAboveNav && this.isSticky) {
+      if (window.scrollY > this.stickPoint && this.isSticky) {
         // do nothing if nav is already in sticky state, and user is scrolling past sticking point
         return;
-      } else if (window.scrollY > this.heightAboveNav && !this.isSticky) {
+      } else if (window.scrollY > this.stickPoint && !this.isSticky) {
         // user is scrolling past sticking point while nav is in initial state
         this.$nav.classList.add(this.stickyClass);
         this.isSticky = true;

@@ -1725,11 +1725,60 @@ input[type="reset"]:hover {
 
 .splash {
   position: relative;
-  background: #f7f7f7;
+  background: linear-gradient(-45deg, #aed0fc, #1a7af6);
   min-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.splash .plx-layer {
+  position: absolute;
+}
+
+.splash .plx-layer-1 {
+  left: 50%;
+  opacity: 0.3;
+  transform: scale(2.75);
+}
+
+.splash .plx-layer-2 {
+  right: 15%;
+  opacity: 0.1;
+}
+
+.splash .plx-layer-3 {
+  right: 35%;
+  opacity: 0.2;
+  transform: scale(1.5);
+}
+
+.splash .plx-layer .cloud {
+  position: absolute;
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.splash .plx-layer .cloud-1 {
+  right: 0;
+  width: 220px;
+  height: 45px;
+}
+
+.splash .plx-layer .cloud-2 {
+  top: -50px;
+  right: 40px;
+  width: 90px;
+  height: 90px;
+}
+
+.splash .plx-layer .cloud-3 {
+  top: -15px;
+  right: 120px;
+  width: 45px;
+  height: 45px;
 }
 
 .splash-scroll-down {
@@ -1737,12 +1786,24 @@ input[type="reset"]:hover {
   bottom: 0;
   width: 100%;
   text-align: center;
+  color: #ffffff;
 }
 
 .splash-scroll-down span {
   display: inline-block;
   margin: 0 0 15px;
   cursor: pointer;
+  border: 10px solid transparent;
+  border-top: 10px solid #ffffff;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+}
+
+.splash-scroll-down span:hover {
+  opacity: 0.7;
 }
 
 .splash-content {
@@ -1750,6 +1811,7 @@ input[type="reset"]:hover {
   display: flex;
   width: 90%;
   margin: 0 auto;
+  color: #ffffff;
 }
 
 .splash-content > div {
@@ -1757,10 +1819,6 @@ input[type="reset"]:hover {
   margin: 0 1%;
   display: inline-block;
   box-sizing: border-box;
-}
-
-.splash-content-left {
-  text-align: right;
 }
 
 .splash-content-right {
@@ -1772,22 +1830,15 @@ input[type="reset"]:hover {
   font-size: 2em;
   font-size: 2rem;
   margin-top: 0;
+  color: inherit;
 }
 
 .splash-tagline {
-  font-weight: normal;
+  font-family: "Heebo", sans-serif;
+  font-weight: 300;
   font-size: 1.2em;
   font-size: 1.2rem;
-}
-
-.splash-cta {
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #777777;
-  border: 2px solid #777777;
-  padding: 14px 24px;
-  display: inline-block;
-  margin: 20px auto 0;
+  color: #dfecfe;
 }
 
 .splash-cta:hover {
@@ -1815,6 +1866,7 @@ input[type="reset"]:hover {
   top: 0;
   left: 0;
   width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding: 30px;
   box-sizing: border-box;
   display: flex;
@@ -1828,20 +1880,32 @@ input[type="reset"]:hover {
   -o-transition: all 0.25s ease-in-out;
 }
 
-.main-nav.sticky {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background: rgba(255, 255, 255, 0.95);
+.main-nav-logo a {
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .main-nav-link, .main-nav a {
   display: inline-block;
   margin: 0 8px;
+  color: #ffffff;
 }
 
 .main-nav-link:hover, .main-nav a:hover {
   text-decoration: none;
   color: #e6e6e6;
+}
+
+.main-nav.sticky {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #aed0fc;
+}
+
+.main-nav.sticky-link, .main-nav.sticky a {
+  color: #64a5f9;
 }
 
 .menu-button {
