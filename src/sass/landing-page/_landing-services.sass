@@ -1,15 +1,39 @@
 .landing-services
     &-list
-        +mainFlex(center)
+        +mainFlex(center, flex-start)
         flex-wrap: wrap
 
     &-item
-        background: $lightGrey
+        // background: $lightGrey
+        // border-radius: 10px
+        // border: 1px solid lighten($lightSecondaryColor, 10%)
         padding: 30px
         box-sizing: border-box
         text-align: center
         margin: 1%
         flex: 0 0 31%
+        &-icon
+            color: $secondaryColor
+            font-size: 70px
+            box-shadow: 0 4px 0 $lightSecondaryColor // rgba(0,0,0,0.1)
+            background: lighten($lightSecondaryColor, 10%)
+            border-radius: $boxRadius
+            // border: 6px solid $lightSecondaryColor
+            box-sizing: border-box
+            width: 150px
+            margin: 0 auto
+            padding: 7px 0 0 0
+            min-height: 100px
+        &-header h3
+            color: $primaryColor
+            &::after
+                display: block
+                content: " "
+                border: 2px solid $lightPrimaryColor
+                margin: 13px auto 0
+                width: 30px
+                border-radius: 5px
+                // height: 0px
 
 @media screen and (max-width: 960px)
     .landing-services

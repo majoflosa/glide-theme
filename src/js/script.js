@@ -3614,7 +3614,8 @@ function () {
       // make fade-in content invisible
       this.fadeInSections.forEach(function (section) {
         return section.style.opacity = 0;
-      }); // bind relevant events
+      });
+      this.fadeIn(); // bind relevant events
 
       this.bindEvents();
     }
@@ -3637,7 +3638,7 @@ function () {
       // do nothing if animation already played
       if (this.contentDisplayed) return false; // check if enough has been scrolled to bring animated content into view
 
-      if (this.$element.offsetTop - window.innerHeight + this.elementHt * 0.5 <= window.scrollY) {
+      if (this.$element.offsetTop - window.innerHeight + this.elementHt * 0.25 <= window.scrollY) {
         // make note that animation has now played
         this.contentDisplayed = true; // create the animation
 
@@ -3781,6 +3782,7 @@ function () {
       var layer3 = this.elements.layers[2];
       layer3.initialTop = this.$banner.offsetHeight * 0.3;
       layer3.element.style.top = layer3.initialTop + 'px';
+      this.parallax();
       this.bindEvents();
     }
   }, {

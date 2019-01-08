@@ -32,6 +32,8 @@ class FadeInOnscroll {
         // make fade-in content invisible
         this.fadeInSections.forEach( section => section.style.opacity = 0 );
 
+        this.fadeIn();
+
         // bind relevant events
         this.bindEvents();
     }
@@ -51,7 +53,7 @@ class FadeInOnscroll {
         if ( this.contentDisplayed ) return false;
 
         // check if enough has been scrolled to bring animated content into view
-        if ( this.$element.offsetTop - window.innerHeight + (this.elementHt * 0.5) <= window.scrollY ) {
+        if ( this.$element.offsetTop - window.innerHeight + (this.elementHt * 0.25) <= window.scrollY ) {
             // make note that animation has now played
             this.contentDisplayed = true;
 

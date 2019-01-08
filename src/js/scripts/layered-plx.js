@@ -26,6 +26,8 @@ class LayeredPlxBanner {
         layer3.initialTop = (this.$banner.offsetHeight * 0.3);
         layer3.element.style.top = layer3.initialTop + 'px';
 
+        this.parallax();
+
         this.bindEvents();
     }
 
