@@ -31,7 +31,7 @@ code {
   background: #f7f7f7;
   color: #848484;
   padding: 8px 14px;
-  border: 3px;
+  border: 999px;
 }
 
 .code-block {
@@ -107,7 +107,7 @@ textarea,
 select {
   display: block;
   padding: 8px 12px;
-  border-radius: 3px;
+  border-radius: 10px;
   border: 1px solid #aaaaaa;
   color: inherit;
   font-family: inherit;
@@ -245,7 +245,7 @@ select {
   width: 20px;
   height: 20px;
   margin-right: 8px;
-  border-radius: 3px;
+  border-radius: 999px;
   border: 2px solid #aaaaaa;
 }
 
@@ -268,7 +268,7 @@ select {
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
   background: #64a5f9;
   color: #ffffff;
 }
@@ -307,7 +307,7 @@ select {
   -ms-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
   background: transparent;
   color: #64a5f9;
 }
@@ -354,7 +354,7 @@ input[type="button"], input[type="submit"] {
   background: #15D683;
   color: #ffffff;
   border-color: #15D683;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 input[type="button"]:focus, input[type="submit"]:focus {
@@ -386,7 +386,7 @@ input[type="button"].primary-border {
   background: transparent;
   color: #15D683;
   border-color: #15D683;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 input[type="button"].primary-border:focus {
@@ -418,7 +418,7 @@ input[type="button"].secondary {
   background: #64a5f9;
   color: #ffffff;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 input[type="button"].secondary:focus {
@@ -450,7 +450,7 @@ input[type="button"].secondary-border {
   background: transparent;
   color: #64a5f9;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 input[type="button"].secondary-border:focus {
@@ -482,7 +482,7 @@ input[type="reset"] {
   background: transparent;
   color: #aaaaaa;
   border-color: #aaaaaa;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 input[type="reset"]:focus {
@@ -514,7 +514,7 @@ input[type="reset"]:hover {
   background: #15D683;
   color: #ffffff;
   border-color: #15D683;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--primary:focus, a.btn--primary:focus {
@@ -546,7 +546,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #15D683;
   border-color: #15D683;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--primary-border:focus, a.btn--primary-border:focus {
@@ -578,7 +578,7 @@ input[type="reset"]:hover {
   background: #0e9058;
   color: #ffffff;
   border-color: #0e9058;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--primary-dark:focus, a.btn--primary-dark:focus {
@@ -610,7 +610,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #0e9058;
   border-color: #0e9058;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--primary-dark-border:focus, a.btn--primary-dark-border:focus {
@@ -642,7 +642,7 @@ input[type="reset"]:hover {
   background: #4aeda7;
   color: #ffffff;
   border-color: #4aeda7;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--primary-light:focus, a.btn--primary-light:focus {
@@ -674,7 +674,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #4aeda7;
   border-color: #4aeda7;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--primary-light-border:focus, a.btn--primary-light-border:focus {
@@ -706,7 +706,7 @@ input[type="reset"]:hover {
   background: #64a5f9;
   color: #ffffff;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--secondary:focus, a.btn--secondary:focus {
@@ -738,7 +738,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #64a5f9;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--secondary-border:focus, a.btn--secondary-border:focus {
@@ -770,7 +770,7 @@ input[type="reset"]:hover {
   background: #1a7af6;
   color: #ffffff;
   border-color: #1a7af6;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--secondary-dark:focus, a.btn--secondary-dark:focus {
@@ -802,7 +802,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #1a7af6;
   border-color: #1a7af6;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--secondary-dark-border:focus, a.btn--secondary-dark-border:focus {
@@ -834,7 +834,7 @@ input[type="reset"]:hover {
   background: #aed0fc;
   color: #ffffff;
   border-color: #aed0fc;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--secondary-light:focus, a.btn--secondary-light:focus {
@@ -866,7 +866,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #aed0fc;
   border-color: #aed0fc;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--secondary-light-border:focus, a.btn--secondary-light-border:focus {
@@ -898,7 +898,7 @@ input[type="reset"]:hover {
   background: #f3878d;
   color: #ffffff;
   border-color: #f3878d;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--third:focus, a.btn--third:focus {
@@ -930,7 +930,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #f3878d;
   border-color: #f3878d;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--third-border:focus, a.btn--third-border:focus {
@@ -962,7 +962,7 @@ input[type="reset"]:hover {
   background: #ec414b;
   color: #ffffff;
   border-color: #ec414b;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--third-dark:focus, a.btn--third-dark:focus {
@@ -994,7 +994,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #ec414b;
   border-color: #ec414b;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--third-dark-border:focus, a.btn--third-dark-border:focus {
@@ -1026,7 +1026,7 @@ input[type="reset"]:hover {
   background: #facdcf;
   color: #ffffff;
   border-color: #facdcf;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--third-light:focus, a.btn--third-light:focus {
@@ -1058,7 +1058,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #facdcf;
   border-color: #facdcf;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--third-light-border:focus, a.btn--third-light-border:focus {
@@ -1090,7 +1090,7 @@ input[type="reset"]:hover {
   background: #ffffff;
   color: #ffffff;
   border-color: #ffffff;
-  border-radius: 3px;
+  border-radius: 999px;
   color: #777777;
 }
 
@@ -1127,7 +1127,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #ffffff;
   border-color: #ffffff;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--white-border:focus, a.btn--white-border:focus {
@@ -1163,7 +1163,7 @@ input[type="reset"]:hover {
   background: #aaaaaa;
   color: #ffffff;
   border-color: #aaaaaa;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--neutral:focus, a.btn--neutral:focus {
@@ -1195,7 +1195,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #aaaaaa;
   border-color: #aaaaaa;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--neutral-border:focus, a.btn--neutral-border:focus {
@@ -1227,7 +1227,7 @@ input[type="reset"]:hover {
   background: #64a5f9;
   color: #ffffff;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--danger:focus, a.btn--danger:focus {
@@ -1259,7 +1259,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #64a5f9;
   border-color: #64a5f9;
-  border-radius: 3px;
+  border-radius: 999px;
 }
 
 .btn--danger-border:focus, a.btn--danger-border:focus {
@@ -1292,7 +1292,7 @@ input[type="reset"]:hover {
   background: #bef9e0;
   color: #ffffff;
   border-color: #bef9e0;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1335,7 +1335,7 @@ input[type="reset"]:hover {
   background: #d0e4fd;
   color: #ffffff;
   border-color: #d0e4fd;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1378,7 +1378,7 @@ input[type="reset"]:hover {
   background: #fdedee;
   color: #ffffff;
   border-color: #fdedee;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1423,7 +1423,7 @@ input[type="reset"]:hover {
   background: #e2e2e2;
   color: #ffffff;
   border-color: #e2e2e2;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1474,7 +1474,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #bef9e0;
   border-color: #bef9e0;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1517,7 +1517,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #d0e4fd;
   border-color: #d0e4fd;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1560,7 +1560,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #fdedee;
   border-color: #fdedee;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1605,7 +1605,7 @@ input[type="reset"]:hover {
   background: transparent;
   color: #e2e2e2;
   border-color: #e2e2e2;
-  border-radius: 3px;
+  border-radius: 999px;
   cursor: initial;
 }
 
@@ -1737,18 +1737,18 @@ input[type="reset"]:hover {
 }
 
 .splash .plx-layer-1 {
-  left: 50%;
+  right: 25%;
   opacity: 0.3;
   transform: scale(2.75);
 }
 
 .splash .plx-layer-2 {
-  right: 15%;
+  right: 5%;
   opacity: 0.1;
 }
 
 .splash .plx-layer-3 {
-  right: 35%;
+  left: 40%;
   opacity: 0.2;
   transform: scale(1.5);
 }
@@ -1890,11 +1890,15 @@ input[type="reset"]:hover {
   display: inline-block;
   margin: 0 8px;
   color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Overpass", sans-serif;
+  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 .main-nav-link:hover, .main-nav a:hover {
   text-decoration: none;
-  color: #e6e6e6;
+  color: #dfecfe;
 }
 
 .main-nav.sticky {
@@ -1906,6 +1910,10 @@ input[type="reset"]:hover {
 
 .main-nav.sticky-link, .main-nav.sticky a {
   color: #64a5f9;
+}
+
+.main-nav.sticky-link:hover, .main-nav.sticky a:hover {
+  color: #aed0fc;
 }
 
 .menu-button {
@@ -1950,7 +1958,7 @@ input[type="reset"]:hover {
 
 .landing-clients {
   padding: 10px 0;
-  border-bottom: 1px solid #dddddd;
+  background: #dffcef;
 }
 
 .landing-clients .landing-section-inner {
@@ -1980,6 +1988,16 @@ input[type="reset"]:hover {
   flex-direction: initial;
   box-sizing: border-box;
   padding: 20px;
+  opacity: 0.75;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+}
+
+.landing-clients-item:hover {
+  opacity: 1;
 }
 
 .landing-clients-item img {

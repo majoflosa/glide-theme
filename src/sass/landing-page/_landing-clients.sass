@@ -2,7 +2,7 @@ $gridItemHeight: 120px
     
 .landing-clients
     padding: 10px 0
-    border-bottom: 1px solid darken($lightGrey, 10%)
+    background: lighten($lightPrimaryColor, 32%)
     .landing-section-inner
         max-width: none
     &-list
@@ -17,10 +17,13 @@ $gridItemHeight: 120px
 
     &-item
         flex: 0 0 200px
-        // background: $lightGrey
         +mainFlex(center, center)
         box-sizing: border-box
         padding: 20px
+        opacity: 0.75
+        +mainTransition
+        &:hover
+            opacity: 1
 
         img
             display: block

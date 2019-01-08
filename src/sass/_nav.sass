@@ -21,9 +21,14 @@
         display: inline-block
         margin: 0 8px
         color: #ffffff
+        text-transform: uppercase
+        font-family: $headerFont
+        font-size: 0.9em
+        font-size: 0.9rem
         &:hover
             text-decoration: none
-            color: darken(#ffffff, 10%)
+            // opacity: 0.9
+            color: lighten($secondaryColor, 25%)
 
     &.sticky
         padding-top: 20px
@@ -32,6 +37,8 @@
         border-bottom: 1px solid $lightSecondaryColor
         &-link, a
             color: $secondaryColor
+            &:hover
+                color: lighten($secondaryColor, 15%)
 
 .menu-button
     /* Customize your menu button */
