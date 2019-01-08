@@ -3826,6 +3826,7 @@ function () {
 
     this.$button = document.querySelector(options.buttonSelector);
     this.$currentSection = document.querySelector(options.currentSectionSelector);
+    this.animationDuration = options.animationDuration || 2;
     this.init = this.init.bind(this);
     this.bindEvents = this.bindEvents.bind(this);
     this.scrollDown = this.scrollDown.bind(this);
@@ -3845,8 +3846,8 @@ function () {
   }, {
     key: "scrollDown",
     value: function scrollDown() {
-      TweenLite.to(window, 1, {
-        scrollTo: this.$currentSection.offsetHeight - 30
+      TweenLite.to(window, this.animationDuration, {
+        scrollTo: this.$currentSection.offsetHeight - 60
       });
     }
   }]);
@@ -3857,7 +3858,9 @@ function () {
 window.addEventListener('load', function () {
   var scrollDownButton = new ScrollDownButton({
     buttonSelector: '.scroll-down-button',
-    currentSectionSelector: '.splash'
+    currentSectionSelector: '.splash',
+    animationDuration: 1.25 // seconds
+
   });
 });
 

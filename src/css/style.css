@@ -1781,6 +1781,45 @@ input[type="reset"]:hover {
   height: 45px;
 }
 
+.splash-content {
+  position: relative;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+.splash-content > div {
+  width: 47%;
+  margin: 0 1%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.splash-content-right {
+  text-align: center;
+}
+
+.splash-title {
+  text-transform: uppercase;
+  font-size: 2.5em;
+  font-size: 2.5rem;
+  margin-top: 0;
+  color: inherit;
+}
+
+.splash-tagline {
+  font-family: "Heebo", sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+  font-size: 1.2rem;
+  color: #dfecfe;
+}
+
+.splash-cta:hover {
+  text-decoration: none;
+}
+
 .splash-scroll-down {
   position: absolute;
   bottom: 0;
@@ -1804,45 +1843,6 @@ input[type="reset"]:hover {
 
 .splash-scroll-down span:hover {
   opacity: 0.7;
-}
-
-.splash-content {
-  position: relative;
-  display: flex;
-  width: 90%;
-  margin: 0 auto;
-  color: #ffffff;
-}
-
-.splash-content > div {
-  width: 47%;
-  margin: 0 1%;
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-.splash-content-right {
-  text-align: center;
-}
-
-.splash-title {
-  text-transform: uppercase;
-  font-size: 2em;
-  font-size: 2rem;
-  margin-top: 0;
-  color: inherit;
-}
-
-.splash-tagline {
-  font-family: "Heebo", sans-serif;
-  font-weight: 300;
-  font-size: 1.2em;
-  font-size: 1.2rem;
-  color: #dfecfe;
-}
-
-.splash-cta:hover {
-  text-decoration: none;
 }
 
 @media screen and (max-width: 960px) {

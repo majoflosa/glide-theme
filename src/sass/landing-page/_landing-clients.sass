@@ -6,7 +6,6 @@ $gridItemHeight: 120px
     .landing-section-inner
         max-width: none
     &-list
-        // border: 1px dashed red
         width: 1000px
         margin: 0 auto
         position: relative
@@ -18,12 +17,10 @@ $gridItemHeight: 120px
 
     &-item
         flex: 0 0 200px
+        // background: $lightGrey
         +mainFlex(center, center)
         box-sizing: border-box
         padding: 20px
-        // margin: 0 5%
-        // background: $lightGrey
-        // border: 1px solid $lightGrey
 
         img
             display: block
@@ -33,12 +30,9 @@ $gridItemHeight: 120px
 
 @media screen and (max-width: 1024px)
     .landing-clients
-        // &-inner-list
         &-list
             width: 600px
             flex-wrap: wrap
-        // &-item
-        //     flex: 1 0 32%
 
 @media screen and (max-width: 600px)
     .landing-clients
