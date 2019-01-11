@@ -1,5 +1,9 @@
 "use strict";
 
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
@@ -3587,11 +3591,13 @@ function () {
 
     this.fadeInSections = _toConsumableArray(this.$element.querySelectorAll(options.fadeInSectionsSelector)); // duration of animation in seconds; defaults to 1
 
-    this.duration = options.animationDuration || 1; // amount of pixels the content should slide
+    this.duration = options.animationDuration === undefined ? 1 : options.animationDuration; // amount of pixels the content should slide
 
-    this.positionShift = options.positionShift || 50; // animation delay in seconds between successive elements 
+    this.positionShift = options.positionShift === undefined ? 50 : options.positionShift; // animation delay in seconds between successive elements 
 
-    this.stagger = options.staggerDelay || 0.3; // height of fade-in content wrapper
+    this.stagger = options.staggerDelay === undefined ? 0.3 : options.staggerDelay;
+    this.extraFromOptions = options.extraFromOptions || {};
+    this.extraToOptions = options.extraToOptions || {}; // height of fade-in content wrapper
 
     this.elementHt = this.$element.offsetHeight; // track whether the content has already performed the animation
 
@@ -3640,16 +3646,21 @@ function () {
 
       if (this.$element.offsetTop - window.innerHeight + this.elementHt * 0.25 <= window.scrollY) {
         // make note that animation has now played
-        this.contentDisplayed = true; // create the animation
+        this.contentDisplayed = true;
 
-        TweenMax.staggerFromTo(this.fadeInSections, this.duration, {
+        var fromOptions = _objectSpread({}, this.extraFromOptions, {
           y: this.positionShift,
           opacity: 0
-        }, {
+        });
+
+        var toOptions = _objectSpread({}, this.extraToOptions, {
           y: 0,
           opacity: 1,
           ease: Power1.easeOut
-        }, this.stagger);
+        }); // create the animation
+
+
+        TweenMax.staggerFromTo(this.fadeInSections, this.duration, fromOptions, toOptions, this.stagger);
       }
     }
   }]);
@@ -3659,7 +3670,7 @@ function () {
 
 window.addEventListener('load', function () {
   // instantiate the component
-  var fadeInContent = new FadeInOnscroll({
+  var servicesList = new FadeInOnscroll({
     contentSelector: '.landing-services-list',
     // parent wrapper of sections with fade in effect
     fadeInSectionsSelector: '.landing-services-item',
@@ -3670,6 +3681,19 @@ window.addEventListener('load', function () {
     // number of pixels the content should slide; defaults to 50
     staggerDelay: 0.3 // delay in seconds between successive elements; defaults to 0.3
 
+  });
+  var portfolio = new FadeInOnscroll({
+    contentSelector: '.landing-portfolio-list',
+    fadeInSectionsSelector: '.landing-portfolio-item',
+    animationDuration: 1.25,
+    positionShift: 0,
+    staggerDelay: 0.2,
+    extraFromOptions: {
+      scale: 0.9
+    },
+    extraToOptions: {
+      scale: 1
+    }
   });
 });
 

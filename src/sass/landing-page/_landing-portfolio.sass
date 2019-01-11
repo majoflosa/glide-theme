@@ -8,12 +8,31 @@
         flex: 0 0 32%
         margin: 5px 0.5%
         overflow: hidden
+        position: relative
+        border-radius: $boxRadius
+
+        &-overlay
+            opacity: 0
+            position: absolute
+            height: 100%
+            width: 100%
+            +mainFlex(center)
+            // display: none
+            background: rgba($primaryColor, 0.75)
+            z-index: 2
+            +mainTransition
 
         .portfolio-img
             display: block
             +mainTransition(all, 0.35s)
-            &:hover
-                transform: scale(1.2)
+
+        &:hover
+            .portfolio-img
+                transform: scale(1.1)
+            .landing-portfolio-item-overlay
+                display: flex
+                opacity: 1
+
             
 
 @media screen and (max-width: 720px)

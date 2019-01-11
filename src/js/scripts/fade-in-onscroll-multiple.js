@@ -4,12 +4,16 @@ class FadeInOnscroll {
         this.$element = document.querySelector( options.contentSelector );
         // wrapper's child elements, which will have the successive fadeIn animation
         this.fadeInSections = [...this.$element.querySelectorAll( options.fadeInSectionsSelector )];
+        
         // duration of animation in seconds; defaults to 1
-        this.duration = options.animationDuration || 1;
+        this.duration = options.animationDuration === undefined ? 1 : options.animationDuration;
         // amount of pixels the content should slide
-        this.positionShift = options.positionShift || 50;
+        this.positionShift = options.positionShift === undefined ? 50 : options.positionShift;
         // animation delay in seconds between successive elements 
-        this.stagger = options.staggerDelay || 0.3;
+        this.stagger = options.staggerDelay === undefined ? 0.3 : options.staggerDelay;
+
+        this.extraFromOptions = options.extraFromOptions || {};
+        this.extraToOptions = options.extraToOptions || {};
 
         // height of fade-in content wrapper
         this.elementHt = this.$element.offsetHeight;
@@ -56,13 +60,15 @@ class FadeInOnscroll {
         if ( this.$element.offsetTop - window.innerHeight + (this.elementHt * 0.25) <= window.scrollY ) {
             // make note that animation has now played
             this.contentDisplayed = true;
+            const fromOptions = { ...this.extraFromOptions, y: this.positionShift, opacity: 0 };
+            const toOptions = { ...this.extraToOptions, y: 0, opacity: 1, ease: Power1.easeOut };
 
             // create the animation
             TweenMax.staggerFromTo(
                 this.fadeInSections,
                 this.duration,
-                { y: this.positionShift, opacity: 0 },
-                { y: 0, opacity: 1, ease: Power1.easeOut },
+                fromOptions,
+                toOptions,
                 this.stagger
             );
         }
@@ -72,12 +78,22 @@ class FadeInOnscroll {
 
 window.addEventListener('load', () => {
     // instantiate the component
-    const fadeInContent = new FadeInOnscroll({
+    const servicesList = new FadeInOnscroll({
         contentSelector: '.landing-services-list', // parent wrapper of sections with fade in effect
         fadeInSectionsSelector: '.landing-services-item', // sections with fade in effect
         animationDuration: 1, // seconds; defaults to 1
         positionShift: 50, // number of pixels the content should slide; defaults to 50
         staggerDelay: 0.3 // delay in seconds between successive elements; defaults to 0.3
+    });
+
+    const portfolio = new FadeInOnscroll({
+        contentSelector: '.landing-portfolio-list',
+        fadeInSectionsSelector: '.landing-portfolio-item',
+        animationDuration: 1.25,
+        positionShift: 0,
+        staggerDelay: 0.2,
+        extraFromOptions: { scale: 0.9 },
+        extraToOptions: { scale: 1 }
     });
 
 });

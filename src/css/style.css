@@ -2124,6 +2124,26 @@ input[type="reset"]:hover {
   flex: 0 0 32%;
   margin: 5px 0.5%;
   overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.landing-portfolio-item-overlay {
+  opacity: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: initial;
+  background: rgba(21, 214, 131, 0.75);
+  z-index: 2;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
 }
 
 .landing-portfolio-item .portfolio-img {
@@ -2135,8 +2155,13 @@ input[type="reset"]:hover {
   -o-transition: all 0.35s ease-in-out;
 }
 
-.landing-portfolio-item .portfolio-img:hover {
-  transform: scale(1.2);
+.landing-portfolio-item:hover .portfolio-img {
+  transform: scale(1.1);
+}
+
+.landing-portfolio-item:hover .landing-portfolio-item-overlay {
+  display: flex;
+  opacity: 1;
 }
 
 @media screen and (max-width: 720px) {
