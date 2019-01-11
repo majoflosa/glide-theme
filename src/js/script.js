@@ -3912,8 +3912,7 @@ function () {
   }, {
     key: "stick",
     value: function stick() {
-      if (window.innerWidth < 960) return false;
-
+      // if ( window.innerWidth < 960 ) return false;
       if (window.scrollY > this.stickPoint && this.isSticky) {
         // do nothing if nav is already in sticky state, and user is scrolling past sticking point
         return;

@@ -7,9 +7,13 @@
         background: $lightGrey
         flex: 0 0 32%
         margin: 5px 0.5%
+        overflow: hidden
 
         .portfolio-img
             display: block
+            +mainTransition(all, 0.35s)
+            &:hover
+                transform: scale(1.2)
             
 
 @media screen and (max-width: 720px)

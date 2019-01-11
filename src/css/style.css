@@ -1929,9 +1929,6 @@ input[type="reset"]:hover {
 }
 
 @media screen and (max-width: 960px) {
-  .main-nav {
-    position: initial;
-  }
   .menu-button {
     display: inline-block;
   }
@@ -2126,10 +2123,20 @@ input[type="reset"]:hover {
   background: #f7f7f7;
   flex: 0 0 32%;
   margin: 5px 0.5%;
+  overflow: hidden;
 }
 
 .landing-portfolio-item .portfolio-img {
   display: block;
+  transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -ms-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out;
+}
+
+.landing-portfolio-item .portfolio-img:hover {
+  transform: scale(1.2);
 }
 
 @media screen and (max-width: 720px) {
