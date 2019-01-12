@@ -3798,7 +3798,7 @@ function () {
     key: "init",
     value: function init() {
       var layer1 = this.elements.layers[0];
-      layer1.initialTop = this.$banner.offsetHeight * 0.8;
+      layer1.initialTop = this.$banner.offsetHeight;
       layer1.element.style.top = layer1.initialTop + 'px';
       var layer2 = this.elements.layers[1];
       layer2.initialTop = this.$banner.offsetHeight * 0.7;

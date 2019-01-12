@@ -1,3 +1,4 @@
+$articleBorder: 1px solid darken($lightGrey, 3%)
 .landing-articles
     &-list
         +mainFlex(center)
@@ -5,10 +6,39 @@
 
     &-item
         box-sizing: border-box
-        background: $lightGrey
+        border: $articleBorder
+        border-radius: $boxRadius
+        overflow: hidden
         margin: 1%
-        flex: 0 0 23%
-        padding: 15px
+        flex: 0 0 31%
+
+        &-header
+            h3
+                padding: 0 15px
+        
+        &-main
+            padding: 0 15px 15px
+            p
+                margin-top: 0
+        
+        &-footer
+            +mainFlex
+            border-top: $articleBorder
+            border-radius: 0 0 $boxRadius $boxRadius
+            font-size: 0.85em
+            font-size: 0.85rem
+            padding: 15px
+            .article-tag
+                display: inline-block
+                background: darken($lightGrey, 3%)
+                border-radius: 3px
+                padding: 5px 10px
+                color: $primaryFontColor
+                &:hover
+                    background: $lightSecondaryColor // darken($lightGrey, 10%)
+                    color: #ffffff
+                    text-decoration: none
+
 
 @media screen and (max-width: 960px)
     .landing-articles

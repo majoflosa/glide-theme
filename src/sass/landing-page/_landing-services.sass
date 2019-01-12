@@ -1,28 +1,31 @@
+$cardBorder: 1px solid darken($lightGrey, 3%)
+
 .landing-services
     &-list
-        +mainFlex(center, flex-start)
+        +mainFlex(center, stretch)
         flex-wrap: wrap
 
     &-item
-        // background: $lightGrey
-        // border-radius: 10px
-        // border: 1px solid lighten($lightSecondaryColor, 10%)
+        background: linear-gradient(to bottom, lighten($lightGrey, 1%), #ffffff)
+        border-radius: $boxRadius
+        // border: $cardBorder // 1px solid lighten($lightSecondaryColor, 10%)
         padding: 30px
         box-sizing: border-box
         text-align: center
         margin: 1%
         flex: 0 0 31%
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.05)
         &-icon
             color: $secondaryColor
-            font-size: 70px
-            box-shadow: 0 4px 0 $lightSecondaryColor // rgba(0,0,0,0.1)
-            background: lighten($lightSecondaryColor, 10%)
-            border-radius: $boxRadius
+            font-size: 100px
+            // box-shadow: 0 4px 0 $lightSecondaryColor // rgba(0,0,0,0.1)
+            // background: lighten($lightSecondaryColor, 10%)
+            // border-radius: $boxRadius
             box-sizing: border-box
             width: 150px
             margin: 0 auto
-            padding: 7px 0 0 0
-            min-height: 100px
+            // padding: 7px 0 0 0
+            // min-height: 100px
         &-header h3
             color: $primaryColor
 
