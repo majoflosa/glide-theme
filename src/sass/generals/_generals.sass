@@ -54,3 +54,17 @@ strong
 
 .modal-wrap
     +outerModal
+
+.separator-title
+    &-center
+        &::after
+            +separatorTitle
+            margin: 13px auto 0
+    &-right
+        &::after
+            +separatorTitle
+            margin: 13px 0 0 auto
+    &-left
+        &::after
+            +separatorTitle
+            margin: 13px 0 0

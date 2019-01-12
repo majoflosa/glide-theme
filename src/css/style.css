@@ -81,6 +81,33 @@ strong {
   background: #ffffff;
 }
 
+.separator-title-center::after {
+  display: block;
+  content: " ";
+  border: 2px solid #a7f6d4;
+  width: 30px;
+  border-radius: 5px;
+  margin: 13px auto 0;
+}
+
+.separator-title-right::after {
+  display: block;
+  content: " ";
+  border: 2px solid #a7f6d4;
+  width: 30px;
+  border-radius: 5px;
+  margin: 13px 0 0 auto;
+}
+
+.separator-title-left::after {
+  display: block;
+  content: " ";
+  border: 2px solid #a7f6d4;
+  width: 30px;
+  border-radius: 5px;
+  margin: 13px 0 0;
+}
+
 .form__item {
   display: inline-block;
   margin: 0 10px 20px 0;
@@ -1947,7 +1974,7 @@ input[type="reset"]:hover {
 
 .landing-section-inner {
   width: 90%;
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   box-sizing: border-box;
 }
@@ -2086,15 +2113,6 @@ input[type="reset"]:hover {
   color: #15D683;
 }
 
-.landing-services-item-header h3::after {
-  display: block;
-  content: " ";
-  border: 2px solid #a7f6d4;
-  margin: 13px auto 0;
-  width: 30px;
-  border-radius: 5px;
-}
-
 @media screen and (max-width: 960px) {
   .landing-services-item {
     flex: 0 0 48%;
@@ -2179,8 +2197,53 @@ input[type="reset"]:hover {
   }
 }
 
+.landing-about {
+  background: linear-gradient(to bottom, #ffffff, #f6fefb);
+}
+
 .landing-about-content {
   text-align: center;
+}
+
+.landing-about-content-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: initial;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  margin-bottom: 30px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.landing-about-content-row img {
+  width: 62%;
+}
+
+.landing-about-content-row .content {
+  font-size: 1.15em;
+  font-size: 1.15rem;
+  box-sizing: border-box;
+  padding: 0 30px;
+}
+
+.landing-about-content-row .content h3 {
+  text-transform: uppercase;
+  font-size: 1.4em;
+  font-size: 1.4rem;
+}
+
+.landing-about-content-row.left-img .content {
+  text-align: left;
+}
+
+.landing-about-content-row.right-img {
+  flex-direction: row-reverse;
+}
+
+.landing-about-content-row.right-img .content {
+  text-align: right;
 }
 
 .landing-articles-list {
