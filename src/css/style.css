@@ -2400,7 +2400,7 @@ input[type="reset"]:hover {
   border-radius: 99px;
   width: 10px;
   height: 10px;
-  margin: 0 3px;
+  margin: 0 6px;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
@@ -2418,7 +2418,7 @@ input[type="reset"]:hover {
 .landing-articles-list {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: stretch;
   flex-direction: initial;
   flex-wrap: nowrap;
 }
@@ -2430,6 +2430,9 @@ input[type="reset"]:hover {
   overflow: hidden;
   margin: 1%;
   flex: 0 0 31%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .landing-articles-item-header h3 {
@@ -2454,6 +2457,8 @@ input[type="reset"]:hover {
   font-size: 0.8em;
   font-size: 0.8rem;
   padding: 15px;
+  position: relative;
+  bottom: 0;
 }
 
 .landing-articles-item-footer .article-tag {
@@ -2471,17 +2476,8 @@ input[type="reset"]:hover {
 }
 
 @media screen and (max-width: 960px) {
-  .landing-articles-list {
-    display: block;
-  }
   .landing-articles-item {
-    display: block;
-    max-width: 720px;
-    margin: 0 auto 50px;
-  }
-  .landing-articles-item-header img {
-    display: block;
-    width: 100%;
+    flex: 0 0 48%;
   }
 }
 

@@ -7,26 +7,24 @@ class CarouselGallery {
 
         this.selectedBulletClass = options.selectedBulletClass;
         this.bulletClass = options.bulletSelector;
+        this.animationDuration = options.animationDuration === undefined ? 0.5 : options.animationDuration;
 
-        this.itemWidthMargin = this.$items[0].offsetWidth + (this.$items[0].offsetLeft*2);
-        this.shiftSpace = (this.$items.length * this.itemWidthMargin) - this.$outerWrapper.offsetWidth;
-        this.bulletsNeeded = Math.ceil(this.shiftSpace / this.itemWidthMargin);
-        console.log('this.bulletsNeeded: ', this.bulletsNeeded);
-        
         this.init = this.init.bind( this );
         this.bindEvents = this.bindEvents.bind( this );
         this.shiftCarousel = this.shiftCarousel.bind( this );
+        this.calculateSizes = this.calculateSizes.bind( this );
 
         this.init();
     }
 
     init() {
-        this.addBullets();
+        this.calculateSizes();
         this.bindEvents();
     }
 
     bindEvents() {
         this.$bullets.forEach( $bullet => $bullet.addEventListener( 'click', this.shiftCarousel ) );
+        window.addEventListener( 'resize', this.calculateSizes );
     }
 
     shiftCarousel( event ) {
@@ -34,22 +32,36 @@ class CarouselGallery {
 
         this.$bullets.forEach( $bullet => $bullet.classList.remove( this.selectedBulletClass) );
         event.target.classList.add( this.selectedBulletClass );
-        
+
         TweenMax.to( 
             this.$innerWrapper, 
-            1, 
+            this.animationDuration, 
             {x: `-${(this.$items[0].offsetWidth + (this.$items[0].offsetLeft*2)) * bulletIndex}`}
         );
     }
 
-    addBullets() {
+    addBullets( addedOnResize = false ) {
         for ( let i = 0; i < this.bulletsNeeded; i++ ) {
-            const $bullet = document.createElement( 'span' );
-            $bullet.classList.add( this.bulletClass.substr(1, this.bulletClass.length) );
-
-            this.$bullets[0].parentElement.appendChild( $bullet );
-            this.$bullets.push( $bullet );
+            if ( this.$bullets.length <= this.bulletsNeeded ) {
+                const $bullet = document.createElement( 'span' );
+                $bullet.classList.add( this.bulletClass.substr(1, this.bulletClass.length) );
+                if ( addedOnResize ) $bullet.addEventListener('click', this.shiftCarousel);
+                
+                this.$bullets[0].parentElement.appendChild( $bullet );
+                this.$bullets.push( $bullet );
+            } else if ( this.$bullets.length > this.bulletsNeeded + 1 ) {
+                this.$bullets[0].parentElement.removeChild(this.$bullets[this.$bullets.length - 1]);
+                this.$bullets.pop();
+            }
         }
+    } 
+
+    calculateSizes() {
+        this.itemWidthMargin = this.$items[0].offsetWidth + (this.$items[0].offsetLeft*2);
+        this.shiftSpace = (this.$items.length * this.itemWidthMargin) - this.$outerWrapper.offsetWidth;
+        this.bulletsNeeded = Math.round(this.shiftSpace / this.itemWidthMargin);
+
+        this.addBullets( true ); 
     }
 }
 
@@ -59,6 +71,7 @@ window.addEventListener('load', () => {
         innerWrapperSelector: '.landing-articles-list',
         itemSelector: '.landing-articles-item',
         bulletSelector: '.carousel-bullet',
-        selectedBulletClass: 'selected-bullet'
+        selectedBulletClass: 'selected-bullet',
+        animationDuration: 0.5 // seconds; defaults to 0.5
     });
 });

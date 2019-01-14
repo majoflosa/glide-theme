@@ -15,7 +15,7 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
                 border-radius: 99px
                 width: 10px
                 height: 10px
-                margin: 0 3px
+                margin: 0 6px
                 cursor: pointer
                 +mainTransition
                 &.selected-bullet
@@ -24,7 +24,7 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
                     height: 13px
 
     &-list
-        +mainFlex(flex-start, flex-start)
+        +mainFlex(flex-start, stretch)
         flex-wrap: nowrap
         // position: absolute
 
@@ -35,6 +35,10 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
         overflow: hidden
         margin: 1%
         flex: 0 0 31%
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        // position: relative
 
         &-header
             h3
@@ -52,6 +56,10 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
             font-size: 0.8em
             font-size: 0.8rem
             padding: 15px
+            position: relative
+            bottom: 0
+            // width: 100%
+            // left: 0
             .article-tag
                 display: inline-block
                 background: darken($lightGrey, 3%)
@@ -67,12 +75,13 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
 @media screen and (max-width: 960px)
     .landing-articles
         &-list
-            display: block
+            // display: block
         &-item
-            display: block
-            max-width: 720px
-            margin: 0 auto 50px
-            &-header
-                img
-                    display: block
-                    width: 100%
+            flex: 0 0 48%
+            // display: block
+            // max-width: 720px
+            // margin: 0 auto 50px
+            // &-header
+            //     img
+            //         display: block
+            //         width: 100%

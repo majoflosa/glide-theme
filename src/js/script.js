@@ -3592,20 +3592,18 @@ function () {
     this.$bullets = _toConsumableArray(this.$outerWrapper.querySelectorAll(options.bulletSelector));
     this.selectedBulletClass = options.selectedBulletClass;
     this.bulletClass = options.bulletSelector;
-    this.itemWidthMargin = this.$items[0].offsetWidth + this.$items[0].offsetLeft * 2;
-    this.shiftSpace = this.$items.length * this.itemWidthMargin - this.$outerWrapper.offsetWidth;
-    this.bulletsNeeded = Math.ceil(this.shiftSpace / this.itemWidthMargin);
-    console.log('this.bulletsNeeded: ', this.bulletsNeeded);
+    this.animationDuration = options.animationDuration === undefined ? 0.5 : options.animationDuration;
     this.init = this.init.bind(this);
     this.bindEvents = this.bindEvents.bind(this);
     this.shiftCarousel = this.shiftCarousel.bind(this);
+    this.calculateSizes = this.calculateSizes.bind(this);
     this.init();
   }
 
   _createClass(CarouselGallery, [{
     key: "init",
     value: function init() {
-      this.addBullets();
+      this.calculateSizes();
       this.bindEvents();
     }
   }, {
@@ -3616,6 +3614,7 @@ function () {
       this.$bullets.forEach(function ($bullet) {
         return $bullet.addEventListener('click', _this.shiftCarousel);
       });
+      window.addEventListener('resize', this.calculateSizes);
     }
   }, {
     key: "shiftCarousel",
@@ -3627,19 +3626,35 @@ function () {
         return $bullet.classList.remove(_this2.selectedBulletClass);
       });
       event.target.classList.add(this.selectedBulletClass);
-      TweenMax.to(this.$innerWrapper, 1, {
+      TweenMax.to(this.$innerWrapper, this.animationDuration, {
         x: "-".concat((this.$items[0].offsetWidth + this.$items[0].offsetLeft * 2) * bulletIndex)
       });
     }
   }, {
     key: "addBullets",
     value: function addBullets() {
+      var addedOnResize = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
       for (var i = 0; i < this.bulletsNeeded; i++) {
-        var $bullet = document.createElement('span');
-        $bullet.classList.add(this.bulletClass.substr(1, this.bulletClass.length));
-        this.$bullets[0].parentElement.appendChild($bullet);
-        this.$bullets.push($bullet);
+        if (this.$bullets.length <= this.bulletsNeeded) {
+          var $bullet = document.createElement('span');
+          $bullet.classList.add(this.bulletClass.substr(1, this.bulletClass.length));
+          if (addedOnResize) $bullet.addEventListener('click', this.shiftCarousel);
+          this.$bullets[0].parentElement.appendChild($bullet);
+          this.$bullets.push($bullet);
+        } else if (this.$bullets.length > this.bulletsNeeded + 1) {
+          this.$bullets[0].parentElement.removeChild(this.$bullets[this.$bullets.length - 1]);
+          this.$bullets.pop();
+        }
       }
+    }
+  }, {
+    key: "calculateSizes",
+    value: function calculateSizes() {
+      this.itemWidthMargin = this.$items[0].offsetWidth + this.$items[0].offsetLeft * 2;
+      this.shiftSpace = this.$items.length * this.itemWidthMargin - this.$outerWrapper.offsetWidth;
+      this.bulletsNeeded = Math.round(this.shiftSpace / this.itemWidthMargin);
+      this.addBullets(true);
     }
   }]);
 
@@ -3652,7 +3667,9 @@ window.addEventListener('load', function () {
     innerWrapperSelector: '.landing-articles-list',
     itemSelector: '.landing-articles-item',
     bulletSelector: '.carousel-bullet',
-    selectedBulletClass: 'selected-bullet'
+    selectedBulletClass: 'selected-bullet',
+    animationDuration: 0.5 // seconds; defaults to 0.5
+
   });
 });
 
