@@ -2207,14 +2207,14 @@ input[type="reset"]:hover {
 }
 
 .landing-services-item {
-  background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+  background: linear-gradient(to bottom, #f7fbff, #ffffff);
   border-radius: 10px;
   padding: 30px;
   box-sizing: border-box;
   text-align: center;
   margin: 1%;
   flex: 0 0 31%;
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
 }
 
 .landing-services-item-icon {
@@ -2330,7 +2330,7 @@ input[type="reset"]:hover {
   overflow: hidden;
   background: #ffffff;
   margin-bottom: 30px;
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.05);
 }
 
 .landing-about-content-row img {
@@ -2360,10 +2360,32 @@ input[type="reset"]:hover {
   text-align: right;
 }
 
+@media screen and (max-width: 960px) {
+  .landing-about-content-row {
+    display: block;
+    max-width: 720px;
+    margin: 0 auto 50px;
+  }
+  .landing-about-content-row img {
+    display: block;
+    width: 100%;
+  }
+  .landing-about-content-row .content {
+    display: block;
+  }
+  .landing-about-content-row.right-img .content {
+    text-align: left;
+  }
+  .landing-about-content-row.right-img .content h3.separator-title-right::after {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
 .landing-articles-list {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: initial;
   flex-wrap: wrap;
 }
@@ -2396,8 +2418,8 @@ input[type="reset"]:hover {
   flex-direction: initial;
   border-top: 1px solid #efefef;
   border-radius: 0 0 10px 10px;
-  font-size: 0.85em;
-  font-size: 0.85rem;
+  font-size: 0.8em;
+  font-size: 0.8rem;
   padding: 15px;
 }
 
@@ -2417,25 +2439,16 @@ input[type="reset"]:hover {
 
 @media screen and (max-width: 960px) {
   .landing-articles-list {
-    justify-content: flex-start;
-  }
-  .landing-articles-item {
-    flex: 0 0 31%;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .landing-articles-item {
-    flex: 0 0 48%;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .landing-articles-list {
     display: block;
   }
   .landing-articles-item {
     display: block;
+    max-width: 720px;
+    margin: 0 auto 50px;
+  }
+  .landing-articles-item-header img {
+    display: block;
+    width: 100%;
   }
 }
 

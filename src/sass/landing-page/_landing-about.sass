@@ -7,17 +7,13 @@
             +mainFlex
             border-radius: $boxRadius
             overflow: hidden
-            background: #ffffff // lighten($lightPrimaryColor, 14%)
+            background: #ffffff
             margin-bottom: 30px
-            box-shadow: 2px 2px 0px rgba(0,0,0,0.05)
+            box-shadow: 1px 2px 1px rgba(0,0,0,0.05)
 
             img
-                // border-radius: $boxRadius
-                // max-width: 500px
                 width: 62%
             .content
-                // font-size: 1.15em
-                // font-size: 1.15rem
                 box-sizing: border-box
                 padding: 0 30px
                 h3
@@ -26,10 +22,29 @@
                     font-size: 1.4rem
             &.left-img
                 img
-                    // border-radius: $boxRadius 0 0 $boxRadius
                 .content
                     text-align: left
             &.right-img
                 flex-direction: row-reverse
                 .content
                     text-align: right
+                    
+
+@media screen and (max-width: 960px)
+    .landing-about
+        &-content
+            &-row
+                display: block
+                max-width: 720px
+                margin: 0 auto 50px
+                img
+                    display: block
+                    width: 100%
+                .content
+                    display: block
+                &.right-img
+                    .content
+                        text-align: left
+                        h3.separator-title-right::after
+                            margin-left: 0
+                            margin-right: auto

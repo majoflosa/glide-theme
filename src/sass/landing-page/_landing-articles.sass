@@ -1,7 +1,7 @@
 $articleBorder: 1px solid darken($lightGrey, 3%)
 .landing-articles
     &-list
-        +mainFlex(center)
+        +mainFlex(center, flex-start)
         flex-wrap: wrap
 
     &-item
@@ -25,8 +25,8 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
             +mainFlex
             border-top: $articleBorder
             border-radius: 0 0 $boxRadius $boxRadius
-            font-size: 0.85em
-            font-size: 0.85rem
+            font-size: 0.8em
+            font-size: 0.8rem
             padding: 15px
             .article-tag
                 display: inline-block
@@ -43,18 +43,29 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
 @media screen and (max-width: 960px)
     .landing-articles
         &-list
-            justify-content: flex-start
-        &-item
-            flex: 0 0 31%
-
-@media screen and (max-width: 720px)
-    .landing-articles
-        &-item
-            flex: 0 0 48%
-
-@media screen and (max-width: 540px)
-    .landing-articles
-        &-list
             display: block
         &-item
             display: block
+            max-width: 720px
+            margin: 0 auto 50px
+            &-header
+                img
+                    display: block
+                    width: 100%
+    // .landing-articles
+    //     &-list
+    //         justify-content: flex-start
+    //     &-item
+    //         flex: 0 0 31%
+
+// @media screen and (max-width: 720px)
+//     .landing-articles
+//         &-item
+//             flex: 0 0 48%
+
+// @media screen and (max-width: 540px)
+//     .landing-articles
+//         &-list
+//             display: block
+//         &-item
+//             display: block
