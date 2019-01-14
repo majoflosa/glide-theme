@@ -3643,8 +3643,15 @@ function () {
           this.$bullets[0].parentElement.appendChild($bullet);
           this.$bullets.push($bullet);
         } else if (this.$bullets.length > this.bulletsNeeded + 1) {
-          this.$bullets[0].parentElement.removeChild(this.$bullets[this.$bullets.length - 1]);
-          this.$bullets.pop();
+          var $lastBullet = this.$bullets.pop();
+          this.$bullets[0].parentElement.removeChild($lastBullet);
+
+          if ($lastBullet.classList.contains(this.selectedBulletClass)) {
+            this.$bullets[this.$bullets.length - 1].classList.add(this.selectedBulletClass);
+            this.shiftCarousel({
+              target: this.$bullets[this.$bullets.length - 1]
+            });
+          }
         }
       }
     }

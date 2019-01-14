@@ -2481,6 +2481,12 @@ input[type="reset"]:hover {
   }
 }
 
+@media screen and (max-width: 720px) {
+  .landing-articles-item {
+    flex: 0 0 98%;
+  }
+}
+
 .landing-pricing-list {
   display: flex;
   justify-content: center;
