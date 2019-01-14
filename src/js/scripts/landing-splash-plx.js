@@ -27,7 +27,6 @@ class LayeredPlxBanner {
         layer3.element.style.top = layer3.initialTop + 'px';
 
         this.parallax();
-
         this.bindEvents();
     }
 

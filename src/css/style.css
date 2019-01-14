@@ -1875,6 +1875,82 @@ input[type="reset"]:hover {
   margin-right: 0.9%;
 }
 
+.main-nav {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: initial;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+}
+
+.main-nav-logo a {
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.main-nav-link, .main-nav a {
+  display: inline-block;
+  margin: 0 8px;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Overpass", sans-serif;
+  font-size: 0.9em;
+  font-size: 0.9rem;
+}
+
+.main-nav-link:hover, .main-nav a:hover {
+  text-decoration: none;
+  color: #dfecfe;
+}
+
+.main-nav.sticky {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid #aed0fc;
+}
+
+.main-nav.sticky-link, .main-nav.sticky a {
+  color: #64a5f9;
+}
+
+.main-nav.sticky-link:hover, .main-nav.sticky a:hover {
+  color: #aed0fc;
+}
+
+.menu-button {
+  /* Customize your menu button */
+  display: none;
+  padding: 8px 12px;
+  background: #ffffff;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 960px) {
+  .menu-button {
+    display: inline-block;
+  }
+  .main-nav-links {
+    display: none;
+  }
+  .main-nav-links.open {
+    display: block;
+  }
+}
+
 .splash {
   position: relative;
   background: linear-gradient(-45deg, #aed0fc, #1a7af6);
@@ -2010,82 +2086,6 @@ input[type="reset"]:hover {
     width: auto;
     max-width: none;
     text-align: center;
-  }
-}
-
-.main-nav {
-  position: fixed;
-  z-index: 3;
-  top: 0;
-  left: 0;
-  width: 100%;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 30px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: initial;
-  transition: all 0.25s ease-in-out;
-  -webkit-transition: all 0.25s ease-in-out;
-  -moz-transition: all 0.25s ease-in-out;
-  -ms-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-}
-
-.main-nav-logo a {
-  color: #ffffff;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.main-nav-link, .main-nav a {
-  display: inline-block;
-  margin: 0 8px;
-  color: #ffffff;
-  text-transform: uppercase;
-  font-family: "Overpass", sans-serif;
-  font-size: 0.9em;
-  font-size: 0.9rem;
-}
-
-.main-nav-link:hover, .main-nav a:hover {
-  text-decoration: none;
-  color: #dfecfe;
-}
-
-.main-nav.sticky {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid #aed0fc;
-}
-
-.main-nav.sticky-link, .main-nav.sticky a {
-  color: #64a5f9;
-}
-
-.main-nav.sticky-link:hover, .main-nav.sticky a:hover {
-  color: #aed0fc;
-}
-
-.menu-button {
-  /* Customize your menu button */
-  display: none;
-  padding: 8px 12px;
-  background: #ffffff;
-  text-transform: uppercase;
-}
-
-@media screen and (max-width: 960px) {
-  .menu-button {
-    display: inline-block;
-  }
-  .main-nav-links {
-    display: none;
-  }
-  .main-nav-links.open {
-    display: block;
   }
 }
 

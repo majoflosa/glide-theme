@@ -3668,35 +3668,6 @@ function () {
   return FadeInOnscroll;
 }();
 
-window.addEventListener('load', function () {
-  // instantiate the component
-  var servicesList = new FadeInOnscroll({
-    contentSelector: '.landing-services-list',
-    // parent wrapper of sections with fade in effect
-    fadeInSectionsSelector: '.landing-services-item',
-    // sections with fade in effect
-    animationDuration: 1,
-    // seconds; defaults to 1
-    positionShift: 50,
-    // number of pixels the content should slide; defaults to 50
-    staggerDelay: 0.3 // delay in seconds between successive elements; defaults to 0.3
-
-  });
-  var portfolio = new FadeInOnscroll({
-    contentSelector: '.landing-portfolio-list',
-    fadeInSectionsSelector: '.landing-portfolio-item',
-    animationDuration: 1.25,
-    positionShift: 0,
-    staggerDelay: 0.2,
-    extraFromOptions: {
-      scale: 0.9
-    },
-    extraToOptions: {
-      scale: 1
-    }
-  });
-});
-
 var InfiniteCarousel =
 /*#__PURE__*/
 function () {
@@ -3775,6 +3746,35 @@ window.addEventListener('load', function () {
     timeInterval: 5000,
     // milliseconds
     transitionDuration: 0.4 // seconds
+
+  });
+});
+window.addEventListener('load', function () {
+  var portfolio = new FadeInOnscroll({
+    contentSelector: '.landing-portfolio-list',
+    fadeInSectionsSelector: '.landing-portfolio-item',
+    animationDuration: 1.25,
+    positionShift: 0,
+    staggerDelay: 0.2,
+    extraFromOptions: {
+      scale: 0.9
+    },
+    extraToOptions: {
+      scale: 1
+    }
+  });
+});
+window.addEventListener('load', function () {
+  var servicesList = new FadeInOnscroll({
+    contentSelector: '.landing-services-list',
+    // parent wrapper of sections with fade in effect
+    fadeInSectionsSelector: '.landing-services-item',
+    // sections with fade in effect
+    animationDuration: 1,
+    // seconds; defaults to 1
+    positionShift: 50,
+    // number of pixels the content should slide; defaults to 50
+    staggerDelay: 0.3 // delay in seconds between successive elements; defaults to 0.3
 
   });
 });
