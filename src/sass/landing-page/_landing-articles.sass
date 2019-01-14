@@ -1,8 +1,32 @@
 $articleBorder: 1px solid darken($lightGrey, 3%)
 .landing-articles
+    &-list-outer
+        overflow: hidden
+        position: relative
+        max-width: 100%
+
+        .carousel-bullets
+            text-align: center
+            margin: 15px auto 0
+            .carousel-bullet
+                display: inline-block
+                vertical-align: middle
+                background: $lightSecondaryColor
+                border-radius: 99px
+                width: 10px
+                height: 10px
+                margin: 0 3px
+                cursor: pointer
+                +mainTransition
+                &.selected-bullet
+                    background: $secondaryColor
+                    width: 13px
+                    height: 13px
+
     &-list
-        +mainFlex(center, flex-start)
-        flex-wrap: wrap
+        +mainFlex(flex-start, flex-start)
+        flex-wrap: nowrap
+        // position: absolute
 
     &-item
         box-sizing: border-box
@@ -52,20 +76,3 @@ $articleBorder: 1px solid darken($lightGrey, 3%)
                 img
                     display: block
                     width: 100%
-    // .landing-articles
-    //     &-list
-    //         justify-content: flex-start
-    //     &-item
-    //         flex: 0 0 31%
-
-// @media screen and (max-width: 720px)
-//     .landing-articles
-//         &-item
-//             flex: 0 0 48%
-
-// @media screen and (max-width: 540px)
-//     .landing-articles
-//         &-list
-//             display: block
-//         &-item
-//             display: block

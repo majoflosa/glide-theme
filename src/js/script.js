@@ -3580,6 +3580,82 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
   k = !1;
 }("undefined" != typeof module && module.exports && "undefined" != typeof global ? global : void 0 || window, "TweenMax");
 
+var CarouselGallery =
+/*#__PURE__*/
+function () {
+  function CarouselGallery(options) {
+    _classCallCheck(this, CarouselGallery);
+
+    this.$outerWrapper = document.querySelector(options.outerWrapperSelector);
+    this.$innerWrapper = this.$outerWrapper.querySelector(options.innerWrapperSelector);
+    this.$items = _toConsumableArray(this.$outerWrapper.querySelectorAll(options.itemSelector));
+    this.$bullets = _toConsumableArray(this.$outerWrapper.querySelectorAll(options.bulletSelector));
+    this.selectedBulletClass = options.selectedBulletClass;
+    this.bulletClass = options.bulletSelector;
+    this.itemWidthMargin = this.$items[0].offsetWidth + this.$items[0].offsetLeft * 2;
+    this.shiftSpace = this.$items.length * this.itemWidthMargin - this.$outerWrapper.offsetWidth;
+    this.bulletsNeeded = Math.ceil(this.shiftSpace / this.itemWidthMargin);
+    console.log('this.bulletsNeeded: ', this.bulletsNeeded);
+    this.init = this.init.bind(this);
+    this.bindEvents = this.bindEvents.bind(this);
+    this.shiftCarousel = this.shiftCarousel.bind(this);
+    this.init();
+  }
+
+  _createClass(CarouselGallery, [{
+    key: "init",
+    value: function init() {
+      this.addBullets();
+      this.bindEvents();
+    }
+  }, {
+    key: "bindEvents",
+    value: function bindEvents() {
+      var _this = this;
+
+      this.$bullets.forEach(function ($bullet) {
+        return $bullet.addEventListener('click', _this.shiftCarousel);
+      });
+    }
+  }, {
+    key: "shiftCarousel",
+    value: function shiftCarousel(event) {
+      var _this2 = this;
+
+      var bulletIndex = this.$bullets.indexOf(event.target);
+      this.$bullets.forEach(function ($bullet) {
+        return $bullet.classList.remove(_this2.selectedBulletClass);
+      });
+      event.target.classList.add(this.selectedBulletClass);
+      TweenMax.to(this.$innerWrapper, 1, {
+        x: "-".concat((this.$items[0].offsetWidth + this.$items[0].offsetLeft * 2) * bulletIndex)
+      });
+    }
+  }, {
+    key: "addBullets",
+    value: function addBullets() {
+      for (var i = 0; i < this.bulletsNeeded; i++) {
+        var $bullet = document.createElement('span');
+        $bullet.classList.add(this.bulletClass.substr(1, this.bulletClass.length));
+        this.$bullets[0].parentElement.appendChild($bullet);
+        this.$bullets.push($bullet);
+      }
+    }
+  }]);
+
+  return CarouselGallery;
+}();
+
+window.addEventListener('load', function () {
+  var articlesCarousel = new CarouselGallery({
+    outerWrapperSelector: '.landing-articles-list-outer',
+    innerWrapperSelector: '.landing-articles-list',
+    itemSelector: '.landing-articles-item',
+    bulletSelector: '.carousel-bullet',
+    selectedBulletClass: 'selected-bullet'
+  });
+});
+
 var FadeInOnscroll =
 /*#__PURE__*/
 function () {
@@ -3693,10 +3769,10 @@ function () {
   _createClass(InfiniteCarousel, [{
     key: "init",
     value: function init() {
-      var _this = this;
+      var _this3 = this;
 
       this.$items.forEach(function (item) {
-        return _this.$innerWrap.appendChild(item.cloneNode(true));
+        return _this3.$innerWrap.appendChild(item.cloneNode(true));
       });
       this.bindEvents();
     }
@@ -3889,14 +3965,14 @@ function () {
   }, {
     key: "fadeLoadingScreen",
     value: function fadeLoadingScreen() {
-      var _this2 = this;
+      var _this4 = this;
 
       this.$loadingScreen.classList.add('fulfilled');
       this.$body.style.height = 'auto';
       this.$body.style.overflow = 'initial'; // hide element completely after 1.5 seconds
 
       setTimeout(function () {
-        _this2.$loadingScreen.style.display = 'none';
+        _this4.$loadingScreen.style.display = 'none';
       }, 1500);
     }
   }]);

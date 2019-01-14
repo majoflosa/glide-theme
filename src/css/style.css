@@ -2382,12 +2382,45 @@ input[type="reset"]:hover {
   }
 }
 
+.landing-articles-list-outer {
+  overflow: hidden;
+  position: relative;
+  max-width: 100%;
+}
+
+.landing-articles-list-outer .carousel-bullets {
+  text-align: center;
+  margin: 15px auto 0;
+}
+
+.landing-articles-list-outer .carousel-bullets .carousel-bullet {
+  display: inline-block;
+  vertical-align: middle;
+  background: #aed0fc;
+  border-radius: 99px;
+  width: 10px;
+  height: 10px;
+  margin: 0 3px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+}
+
+.landing-articles-list-outer .carousel-bullets .carousel-bullet.selected-bullet {
+  background: #64a5f9;
+  width: 13px;
+  height: 13px;
+}
+
 .landing-articles-list {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-direction: initial;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .landing-articles-item {
