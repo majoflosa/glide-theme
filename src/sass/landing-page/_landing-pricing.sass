@@ -1,25 +1,78 @@
 .landing-pricing
+    position: relative
+    overflow: hidden
+    background: linear-gradient(to top, lighten($lightSecondaryColor, 10%), $darkSecondaryColor)
+
+    .bg-layer
+        position: absolute
+        transform: scale(2.5)
+        opacity: 0.4
+        &.bg-layer-1
+            top: 22%
+            left: 40%
+        &.bg-layer-2
+            transform-origin: right bottom
+            bottom: 22%
+            right: 10%
+
+        .cloud
+            position: absolute
+            display: inline-block
+            background: #ffffff
+            border-radius: 999px
+            box-shadow: 3px 3px 0 rgba(black, 0.2)
+            &-1
+                right: 0
+                width: 220px
+                height: 45px
+            &-2
+                top: -50px
+                right: 40px
+                width: 90px
+                height: 90px
+            &-3
+                top: -15px
+                right: 120px
+                width: 45px
+                height: 45px
+
+    .landing-section-inner
+        position: relative
+
+    .landing-section-title
+        color: #ffffff
+        &::before, &::after
+            background: $lightSecondaryColor
     &-list
+        position: relative
         +mainFlex(center)
 
     &-item
-        background: $lightGrey
+        background: #ffffff // $lightGrey
+        border-radius: $boxRadius
+        box-shadow: 0 1px 1px rgba(0,0,0,0.2)
         padding: 15px
         box-sizing: border-box
-        margin: 1%
+        margin: 1.5%
+        &.preferred
+            border: 10px solid $lightPrimaryColor
+            border-radius: $boxRadius * 2
 
         &-header
             border-bottom: $border
             text-align: center
         &-title
             margin-top: 0
+            color: $primaryColor
         &-price
-            font-size: 1.75em
-            font-size: 1.75rem
-            margin-bottom: 0
+            font-size: 2.75em
+            font-size: 2.75rem
+            font-weight: 400
+            color: $darkSecondaryColor
+            margin: 15px auto 0
         &-term
             margin-top: 0
-            color: lighten($primaryFontColor, 10%)
+            color: $secondaryColor // lighten($primaryFontColor, 10%)
         &-body
             padding: 15px
             ul
@@ -27,7 +80,7 @@
                 padding: 0
                 list-style: none
             li
-                margin: 10px
+                margin: 15px 0 20px
         &-footer
             text-align: center
 

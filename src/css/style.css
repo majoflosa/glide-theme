@@ -229,6 +229,17 @@ strong {
   }
 }
 
+.bullet-check-circle-primary {
+  display: inline-block;
+  background: #d6fbeb;
+  color: #15D683;
+  padding: 5px 7px 3px 7px;
+  font-size: 0.8em;
+  font-size: 0.8rem;
+  border-radius: 99px;
+  margin: 0 5px 0 0;
+}
+
 .form__item {
   display: inline-block;
   margin: 0 10px 20px 0;
@@ -2487,7 +2498,71 @@ input[type="reset"]:hover {
   }
 }
 
+.landing-pricing {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to top, #dfecfe, #1a7af6);
+}
+
+.landing-pricing .bg-layer {
+  position: absolute;
+  transform: scale(2.5);
+  opacity: 0.4;
+}
+
+.landing-pricing .bg-layer.bg-layer-1 {
+  top: 22%;
+  left: 40%;
+}
+
+.landing-pricing .bg-layer.bg-layer-2 {
+  transform-origin: right bottom;
+  bottom: 22%;
+  right: 10%;
+}
+
+.landing-pricing .bg-layer .cloud {
+  position: absolute;
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.landing-pricing .bg-layer .cloud-1 {
+  right: 0;
+  width: 220px;
+  height: 45px;
+}
+
+.landing-pricing .bg-layer .cloud-2 {
+  top: -50px;
+  right: 40px;
+  width: 90px;
+  height: 90px;
+}
+
+.landing-pricing .bg-layer .cloud-3 {
+  top: -15px;
+  right: 120px;
+  width: 45px;
+  height: 45px;
+}
+
+.landing-pricing .landing-section-inner {
+  position: relative;
+}
+
+.landing-pricing .landing-section-title {
+  color: #ffffff;
+}
+
+.landing-pricing .landing-section-title::before, .landing-pricing .landing-section-title::after {
+  background: #aed0fc;
+}
+
 .landing-pricing-list {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2495,10 +2570,17 @@ input[type="reset"]:hover {
 }
 
 .landing-pricing-item {
-  background: #f7f7f7;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   padding: 15px;
   box-sizing: border-box;
-  margin: 1%;
+  margin: 1.5%;
+}
+
+.landing-pricing-item.preferred {
+  border: 10px solid #a7f6d4;
+  border-radius: 20px;
 }
 
 .landing-pricing-item-header {
@@ -2508,17 +2590,20 @@ input[type="reset"]:hover {
 
 .landing-pricing-item-title {
   margin-top: 0;
+  color: #15D683;
 }
 
 .landing-pricing-item-price {
-  font-size: 1.75em;
-  font-size: 1.75rem;
-  margin-bottom: 0;
+  font-size: 2.75em;
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #1a7af6;
+  margin: 15px auto 0;
 }
 
 .landing-pricing-item-term {
   margin-top: 0;
-  color: #919191;
+  color: #64a5f9;
 }
 
 .landing-pricing-item-body {
@@ -2532,7 +2617,7 @@ input[type="reset"]:hover {
 }
 
 .landing-pricing-item-body li {
-  margin: 10px;
+  margin: 15px 0 20px;
 }
 
 .landing-pricing-item-footer {
