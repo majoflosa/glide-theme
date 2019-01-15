@@ -175,11 +175,30 @@ strong
 
 
 .bullet-check-circle-primary
-    display: inline-block
-    background: lighten($lightPrimaryColor, 10%)
-    color: $primaryColor
-    padding: 5px 7px 3px 7px
-    font-size: 0.8em
-    font-size: 0.8rem
-    border-radius: 99px
-    margin: 0 5px 0 0
+    +checkmark($lightPrimaryColor, $primaryColor, 99px)
+.bullet-check-circle-secondary
+    +checkmark($lightSecondaryColor, $secondaryColor, 99px)
+.bullet-check-circle-third
+    +checkmark($thirdColor, $darkThirdColor, 99px)
+
+.bullet-check-square-primary
+    +checkmark($lightPrimaryColor, $primaryColor, 3px)
+.bullet-check-square-secondary
+    +checkmark($lightSecondaryColor, $secondaryColor, 3px)
+.bullet-check-square-third
+    +checkmark($thirdColor, $darkThirdColor, 3px)
+
+.bullet-x-circle-primary
+    +xmark($lightPrimaryColor, $primaryColor, 99px)
+.bullet-x-circle-secondary
+    +xmark($lightSecondaryColor, $secondaryColor, 99px)
+.bullet-x-circle-third
+    +xmark($thirdColor, $darkThirdColor, 99px)
+
+.bullet-x-square-primary
+    +xmark($lightPrimaryColor, $primaryColor, 3px)
+.bullet-x-square-secondary
+    +xmark($lightSecondaryColor, $secondaryColor, 3px)
+.bullet-x-square-third
+    +xmark($thirdColor, $darkThirdColor, 3px)
+

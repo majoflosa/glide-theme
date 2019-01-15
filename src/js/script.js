@@ -3865,6 +3865,33 @@ window.addEventListener('load', function () {
   });
 });
 window.addEventListener('load', function () {
+  var layerElements = _toConsumableArray(document.querySelectorAll('.bg-layer'));
+
+  var layers = layerElements.map(function (layer) {
+    return {
+      element: layer,
+      initialTop: 300,
+      scrollRatio: 0.15
+    };
+  });
+  layers[1].scrollRatio = 0.3;
+
+  function repositionLayers(elements, $banner) {
+    var layer1 = elements.layers[0];
+    layer1.initialTop = 0;
+    layer1.element.style.top = layer1.initialTop + 'px';
+    var layer2 = elements.layers[1];
+    layer2.initialTop = $banner.offsetHeight * 0.5;
+    layer2.element.style.top = layer2.initialTop + 'px';
+  }
+
+  var pricingPlx = new LayeredPlxBanner({
+    banner: '.landing-pricing',
+    layers: layers,
+    onInit: repositionLayers
+  });
+});
+window.addEventListener('load', function () {
   var servicesList = new FadeInOnscroll({
     contentSelector: '.landing-services-list',
     // parent wrapper of sections with fade in effect
@@ -3878,54 +3905,6 @@ window.addEventListener('load', function () {
 
   });
 });
-
-var LayeredPlxBanner =
-/*#__PURE__*/
-function () {
-  function LayeredPlxBanner(elements) {
-    _classCallCheck(this, LayeredPlxBanner);
-
-    this.elements = elements;
-    this.$banner = document.querySelector(elements.banner);
-    this.bannerHt = this.$banner.offsetHeight;
-    this.init = this.init.bind(this);
-    this.bindEvents = this.bindEvents.bind(this);
-    this.parallax = this.parallax.bind(this);
-    this.init();
-  }
-
-  _createClass(LayeredPlxBanner, [{
-    key: "init",
-    value: function init() {
-      var layer1 = this.elements.layers[0];
-      layer1.initialTop = this.$banner.offsetHeight;
-      layer1.element.style.top = layer1.initialTop + 'px';
-      var layer2 = this.elements.layers[1];
-      layer2.initialTop = this.$banner.offsetHeight * 0.7;
-      layer2.element.style.top = layer2.initialTop + 'px';
-      var layer3 = this.elements.layers[2];
-      layer3.initialTop = this.$banner.offsetHeight * 0.3;
-      layer3.element.style.top = layer3.initialTop + 'px';
-      this.parallax();
-      this.bindEvents();
-    }
-  }, {
-    key: "bindEvents",
-    value: function bindEvents() {
-      window.addEventListener('scroll', this.parallax);
-    }
-  }, {
-    key: "parallax",
-    value: function parallax() {
-      this.elements.layers.forEach(function (layer) {
-        layer.element.style.top = layer.initialTop - window.scrollY * layer.scrollRatio + 'px';
-      });
-    }
-  }]);
-
-  return LayeredPlxBanner;
-}();
-
 window.addEventListener('load', function () {
   var layerElements = _toConsumableArray(document.querySelectorAll('.plx-layer'));
 
@@ -3938,11 +3917,76 @@ window.addEventListener('load', function () {
   });
   layers[1].scrollRatio = 0.25;
   layers[2].scrollRatio = 0.35;
+
+  function repositionLayers(elements, $banner) {
+    var layer1 = elements.layers[0];
+    layer1.initialTop = $banner.offsetHeight * 0.2;
+    layer1.element.style.top = layer1.initialTop + 'px';
+    var layer2 = elements.layers[1];
+    layer2.initialTop = $banner.offsetHeight * 0.1;
+    layer2.element.style.top = layer2.initialTop + 'px';
+    var layer3 = elements.layers[2];
+    layer3.initialTop = 0;
+    layer3.element.style.top = layer3.initialTop + 'px';
+  }
+
   var splashPlx = new LayeredPlxBanner({
     banner: '.splash',
-    layers: layers
+    layers: layers,
+    onInit: repositionLayers
   });
 });
+
+var LayeredPlxBanner =
+/*#__PURE__*/
+function () {
+  function LayeredPlxBanner(elements) {
+    _classCallCheck(this, LayeredPlxBanner);
+
+    this.elements = elements;
+    this.$banner = document.querySelector(elements.banner);
+    this.bannerHt = this.$banner.offsetHeight;
+    this.onInit = elements.onInit ? elements.onInit.bind(this) : function () {
+      return null;
+    };
+    this.init = this.init.bind(this);
+    this.bindEvents = this.bindEvents.bind(this);
+    this.parallax = this.parallax.bind(this);
+    this.init();
+  }
+
+  _createClass(LayeredPlxBanner, [{
+    key: "init",
+    value: function init() {
+      this.onInit(this.elements, this.$banner);
+      console.log('offsetHeight: ', this.$banner.offsetTop - window.innerHeight);
+      console.log('window scroll: ', window.scrollY);
+      this.parallax();
+      this.bindEvents();
+    }
+  }, {
+    key: "bindEvents",
+    value: function bindEvents() {
+      window.addEventListener('scroll', this.parallax);
+    }
+  }, {
+    key: "parallax",
+    value: function parallax() {
+      var _this4 = this;
+
+      var isElementVisible = this.$banner.offsetTop - window.innerHeight <= window.scrollY && window.scrollY <= this.$banner.offsetTop + this.bannerHt;
+
+      if (isElementVisible) {
+        this.elements.layers.forEach(function (layer) {
+          var initialParallaxPoint = window.scrollY - _this4.$banner.offsetTop - window.innerHeight;
+          layer.element.style.top = layer.initialTop - initialParallaxPoint * layer.scrollRatio + 'px';
+        });
+      }
+    }
+  }]);
+
+  return LayeredPlxBanner;
+}();
 
 var LoadingScreen =
 /*#__PURE__*/
@@ -3989,14 +4033,14 @@ function () {
   }, {
     key: "fadeLoadingScreen",
     value: function fadeLoadingScreen() {
-      var _this4 = this;
+      var _this5 = this;
 
       this.$loadingScreen.classList.add('fulfilled');
       this.$body.style.height = 'auto';
       this.$body.style.overflow = 'initial'; // hide element completely after 1.5 seconds
 
       setTimeout(function () {
-        _this4.$loadingScreen.style.display = 'none';
+        _this5.$loadingScreen.style.display = 'none';
       }, 1500);
     }
   }]);
