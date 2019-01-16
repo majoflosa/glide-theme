@@ -18,9 +18,6 @@ class LayeredPlxBanner {
     init() {
         this.onInit( this.elements, this.$banner );
 
-        console.log( 'offsetHeight: ', this.$banner.offsetTop - window.innerHeight );
-        console.log( 'window scroll: ', window.scrollY );
-
         this.parallax();
         this.bindEvents();
     }

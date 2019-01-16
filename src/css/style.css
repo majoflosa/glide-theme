@@ -2339,7 +2339,7 @@ input[type="reset"]:hover {
 }
 
 .landing-services-item {
-  background: linear-gradient(to bottom, #f7fbff, #ffffff);
+  background: linear-gradient(to bottom, #e9f2fe, #ffffff);
   border-radius: 10px;
   padding: 30px;
   box-sizing: border-box;
@@ -2762,6 +2762,17 @@ input[type="reset"]:hover {
   }
 }
 
+.landing-testimonials .landing-section-inner {
+  background-image: url("../img/open-quote.png");
+  background-repeat: no-repeat;
+  background-position: 20% 10%;
+  background-size: 100px;
+}
+
+.landing-testimonials-list {
+  position: relative;
+}
+
 .landing-testimonials-item {
   display: flex;
   justify-content: center;
@@ -2788,10 +2799,15 @@ input[type="reset"]:hover {
 
 .landing-testimonials-item-content .signature {
   text-align: right;
+  color: #15D683;
+}
+
+.landing-testimonials-item-content .signature strong {
+  color: inherit;
 }
 
 .landing-testimonials-item-content .signature em {
-  color: #919191;
+  color: #33eb9c;
   font-size: 0.9em;
 }
 

@@ -6,7 +6,7 @@ class LoadingScreen {
 
         // bind all methods' contexts to created instance
         this.init = this.init.bind( this );
-        this.simulateLoading = this.simulateLoading.bind( this );
+        // this.simulateLoading = this.simulateLoading.bind( this );
         this.fadeLoadingScreen = this.fadeLoadingScreen.bind( this );
 
         // run initial functionality
@@ -23,15 +23,16 @@ class LoadingScreen {
         // this.simulateLoading(); // delete/comment this line on your site
         
         // un-comment the line below on your site
+        // window.addEventListener( 'load', this.fadeLoadingScreen );
         this.fadeLoadingScreen();
     }
 
     /**
      * This method is only used to simulate loading time on this demo; do not run it on your site
      */
-    simulateLoading() {
-        setTimeout( this.fadeLoadingScreen, 4000 );
-    }
+    // simulateLoading() {
+    //     setTimeout( this.fadeLoadingScreen, 4000 );
+    // }
 
     /**
      * Add `fulfilled` class to loading screen to trigger the css fadeOut animation

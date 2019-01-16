@@ -1,7 +1,13 @@
 .landing-testimonials
+    .landing-section-inner
+        background-image: url('../img/open-quote.png')
+        background-repeat: no-repeat
+        background-position: 20% 10%
+        background-size: 100px
     &-list
-
+        position: relative
     &-item
+        // position: absolute
         +mainFlex(center, flex-start)
         &-author
             flex: 0 0 25%
@@ -17,8 +23,11 @@
                 font-size: 1.2rem
             .signature
                 text-align: right
+                color: $primaryColor
+                strong
+                    color: inherit
                 em
-                    color: lighten($primaryFontColor, 10%)
+                    color: lighten($primaryColor, 10%)
                     font-size: 0.9em
 
 

@@ -3936,6 +3936,14 @@ window.addEventListener('load', function () {
     onInit: repositionLayers
   });
 });
+window.addEventListener('load', function () {
+  var testimonialSlideshow = new SlideshowFade({
+    wrapperSelector: '.landing-testimonials-list',
+    slideSelector: '.landing-testimonials-item',
+    interval: 7500,
+    animationDuration: 0.3
+  });
+});
 
 var LayeredPlxBanner =
 /*#__PURE__*/
@@ -3959,8 +3967,6 @@ function () {
     key: "init",
     value: function init() {
       this.onInit(this.elements, this.$banner);
-      console.log('offsetHeight: ', this.$banner.offsetTop - window.innerHeight);
-      console.log('window scroll: ', window.scrollY);
       this.parallax();
       this.bindEvents();
     }
@@ -3998,8 +4004,8 @@ function () {
     this.$body = document.querySelector('body');
     this.$loadingScreen = this.$body.querySelector(selector); // bind all methods' contexts to created instance
 
-    this.init = this.init.bind(this);
-    this.simulateLoading = this.simulateLoading.bind(this);
+    this.init = this.init.bind(this); // this.simulateLoading = this.simulateLoading.bind( this );
+
     this.fadeLoadingScreen = this.fadeLoadingScreen.bind(this); // run initial functionality
 
     this.init();
@@ -4014,18 +4020,17 @@ function () {
       // loading time on this demo
       // this.simulateLoading(); // delete/comment this line on your site
       // un-comment the line below on your site
+      // window.addEventListener( 'load', this.fadeLoadingScreen );
 
       this.fadeLoadingScreen();
     }
     /**
      * This method is only used to simulate loading time on this demo; do not run it on your site
      */
+    // simulateLoading() {
+    //     setTimeout( this.fadeLoadingScreen, 4000 );
+    // }
 
-  }, {
-    key: "simulateLoading",
-    value: function simulateLoading() {
-      setTimeout(this.fadeLoadingScreen, 4000);
-    }
     /**
      * Add `fulfilled` class to loading screen to trigger the css fadeOut animation
      */
@@ -4097,6 +4102,82 @@ window.addEventListener('load', function () {
 
   });
 });
+
+var SlideshowFade =
+/*#__PURE__*/
+function () {
+  function SlideshowFade(options) {
+    _classCallCheck(this, SlideshowFade);
+
+    this.$wrapper = document.querySelector(options.wrapperSelector);
+    this.$slides = _toConsumableArray(this.$wrapper.querySelectorAll(options.slideSelector));
+    this.interval = options.interval || 7500;
+    this.animationDuration = options.animationDuration || 0.3;
+    this.currentIndex = 0;
+    this.setWrapperHeight = this.setWrapperHeight.bind(this);
+    this.play = this.play.bind(this);
+    this.fadeInSlide = this.fadeInSlide.bind(this);
+    this.fadeOutSlide = this.fadeOutSlide.bind(this);
+    this.play();
+  }
+
+  _createClass(SlideshowFade, [{
+    key: "setWrapperHeight",
+    value: function setWrapperHeight() {
+      var totalHeight = 0;
+      this.$slides.forEach(function ($slide, index) {
+        totalHeight += index ? $slide.offsetHeight : 0;
+        if (index) $slide.style.opacity = 0;
+      });
+      this.$wrapper.style.height = totalHeight + 'px';
+      this.$wrapper.style.overflow = 'hidden';
+    }
+  }, {
+    key: "play",
+    value: function play() {
+      var _this6 = this;
+
+      if (this.$slides.length > 1) {
+        this.setWrapperHeight();
+        setInterval(function () {
+          return _this6.fadeOutSlide(_this6.fadeInSlide);
+        }, this.interval);
+      }
+    }
+  }, {
+    key: "fadeOutSlide",
+    value: function fadeOutSlide(next) {
+      var $currentSlide = this.$slides[this.currentIndex];
+      TweenMax.fromTo($currentSlide, this.animationDuration, {
+        opacity: 1,
+        x: 0,
+        y: -$currentSlide.offsetTop
+      }, {
+        opacity: 0,
+        x: 40,
+        y: -$currentSlide.offsetTop
+      });
+      this.currentIndex = this.currentIndex === this.$slides.length - 1 ? 0 : this.currentIndex + 1;
+      setTimeout(next, this.animationDuration + 100);
+    }
+  }, {
+    key: "fadeInSlide",
+    value: function fadeInSlide() {
+      var $currentSlide = this.$slides[this.currentIndex];
+      TweenMax.fromTo($currentSlide, this.animationDuration, {
+        opacity: 0,
+        x: -40,
+        y: -$currentSlide.offsetTop
+      }, {
+        opacity: 1,
+        x: 0,
+        y: -$currentSlide.offsetTop
+      });
+    }
+  }]);
+
+  return SlideshowFade;
+}();
 
 var StickyNav =
 /*#__PURE__*/
