@@ -4107,6 +4107,8 @@ var SlideshowFade =
 /*#__PURE__*/
 function () {
   function SlideshowFade(options) {
+    var _this6 = this;
+
     _classCallCheck(this, SlideshowFade);
 
     this.$wrapper = document.querySelector(options.wrapperSelector);
@@ -4119,28 +4121,29 @@ function () {
     this.fadeInSlide = this.fadeInSlide.bind(this);
     this.fadeOutSlide = this.fadeOutSlide.bind(this);
     this.play();
+    window.addEventListener('resize', function () {
+      return _this6.$wrapper.style.height = _this6.$slides[0].offsetHeight + 'px';
+    });
   }
 
   _createClass(SlideshowFade, [{
     key: "setWrapperHeight",
     value: function setWrapperHeight() {
-      var totalHeight = 0;
       this.$slides.forEach(function ($slide, index) {
-        totalHeight += index ? $slide.offsetHeight : 0;
-        if (index) $slide.style.opacity = 0;
+        return $slide.style.opacity = index ? 0 : 1;
       });
-      this.$wrapper.style.height = totalHeight + 'px';
+      this.$wrapper.style.height = this.$slides[0].offsetHeight + 'px';
       this.$wrapper.style.overflow = 'hidden';
     }
   }, {
     key: "play",
     value: function play() {
-      var _this6 = this;
+      var _this7 = this;
 
       if (this.$slides.length > 1) {
         this.setWrapperHeight();
         setInterval(function () {
-          return _this6.fadeOutSlide(_this6.fadeInSlide);
+          return _this7.fadeOutSlide(_this7.fadeInSlide);
         }, this.interval);
       }
     }

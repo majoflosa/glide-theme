@@ -2762,7 +2762,42 @@ input[type="reset"]:hover {
   }
 }
 
+.landing-testimonials {
+  overflow: hidden;
+  position: relative;
+}
+
+.landing-testimonials .bg-bubble {
+  position: absolute;
+  background: #f7fbff;
+  border-radius: 50%;
+}
+
+.landing-testimonials .bg-bubble-1 {
+  width: 95%;
+  height: 400px;
+  bottom: -200px;
+  right: -25%;
+}
+
+.landing-testimonials .bg-bubble-2 {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  top: -30px;
+  right: 10%;
+}
+
+.landing-testimonials .bg-bubble-3 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  bottom: 10%;
+  left: 7.5%;
+}
+
 .landing-testimonials .landing-section-inner {
+  position: relative;
   background-image: url("../img/open-quote.png");
   background-repeat: no-repeat;
   background-position: 20% 10%;
@@ -2812,6 +2847,9 @@ input[type="reset"]:hover {
 }
 
 @media screen and (max-width: 720px) {
+  .landing-testimonials .landing-section-inner {
+    background-position: 0 40%;
+  }
   .landing-testimonials-item {
     display: block;
   }

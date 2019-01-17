@@ -14,16 +14,16 @@ class SlideshowFade {
         this.fadeOutSlide = this.fadeOutSlide.bind( this );
 
         this.play();
+        window.addEventListener(
+            'resize', 
+            () => this.$wrapper.style.height = this.$slides[0].offsetHeight + 'px'
+        );
     }
 
     setWrapperHeight() {
-        let totalHeight = 0;
-        this.$slides.forEach( ($slide, index) => {
-            totalHeight += index ? $slide.offsetHeight : 0
-            if ( index ) $slide.style.opacity = 0;
-        } );
+        this.$slides.forEach( ($slide, index) => $slide.style.opacity = index ? 0 : 1 );
 
-        this.$wrapper.style.height = totalHeight + 'px';
+        this.$wrapper.style.height = this.$slides[0].offsetHeight + 'px';
         this.$wrapper.style.overflow = 'hidden';
     }
 

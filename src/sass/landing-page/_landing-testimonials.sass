@@ -1,5 +1,31 @@
 .landing-testimonials
+    overflow: hidden
+    position: relative
+
+    .bg-bubble
+        position: absolute
+        background: lighten($lightSecondaryColor, 15%)
+        border-radius: 50%
+        &-1
+            width: 95%
+            height: 400px
+            bottom: -200px
+            right: -25%
+        &-2
+            width: 120px
+            height: 120px
+            border-radius: 50%
+            top: -30px
+            right: 10%
+        &-3
+            width: 150px
+            height: 150px
+            border-radius: 50%
+            bottom: 10%
+            left: 7.5%
+
     .landing-section-inner
+        position: relative
         background-image: url('../img/open-quote.png')
         background-repeat: no-repeat
         background-position: 20% 10%
@@ -33,6 +59,9 @@
 
 @media screen and (max-width: 720px)
     .landing-testimonials
+        .landing-section-inner
+            background-position: 0 40%
+
         &-item
             display: block
             &-author
