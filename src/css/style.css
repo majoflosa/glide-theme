@@ -391,6 +391,7 @@ textarea,
 select {
   display: block;
   padding: 8px 12px;
+  box-sizing: border-box;
   border-radius: 10px;
   border: 1px solid #aaaaaa;
   color: inherit;
@@ -435,7 +436,8 @@ input[type="week"]:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: #15D683;
+  border-color: #a7f6d4;
+  border-width: 4px;
 }
 
 input[type="text"].error-field,
@@ -2870,6 +2872,12 @@ input[type="reset"]:hover {
 
 .landing-contact-form-buttons {
   margin: 0 3px 0 0;
+}
+
+.landing-contact-form-error {
+  font-style: italic;
+  font-weight: bold;
+  color: #ec414b;
 }
 
 .footer {

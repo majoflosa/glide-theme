@@ -3609,21 +3609,21 @@ function () {
   }, {
     key: "bindEvents",
     value: function bindEvents() {
-      var _this = this;
+      var _this2 = this;
 
       this.$bullets.forEach(function ($bullet) {
-        return $bullet.addEventListener('click', _this.shiftCarousel);
+        return $bullet.addEventListener('click', _this2.shiftCarousel);
       });
       window.addEventListener('resize', this.calculateSizes);
     }
   }, {
     key: "shiftCarousel",
     value: function shiftCarousel(event) {
-      var _this2 = this;
+      var _this3 = this;
 
       var bulletIndex = this.$bullets.indexOf(event.target);
       this.$bullets.forEach(function ($bullet) {
-        return $bullet.classList.remove(_this2.selectedBulletClass);
+        return $bullet.classList.remove(_this3.selectedBulletClass);
       });
       event.target.classList.add(this.selectedBulletClass);
       TweenMax.to(this.$innerWrapper, this.animationDuration, {
@@ -3793,10 +3793,10 @@ function () {
   _createClass(InfiniteCarousel, [{
     key: "init",
     value: function init() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.$items.forEach(function (item) {
-        return _this3.$innerWrap.appendChild(item.cloneNode(true));
+        return _this4.$innerWrap.appendChild(item.cloneNode(true));
       });
       this.bindEvents();
     }
@@ -3847,6 +3847,123 @@ window.addEventListener('load', function () {
     // milliseconds
     transitionDuration: 0.4 // seconds
 
+  });
+});
+
+var ContactValidation =
+/*#__PURE__*/
+function () {
+  function ContactValidation(options) {
+    _classCallCheck(this, ContactValidation);
+
+    this.$form = document.querySelector(options.formSelector);
+    this.fields = options.fields;
+    this.$form.noValidate = true;
+    this.formIsValid = true;
+    this.validationTests = this.tests();
+    this.errors = [];
+    this.errorSelector = options.errorSelector;
+    this.bindEvents = this.bindEvents.bind(this);
+    this.validate = this.validate.bind(this);
+    this.checkRules = this.checkRules.bind(this);
+    this.tests = this.tests.bind(this);
+    this.bindEvents();
+  }
+
+  _createClass(ContactValidation, [{
+    key: "bindEvents",
+    value: function bindEvents() {
+      this.$form.addEventListener('submit', this.validate);
+    }
+  }, {
+    key: "validate",
+    value: function validate(event) {
+      var _this5 = this;
+
+      event.preventDefault(); // this.errors = [];
+
+      this.fields.forEach(function (field) {
+        var $field = document.querySelector(field.selector); // console.log( field.rules );
+
+        field.errors = [];
+
+        _this5.checkRules($field.value, field.rules, field.errors);
+
+        if (field.errors.length) {
+          _this5.formIsValid = false; // const $fieldError = document.
+
+          $field.parentElement.querySelector(_this5.errorSelector).innerText = field.errors.join(' | ');
+        }
+      });
+
+      if (!this.formIsValid) {
+        event.preventDefault();
+        return false;
+      }
+
+      console.log('form submitted');
+    }
+  }, {
+    key: "checkRules",
+    value: function checkRules(value, rules, errors) {
+      var _this6 = this;
+
+      rules.forEach(function (rule) {
+        console.log(rule);
+
+        if (rule.includes('min:') || rule.includes('max:')) {
+          var split = rule.split(':');
+
+          var _rule = split.shift();
+
+          var params = _toConsumableArray(split);
+
+          _this6.validationTests[_rule](value, errors, params);
+        } else {
+          _this6.validationTests[rule](value, errors);
+        }
+      });
+    }
+  }, {
+    key: "tests",
+    value: function tests() {
+      var _this = this;
+
+      return {
+        'required': function required(value, errors) {
+          if (!value.length) errors.push('This field is required. ');
+        },
+        'min': function min(value, errors, params) {
+          if (value.length < +params[0]) errors.push("This field must be at least ".concat(params[0], " characters long. "));
+        },
+        'max': function max(value, errors, params) {
+          if (value.length > +params[0]) errors.push("This field cannot exceed ".concat(params[0], " characters. "));
+        },
+        'email': function email(value, errors) {
+          var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          if (!re.test(value.toLowerCase())) errors.push('This field must be a valid email address.');
+        }
+      };
+    }
+  }]);
+
+  return ContactValidation;
+}();
+
+window.addEventListener('load', function () {
+  var contactValidation = new ContactValidation({
+    formSelector: '.landing-contact-form',
+    fields: [{
+      selector: '#name',
+      rules: ['required', 'min:2']
+    }, {
+      selector: '#email',
+      rules: ['required', 'email']
+    }, {
+      selector: '#message',
+      rules: ['required', 'min:2']
+    }],
+    errorSelector: '.landing-contact-form-error'
   });
 });
 window.addEventListener('load', function () {
@@ -3978,13 +4095,13 @@ function () {
   }, {
     key: "parallax",
     value: function parallax() {
-      var _this4 = this;
+      var _this7 = this;
 
       var isElementVisible = this.$banner.offsetTop - window.innerHeight <= window.scrollY && window.scrollY <= this.$banner.offsetTop + this.bannerHt;
 
       if (isElementVisible) {
         this.elements.layers.forEach(function (layer) {
-          var initialParallaxPoint = window.scrollY - _this4.$banner.offsetTop - window.innerHeight;
+          var initialParallaxPoint = window.scrollY - _this7.$banner.offsetTop - window.innerHeight;
           layer.element.style.top = layer.initialTop - initialParallaxPoint * layer.scrollRatio + 'px';
         });
       }
@@ -4038,14 +4155,14 @@ function () {
   }, {
     key: "fadeLoadingScreen",
     value: function fadeLoadingScreen() {
-      var _this5 = this;
+      var _this8 = this;
 
       this.$loadingScreen.classList.add('fulfilled');
       this.$body.style.height = 'auto';
       this.$body.style.overflow = 'initial'; // hide element completely after 1.5 seconds
 
       setTimeout(function () {
-        _this5.$loadingScreen.style.display = 'none';
+        _this8.$loadingScreen.style.display = 'none';
       }, 1500);
     }
   }]);
@@ -4107,7 +4224,7 @@ var SlideshowFade =
 /*#__PURE__*/
 function () {
   function SlideshowFade(options) {
-    var _this6 = this;
+    var _this9 = this;
 
     _classCallCheck(this, SlideshowFade);
 
@@ -4122,7 +4239,7 @@ function () {
     this.fadeOutSlide = this.fadeOutSlide.bind(this);
     this.play();
     window.addEventListener('resize', function () {
-      return _this6.$wrapper.style.height = _this6.$slides[0].offsetHeight + 'px';
+      return _this9.$wrapper.style.height = _this9.$slides[0].offsetHeight + 'px';
     });
   }
 
@@ -4138,12 +4255,12 @@ function () {
   }, {
     key: "play",
     value: function play() {
-      var _this7 = this;
+      var _this10 = this;
 
       if (this.$slides.length > 1) {
         this.setWrapperHeight();
         setInterval(function () {
-          return _this7.fadeOutSlide(_this7.fadeInSlide);
+          return _this10.fadeOutSlide(_this10.fadeInSlide);
         }, this.interval);
       }
     }

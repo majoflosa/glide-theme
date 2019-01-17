@@ -25,6 +25,7 @@ textarea,
 select
     display: block
     padding: 8px 12px 
+    box-sizing: border-box
     border-radius: $boxRadius
     border: 1px solid $midGrey
     color: inherit
@@ -37,7 +38,8 @@ select
         box-sizing: border-box
     &:focus
         outline: none
-        border-color: $primaryColor
+        border-color: $lightPrimaryColor
+        border-width: 4px
     &.error-field
         border-color: $secondaryColor
     &::placeholder
