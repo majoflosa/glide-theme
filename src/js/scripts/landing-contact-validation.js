@@ -2,53 +2,48 @@ class ContactValidation {
     constructor( options ) {
         this.$form = document.querySelector( options.formSelector );
         this.fields = options.fields;
+        this.errorSelector = options.errorSelector;
 
         this.$form.noValidate = true;
         this.formIsValid = true;
         this.validationTests = this.tests();
-        this.errors = [];
-        this.errorSelector = options.errorSelector;
 
         this.bindEvents = this.bindEvents.bind( this );
         this.validate = this.validate.bind( this );
         this.checkRules = this.checkRules.bind( this );
         this.tests = this.tests.bind( this );
+        this.resetForm = this.resetForm.bind( this );
 
         this.bindEvents();
     }
     
     bindEvents() {
         this.$form.addEventListener( 'submit', this.validate );
+        this.$form.addEventListener( 'reset', this.resetForm );
     }
 
     validate( event ) {
-        event.preventDefault();
-        // this.errors = [];
-        
         this.fields.forEach( field => {
-            let $field = document.querySelector( field.selector );
-            // console.log( field.rules );
+            const $field = document.querySelector( field.selector );
+            const $fieldError = $field.parentElement.querySelector( this.errorSelector );
+            
+            $fieldError.innerText = '';
             field.errors = [];
             this.checkRules( $field.value, field.rules, field.errors );
+
             if ( field.errors.length ) {
                 this.formIsValid = false;
-
-                // const $fieldError = document.
-                $field.parentElement.querySelector( this.errorSelector ).innerText = field.errors.join(' | ');
+                $fieldError.innerText = field.errors.join(' | ');
+            } else {
+                this.formIsValid = true;
             }
         });
 
-        if ( !this.formIsValid ) {
-            event.preventDefault();
-            return false;
-        }
-
-        console.log( 'form submitted' );
+        if ( !this.formIsValid ) event.preventDefault();
     }
 
     checkRules( value, rules, errors ) {
         rules.forEach( rule => {
-            console.log( rule );
             if ( rule.includes('min:') || rule.includes('max:') ) {
                 const split = rule.split(':');
                 const _rule = split.shift();
@@ -62,7 +57,6 @@ class ContactValidation {
     }
 
     tests() {
-        const _this = this;
         return {
             'required': function( value, errors ) {
                 if ( !value.length ) errors.push( 'This field is required. ' );
@@ -82,6 +76,16 @@ class ContactValidation {
                     errors.push( 'This field must be a valid email address.' );
             }
         }
+    }
+
+    resetForm() {
+        this.fields.forEach( field => {
+            const $field = document.querySelector( field.selector );
+            const $fieldError = $field.parentElement.querySelector( this.errorSelector );
+            
+            $fieldError.innerText = '';
+            field.errors = [];
+        });
     }
 }
 

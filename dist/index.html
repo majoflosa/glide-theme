@@ -22,10 +22,13 @@
 
         <button class="menu-button">Menu</button>
         <div class="main-nav-links">
-            <a class="main-nav-link" href="#">Page A</a>
-            <a class="main-nav-link" href="#">Page B</a>
-            <a class="main-nav-link" href="#">Page C</a>
+            <a class="main-nav-link" href="#">Landing</a>
+            <!-- <a class="main-nav-link" href="#">Generic</a>
+            <a class="main-nav-link" href="#">Blog</a>
+            <a class="main-nav-link" href="#">Portfolio</a>
+            <a class="main-nav-link" href="#">About</a> -->
             <a class="main-nav-link" href="elements-ref.html">Elements Reference</a>
+            <a class="main-nav-link download-theme" href="#">Download</a>
         </div>
     </nav>
 
@@ -500,7 +503,7 @@
                 <div class="landing-section-inner">
                 
                     <h1 class="landing-section-title">Contact</h1>
-                    <form class="landing-contact-form">
+                    <form class="landing-contact-form" method="POST">
                         <p>Phasellus laoreet auctor nulla, et dapibus ante sollicitudin nec. Nunc et gravida elit.</p>
                         <div class="landing-contact-form-group form__item-block">
                             <label for="name">Name:*</label>
@@ -528,13 +531,55 @@
         </main>
 
         <footer class="footer">
-            <div class="footer-widgets">
+            
+            <section class="footer-widgets">
+                <article class="footer-widgets-item footer-widgets-logo">
+                    <h3>GLIDE Theme</h3>
+                    <div class="footer-subscription">
+                        <form action="">
+                            <div class="form__item-block"><input type="text" placeholder="Name"></div>
+                            <div class="form__item-block"><input type="email" placeholder="Email"></div>
+                            <div class="form__item-block"><input type="submit" value="Subscribe"></div>
+                        </form>
+                    </div>
+                    <div class="footer-widgets-legal">
+                        <p>2019 &copy; All rights reserved.</p>
+                        <p>Built with Glide Theme, designed and developed by&nbsp; 
+                            <strong><a href="http://maurojflores.com" target="">Mauricio J Flores</a></strong>
+                        </p>
+                    </div>
+                </article>
+                <article class="footer-widgets-item footer-widgets-nav">
+                    <h3>Navigate</h3>
+                    <nav>
+                        <a class="" href="#">Landing</a>
+                        <a class="" href="#">Generic</a>
+                        <a class="" href="#">Blog</a>
+                        <a class="" href="#">Portfolio</a>
+                        <a class="" href="#">About</a>
+                        <a class="" href="elements-ref.html">Elements Reference</a>
+                        <a class="" href="#">Download Theme</a>
+                    </nav>
+                </article>
+                <article class="footer-widgets-item footer-widgets-contact">
+                    <h3>Contact</h3>
+                    <div class="footer-widgets-contact-info">
+                        <p>555 Main Street, Cityville, NY</p>
+                        <p><a herf="#">987-123-4567</a></p>
+                        <p><a href="#">info@business.com</a></p>
+                        <p class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </p>
+                    </div>
+                </article>
+            </section>
 
-            </div>
-
-            <div class="footer-legal">
+            <!-- <div class="footer-legal">
                 <p>All rights reserved. Built with Glide Theme, designed and developed by Mauricio J Flores</p>
-            </div>
+            </div> -->
         </footer>
     </div><!-- end content-wrap -->
 

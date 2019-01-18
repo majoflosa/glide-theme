@@ -29,6 +29,11 @@
             text-decoration: none
             // opacity: 0.9
             color: lighten($secondaryColor, 25%)
+        &.download-theme
+            background: #ffffff
+            color: $darkSecondaryColor
+            padding: 5px 10px
+            border-radius: $boxRadius
 
     &.sticky
         padding-top: 20px
@@ -39,6 +44,9 @@
             color: $secondaryColor
             &:hover
                 color: lighten($secondaryColor, 15%)
+            &.download-theme
+                background: $darkSecondaryColor // lighten($lightSecondaryColor, 10%)
+                color: #ffffff // $darkSecondaryColor
 
 .menu-button
     /* Customize your menu button */

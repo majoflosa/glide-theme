@@ -3609,21 +3609,21 @@ function () {
   }, {
     key: "bindEvents",
     value: function bindEvents() {
-      var _this2 = this;
+      var _this = this;
 
       this.$bullets.forEach(function ($bullet) {
-        return $bullet.addEventListener('click', _this2.shiftCarousel);
+        return $bullet.addEventListener('click', _this.shiftCarousel);
       });
       window.addEventListener('resize', this.calculateSizes);
     }
   }, {
     key: "shiftCarousel",
     value: function shiftCarousel(event) {
-      var _this3 = this;
+      var _this2 = this;
 
       var bulletIndex = this.$bullets.indexOf(event.target);
       this.$bullets.forEach(function ($bullet) {
-        return $bullet.classList.remove(_this3.selectedBulletClass);
+        return $bullet.classList.remove(_this2.selectedBulletClass);
       });
       event.target.classList.add(this.selectedBulletClass);
       TweenMax.to(this.$innerWrapper, this.animationDuration, {
@@ -3793,10 +3793,10 @@ function () {
   _createClass(InfiniteCarousel, [{
     key: "init",
     value: function init() {
-      var _this4 = this;
+      var _this3 = this;
 
       this.$items.forEach(function (item) {
-        return _this4.$innerWrap.appendChild(item.cloneNode(true));
+        return _this3.$innerWrap.appendChild(item.cloneNode(true));
       });
       this.bindEvents();
     }
@@ -3858,15 +3858,15 @@ function () {
 
     this.$form = document.querySelector(options.formSelector);
     this.fields = options.fields;
+    this.errorSelector = options.errorSelector;
     this.$form.noValidate = true;
     this.formIsValid = true;
     this.validationTests = this.tests();
-    this.errors = [];
-    this.errorSelector = options.errorSelector;
     this.bindEvents = this.bindEvents.bind(this);
     this.validate = this.validate.bind(this);
     this.checkRules = this.checkRules.bind(this);
     this.tests = this.tests.bind(this);
+    this.resetForm = this.resetForm.bind(this);
     this.bindEvents();
   }
 
@@ -3874,43 +3874,36 @@ function () {
     key: "bindEvents",
     value: function bindEvents() {
       this.$form.addEventListener('submit', this.validate);
+      this.$form.addEventListener('reset', this.resetForm);
     }
   }, {
     key: "validate",
     value: function validate(event) {
-      var _this5 = this;
-
-      event.preventDefault(); // this.errors = [];
+      var _this4 = this;
 
       this.fields.forEach(function (field) {
-        var $field = document.querySelector(field.selector); // console.log( field.rules );
-
+        var $field = document.querySelector(field.selector);
+        var $fieldError = $field.parentElement.querySelector(_this4.errorSelector);
+        $fieldError.innerText = '';
         field.errors = [];
 
-        _this5.checkRules($field.value, field.rules, field.errors);
+        _this4.checkRules($field.value, field.rules, field.errors);
 
         if (field.errors.length) {
-          _this5.formIsValid = false; // const $fieldError = document.
-
-          $field.parentElement.querySelector(_this5.errorSelector).innerText = field.errors.join(' | ');
+          _this4.formIsValid = false;
+          $fieldError.innerText = field.errors.join(' | ');
+        } else {
+          _this4.formIsValid = true;
         }
       });
-
-      if (!this.formIsValid) {
-        event.preventDefault();
-        return false;
-      }
-
-      console.log('form submitted');
+      if (!this.formIsValid) event.preventDefault();
     }
   }, {
     key: "checkRules",
     value: function checkRules(value, rules, errors) {
-      var _this6 = this;
+      var _this5 = this;
 
       rules.forEach(function (rule) {
-        console.log(rule);
-
         if (rule.includes('min:') || rule.includes('max:')) {
           var split = rule.split(':');
 
@@ -3918,17 +3911,15 @@ function () {
 
           var params = _toConsumableArray(split);
 
-          _this6.validationTests[_rule](value, errors, params);
+          _this5.validationTests[_rule](value, errors, params);
         } else {
-          _this6.validationTests[rule](value, errors);
+          _this5.validationTests[rule](value, errors);
         }
       });
     }
   }, {
     key: "tests",
     value: function tests() {
-      var _this = this;
-
       return {
         'required': function required(value, errors) {
           if (!value.length) errors.push('This field is required. ');
@@ -3944,6 +3935,18 @@ function () {
           if (!re.test(value.toLowerCase())) errors.push('This field must be a valid email address.');
         }
       };
+    }
+  }, {
+    key: "resetForm",
+    value: function resetForm() {
+      var _this6 = this;
+
+      this.fields.forEach(function (field) {
+        var $field = document.querySelector(field.selector);
+        var $fieldError = $field.parentElement.querySelector(_this6.errorSelector);
+        $fieldError.innerText = '';
+        field.errors = [];
+      });
     }
   }]);
 

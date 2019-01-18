@@ -1,4 +1,90 @@
 .footer
-    background: $darkGrey
-    padding: 30px
-    color: #ffffff
+    // padding: 30px
+
+    &-widgets
+        padding: 40px 10%
+        box-sizing: border-box
+        background: linear-gradient(to bottom, $darkSecondaryColor, $secondaryColor)
+        color: lighten($lightSecondaryColor, 5%) // #ffffff // $primaryFontColor // $secondaryColor
+        // opacity: 0.75
+        +mainFlex(flex-start, stretch)
+
+        &-item
+            // flex: 0 0 31%
+            // padding: 0 30px
+            // border-right: 1px solid $secondaryColor
+            box-sizing: border-box
+            &:last-child
+                border-right: none
+            h3
+                color: inherit // $midGrey
+                margin-top: 0
+                text-transform: uppercase
+                letter-spacing: 1px
+                font-size: 1em
+                font-size: 1rem
+                font-weight: bold
+        &-logo
+            flex: 0 0 40%
+            h3
+                font-size: 1.5em
+                font-size: 1.5rem
+                font-weight: bold
+
+            .footer-subscription
+                // color: #ffffff
+                // background: $darkSecondaryColor
+                // padding: 0 0 15px 0
+                // text-align: center
+                // border-bottom: 1px solid $secondaryColor
+                form
+                    // +mainFlex(center)
+                    max-width: 300px
+                    // width: 90%
+                    // margin: 0 auto
+                .form__item-block
+                    // flex: 0 0 31%
+                    margin-bottom: 10px
+                    input
+                        box-sizing: border-box
+                        width: 100%
+                        border: none
+        &-legal
+            font-size: 0.85em
+            font-size: 0.85rem
+            max-width: 300px
+            // padding: 15px 0 0 0
+            border-top: 1px solid $secondaryColor
+            a
+                color: lighten($lightSecondaryColor, 5%)
+
+        &-nav
+            flex: 0 0 30%
+            a
+                display: block
+                margin: 10px 0
+                color: inherit // $primaryFontColor
+            // flex: 0 0 40%
+
+        &-contact
+            flex: 0 0 30%
+            a
+                // display: block
+                margin: 10px 0
+                color: inherit // $primaryFontColor
+            .social-media
+                +mainFlex(flex-start, flex-start)
+                a
+                    background: lighten($secondaryColor, 10%)
+                    color: $darkSecondaryColor
+                    width: 35px
+                    height: 35px
+                    margin: 0 10px 0 0
+                    border-radius: 99px
+                    font-size: 20px
+                    +mainFlex(center, center)
+                    +mainTransition
+                    &:hover
+                        background: lighten($lightSecondaryColor, 5%)
+                        text-decoration: none
+                    
