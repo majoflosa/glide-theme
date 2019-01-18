@@ -229,6 +229,12 @@ strong {
   }
 }
 
+.page-wrap {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .bullet-check-circle-primary {
   display: inline-block;
   background: #d6fbeb;
@@ -2022,6 +2028,7 @@ input[type="reset"]:hover {
   justify-content: space-between;
   align-items: center;
   flex-direction: initial;
+  flex-wrap: wrap;
   transition: all 0.25s ease-in-out;
   -webkit-transition: all 0.25s ease-in-out;
   -moz-transition: all 0.25s ease-in-out;
@@ -2099,6 +2106,10 @@ input[type="reset"]:hover {
 }
 
 @media screen and (max-width: 960px) {
+  .main-nav {
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
   .mobile-menu-button {
     display: inline-block;
     z-index: 3;
@@ -2109,6 +2120,7 @@ input[type="reset"]:hover {
     top: 0;
     right: 0px;
     width: 100%;
+    box-sizing: border-box;
   }
   .main-nav-links.open, .main-nav-links.close {
     height: auto;
@@ -2369,6 +2381,7 @@ input[type="reset"]:hover {
 
 .landing-clients .landing-section-inner {
   max-width: none;
+  overflow: hidden;
 }
 
 .landing-clients-list {
@@ -2425,11 +2438,8 @@ input[type="reset"]:hover {
 }
 
 @media screen and (max-width: 380px) {
-  .landing-clients-list {
-    display: block;
-  }
   .landing-clients-item {
-    display: block;
+    flex: 0 0 80%;
   }
 }
 
@@ -2476,6 +2486,7 @@ input[type="reset"]:hover {
   }
   .landing-services-item {
     display: block;
+    margin-bottom: 30px;
     width: auto;
   }
 }
@@ -2545,6 +2556,7 @@ input[type="reset"]:hover {
   }
   .landing-portfolio-item {
     display: block;
+    margin-bottom: 30px;
   }
 }
 
@@ -2717,6 +2729,15 @@ input[type="reset"]:hover {
 }
 
 @media screen and (max-width: 720px) {
+  .landing-articles-list-outer .carousel-bullets .carousel-bullet {
+    height: 20px;
+    width: 20px;
+    margin: 0 10px;
+  }
+  .landing-articles-list-outer .carousel-bullets .carousel-bullet.selected-bullet {
+    height: 25px;
+    width: 25px;
+  }
   .landing-articles-item {
     flex: 0 0 98%;
   }

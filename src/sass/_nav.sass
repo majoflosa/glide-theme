@@ -5,15 +5,14 @@
     left: 0
     width: 100%
     border-bottom: 1px solid rgba(white, 0.2)
-    // background: rgba(white, 0.75)
     padding: 30px
     box-sizing: border-box
     +mainFlex
+    flex-wrap: wrap
     +mainTransition
 
     &-logo
         position: relative
-        // z-index: 5
         a
             color: #ffffff
             font-weight: bold
@@ -32,7 +31,6 @@
         font-size: 0.9rem
         &:hover
             text-decoration: none
-            // opacity: 0.9
             color: lighten($secondaryColor, 25%)
         &.download-theme
             background: #ffffff
@@ -50,8 +48,8 @@
             &:hover
                 color: lighten($secondaryColor, 15%)
             &.download-theme
-                background: $darkSecondaryColor // lighten($lightSecondaryColor, 10%)
-                color: #ffffff // $darkSecondaryColor
+                background: $darkSecondaryColor
+                color: #ffffff
 
 .mobile-menu-button
     /* Customize your menu button */
@@ -67,7 +65,8 @@
     
 @media screen and (max-width: 960px)
     .main-nav
-        // position: initial
+        flex-wrap: wrap
+        max-width: 100%
     .mobile-menu-button
         display: inline-block
         position: 
@@ -78,8 +77,8 @@
         top: 0
         right: 0px
         width: 100%
+        box-sizing: border-box
         &.open, &.close
-            // position: relative
             height: auto
             overflow: hidden
             display: block
@@ -135,8 +134,6 @@
         opacity: 1
     50%
         opacity: 0
-    // 75%
-    //     opacity: 0
     100%
         opacity: 0
         height: 0
