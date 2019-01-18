@@ -1,23 +1,19 @@
 .footer
-    // padding: 30px
+    background: linear-gradient(to bottom, $darkSecondaryColor, $secondaryColor)
+    padding: 30px 0
 
     &-widgets
         padding: 40px 10%
         box-sizing: border-box
-        background: linear-gradient(to bottom, $darkSecondaryColor, $secondaryColor)
-        color: lighten($lightSecondaryColor, 5%) // #ffffff // $primaryFontColor // $secondaryColor
-        // opacity: 0.75
+        color: lighten($lightSecondaryColor, 5%)
         +mainFlex(flex-start, stretch)
 
         &-item
-            // flex: 0 0 31%
-            // padding: 0 30px
-            // border-right: 1px solid $secondaryColor
             box-sizing: border-box
             &:last-child
                 border-right: none
             h3
-                color: inherit // $midGrey
+                color: inherit
                 margin-top: 0
                 text-transform: uppercase
                 letter-spacing: 1px
@@ -32,18 +28,9 @@
                 font-weight: bold
 
             .footer-subscription
-                // color: #ffffff
-                // background: $darkSecondaryColor
-                // padding: 0 0 15px 0
-                // text-align: center
-                // border-bottom: 1px solid $secondaryColor
                 form
-                    // +mainFlex(center)
-                    max-width: 300px
-                    // width: 90%
-                    // margin: 0 auto
+                    width: 90%
                 .form__item-block
-                    // flex: 0 0 31%
                     margin-bottom: 10px
                     input
                         box-sizing: border-box
@@ -52,8 +39,7 @@
         &-legal
             font-size: 0.85em
             font-size: 0.85rem
-            max-width: 300px
-            // padding: 15px 0 0 0
+            width: 90%
             border-top: 1px solid $secondaryColor
             a
                 color: lighten($lightSecondaryColor, 5%)
@@ -63,15 +49,13 @@
             a
                 display: block
                 margin: 10px 0
-                color: inherit // $primaryFontColor
-            // flex: 0 0 40%
+                color: inherit
 
         &-contact
             flex: 0 0 30%
             a
-                // display: block
                 margin: 10px 0
-                color: inherit // $primaryFontColor
+                color: inherit
             .social-media
                 +mainFlex(flex-start, flex-start)
                 a
@@ -88,3 +72,10 @@
                         background: lighten($lightSecondaryColor, 5%)
                         text-decoration: none
                     
+@media screen and (max-width: 720px)
+    .footer
+        &-widgets
+            display: block
+            &-item
+                margin: 0 0 30px
+                display: block

@@ -2029,10 +2029,18 @@ input[type="reset"]:hover {
   -o-transition: all 0.25s ease-in-out;
 }
 
+.main-nav-logo {
+  position: relative;
+}
+
 .main-nav-logo a {
   color: #ffffff;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.main-nav .menu-header {
+  display: none;
 }
 
 .main-nav-link, .main-nav a {
@@ -2077,23 +2085,104 @@ input[type="reset"]:hover {
   color: #ffffff;
 }
 
-.menu-button {
+.mobile-menu-button {
   /* Customize your menu button */
   display: none;
   padding: 8px 12px;
   background: #ffffff;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+.mobile-menu-button i {
+  margin-right: 8px;
 }
 
 @media screen and (max-width: 960px) {
-  .menu-button {
+  .mobile-menu-button {
     display: inline-block;
+    z-index: 3;
   }
   .main-nav-links {
     display: none;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 100%;
   }
-  .main-nav-links.open {
+  .main-nav-links.open, .main-nav-links.close {
+    height: auto;
+    overflow: hidden;
     display: block;
+    background: #ffffff;
+    padding: 0 20px 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+    animation-name: openMenu;
+    animation-duration: 0.25s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+  }
+  .main-nav-links.open .menu-header, .main-nav-links.close .menu-header {
+    display: block;
+    padding: 80px 0 24px 0;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #dfecfe;
+  }
+  .main-nav-links.open .menu-header a, .main-nav-links.close .menu-header a {
+    position: absolute;
+    text-transform: uppercase;
+    top: 41px;
+    left: 30px;
+    z-index: 5;
+    color: #64a5f9;
+  }
+  .main-nav-links.open .main-nav-link, .main-nav-links.close .main-nav-link {
+    display: block;
+    margin: 5px 0;
+    padding: 8px 15px;
+    color: #64a5f9 !important;
+    background: #ffffff !important;
+    border-radius: 10px;
+    transition: all 0.25s ease-in-out;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+  }
+  .main-nav-links.open .main-nav-link:hover, .main-nav-links.close .main-nav-link:hover {
+    background: #dfecfe !important;
+  }
+  .main-nav-links.close {
+    display: block;
+    animation-name: closeMenu;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes openMenu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes closeMenu {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
   }
 }
 
@@ -2896,10 +2985,14 @@ input[type="reset"]:hover {
   color: #ec414b;
 }
 
+.footer {
+  background: linear-gradient(to bottom, #1a7af6, #64a5f9);
+  padding: 30px 0;
+}
+
 .footer-widgets {
   padding: 40px 10%;
   box-sizing: border-box;
-  background: linear-gradient(to bottom, #1a7af6, #64a5f9);
   color: #c6defd;
   display: flex;
   justify-content: flex-start;
@@ -2936,7 +3029,7 @@ input[type="reset"]:hover {
 }
 
 .footer-widgets-logo .footer-subscription form {
-  max-width: 300px;
+  width: 90%;
 }
 
 .footer-widgets-logo .footer-subscription .form__item-block {
@@ -2952,7 +3045,7 @@ input[type="reset"]:hover {
 .footer-widgets-legal {
   font-size: 0.85em;
   font-size: 0.85rem;
-  max-width: 300px;
+  width: 90%;
   border-top: 1px solid #64a5f9;
 }
 
@@ -3008,6 +3101,16 @@ input[type="reset"]:hover {
 .footer-widgets-contact .social-media a:hover {
   background: #c6defd;
   text-decoration: none;
+}
+
+@media screen and (max-width: 720px) {
+  .footer-widgets {
+    display: block;
+  }
+  .footer-widgets-item {
+    margin: 0 0 30px;
+    display: block;
+  }
 }
 
 .wrap {

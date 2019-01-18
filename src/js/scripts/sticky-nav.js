@@ -17,6 +17,7 @@ class StickyNav {
         this.$menuButton = document.querySelector( options.menuButtonSelector );
         this.$menu = document.querySelector( options.menuSelector );
         this.openMenuClass = options.openMenuClass;
+        this.closeMenuClass = options.closeMenuClass;
 
         // bind context of all methods to current instance
         this.init = this.init.bind( this );
@@ -68,8 +69,14 @@ class StickyNav {
     }
 
     toggleMenu() {
-        if ( this.$menu.classList.contains(this.openMenuClass) ) this.$menu.classList.remove( this.openMenuClass );
-        else this.$menu.classList.add( this.openMenuClass );
+        if ( this.$menu.classList.contains(this.openMenuClass) ) {
+            this.$menu.classList.remove( this.openMenuClass );
+            this.$menu.classList.add( this.closeMenuClass );
+        }
+        else {
+            this.$menu.classList.remove( this.closeMenuClass );
+            this.$menu.classList.add( this.openMenuClass );
+        } 
     }
 }
 
@@ -79,8 +86,9 @@ window.addEventListener('load', function() {
         navSelector: '.main-nav',
         mainWrapSelector: '.page-wrap',
         stickyClass: 'sticky',
-        menuButtonSelector: '.menu-button',
+        menuButtonSelector: '.mobile-menu-button',
         menuSelector: '.main-nav-links',
-        openMenuClass: 'open'
+        openMenuClass: 'open',
+        closeMenuClass: 'close'
     });
 });
