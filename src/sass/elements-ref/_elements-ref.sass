@@ -11,63 +11,53 @@ hr
     margin: 50px auto
 
 .palette, .greys 
-    div 
-        display: inline-block
-        margin: 0 15px 15px 0
-        height: 100px
+    .sample
+        display: flex
+        margin-bottom: 10px
+        div
+            height: 100px
+            box-sizing: border-box
+            padding: 10px
 
-.color-wrap
-    position: relative
-    .dark, .light
-        display: block
-        margin: 0
-        position: absolute
-        right: 0
-        width: 30px
-        height: 50%
-    .dark
-        top: 0
-    .light
-        bottom: 0
+        &.primary-color, &.secondary-color, &.third-color
+            .normal
+                width: 50%
 
-.primary-color 
-    background: $primaryColor
-    width: 40%
+            .dark, .light
+                width: 25%
         
-    .dark
-        background: $darkPrimaryColor
-    .light
-        background: $lightPrimaryColor
-
-.secondary-color
-    background: $secondaryColor
-    width: 20%
-
-    .dark
-        background: $darkSecondaryColor
-    .light
-        background: $lightSecondaryColor
-
-.third-color
-    background: $thirdColor
-    width: 10%
-
-    .dark
-        background: $darkThirdColor
-    .light
-        background: $lightThirdColor
+        &.primary-color
+            .normal
+                background: $primaryColor
+            .dark
+                background: $darkPrimaryColor
+            .light
+                background: $lightPrimaryColor
+        
+        &.secondary-color
+            .normal
+                background: $secondaryColor
+            .dark
+                background: $darkSecondaryColor
+            .light
+                background: $lightSecondaryColor
+        
+        &.third-color
+            .normal
+                background: $thirdColor
+            .dark
+                background: $darkThirdColor
+            .light
+                background: $lightThirdColor
 
 .light-grey
     background: $lightGrey
-    width: 10%
 
 .mid-grey
     background: $midGrey
-    width: 25%
 
 .dark-grey
     background: $darkGrey
-    width: 10%
 
 
 .splash-test-section
@@ -89,3 +79,11 @@ hr
         font-weight: bold
         span
             color: $thirdColor
+
+.example-code
+    border: 1px solid lighten($lightPrimaryColor, 10%) // darken($lightGrey, 10%)
+    background: lighten($lightPrimaryColor, 15%)
+    color: $darkPrimaryColor
+    border-radius: 3px
+    display: inline-block
+

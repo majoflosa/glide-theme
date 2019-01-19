@@ -4314,7 +4314,8 @@ function () {
     this.$mainWrap = document.querySelector(options.mainWrapSelector);
     this.$splash = this.$mainWrap.querySelector('.splash'); // Y coordinate of point where nav should become sticky
 
-    this.stickPoint = this.$splash.offsetHeight - this.$nav.offsetHeight; // css class to add to make the nav bar stick
+    this.stickPoint = 0; //this.$splash.offsetHeight - this.$nav.offsetHeight;
+    // css class to add to make the nav bar stick
 
     this.stickyClass = options.stickyClass; // track whether or not the nav has is in the sticky state
 
