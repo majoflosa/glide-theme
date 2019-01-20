@@ -2,6 +2,11 @@ class ScrollDownButton {
     constructor( options ) {
         this.$button = document.querySelector( options.buttonSelector );
         this.$currentSection = document.querySelector( options.currentSectionSelector );
+        if ( !this.$button ) {
+            console.warn( `The provided query selector ${options.buttonSelector} did not match any elements on the document.` );
+            return false;
+        }
+        
 
         this.animationDuration = options.animationDuration || 2;
 

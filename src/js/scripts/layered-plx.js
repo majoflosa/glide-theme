@@ -3,10 +3,15 @@ class LayeredPlxBanner {
         this.elements = elements;
 
         this.$banner = document.querySelector( elements.banner );
+        if ( !this.$banner ) {
+            console.warn( `The provided query selector ${elements.banner} did not match any elements on the document.` );
+            return false;
+        }
 
         this.bannerHt = this.$banner.offsetHeight;
 
         this.onInit = elements.onInit ? elements.onInit.bind( this ) : () => null;
+
 
         this.init = this.init.bind( this );
         this.bindEvents = this.bindEvents.bind( this );

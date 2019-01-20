@@ -1,6 +1,11 @@
 class CarouselGallery {
     constructor( options ) {
         this.$outerWrapper = document.querySelector( options.outerWrapperSelector );
+        if ( !this.$outerWrapper ) {
+            console.warn( `The provided query selector ${options.outerWrapperSelector} did not match any elements on the document.` );
+            return false;
+        }
+
         this.$innerWrapper = this.$outerWrapper.querySelector( options.innerWrapperSelector );
         this.$items = [...this.$outerWrapper.querySelectorAll( options.itemSelector)];
         this.$bullets = [...this.$outerWrapper.querySelectorAll( options.bulletSelector)];

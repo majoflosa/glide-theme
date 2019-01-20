@@ -2021,6 +2021,93 @@ input[type="reset"]:hover {
   margin-right: 0.9%;
 }
 
+.page-section {
+  padding: 60px 0;
+  box-sizing: border-box;
+}
+
+.page-section-inner {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hero-banner {
+  position: relative;
+  background-color: #aaaaaa;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.hero-banner.no-overlay .background-overlay {
+  display: none;
+}
+
+.hero-banner.full-screen {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-banner__content {
+  position: relative;
+  text-align: center;
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-banner__content.content-background-overlay {
+  padding: 4em 6em;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+}
+
+.hero-banner__title.no-margin-top {
+  margin-top: 0 !important;
+}
+
+.hero-banner__cta {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 14px;
+  text-transform: uppercase;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: inherit;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+  border-radius: 3px;
+}
+
+.hero-banner__cta:hover {
+  text-decoration: none;
+  background: #ffffff;
+  color: #555555;
+}
+
 .main-nav {
   position: fixed;
   z-index: 3;

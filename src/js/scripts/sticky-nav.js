@@ -4,6 +4,10 @@ class StickyNav {
         this.$nav = document.querySelector( options.navSelector );
         // wrapper element for all content under nav
         this.$mainWrap = document.querySelector( options.mainWrapSelector );
+        if ( !this.$mainWrap ) {
+            console.warn( `The provided query selector ${options.mainWrapSelector} did not match any elements on the document.` );
+            return false;
+        }
         this.$splash = this.$mainWrap.querySelector( '.splash' );
 
         // Y coordinate of point where nav should become sticky

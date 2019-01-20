@@ -3587,6 +3587,12 @@ function () {
     _classCallCheck(this, CarouselGallery);
 
     this.$outerWrapper = document.querySelector(options.outerWrapperSelector);
+
+    if (!this.$outerWrapper) {
+      console.warn("The provided query selector ".concat(options.outerWrapperSelector, " did not match any elements on the document."));
+      return false;
+    }
+
     this.$innerWrapper = this.$outerWrapper.querySelector(options.innerWrapperSelector);
     this.$items = _toConsumableArray(this.$outerWrapper.querySelectorAll(options.itemSelector));
     this.$bullets = _toConsumableArray(this.$outerWrapper.querySelectorAll(options.bulletSelector));
@@ -3687,7 +3693,13 @@ function () {
     _classCallCheck(this, FadeInOnscroll);
 
     // the element that wraps content with fade in effect
-    this.$element = document.querySelector(options.contentSelector); // wrapper's child elements, which will have the successive fadeIn animation
+    this.$element = document.querySelector(options.contentSelector);
+
+    if (!this.$element) {
+      console.warn("The provided query selector ".concat(options.contentSelector, " did not match any elements on the document."));
+      return false;
+    } // wrapper's child elements, which will have the successive fadeIn animation
+
 
     this.fadeInSections = _toConsumableArray(this.$element.querySelectorAll(options.fadeInSectionsSelector)); // duration of animation in seconds; defaults to 1
 
@@ -3775,6 +3787,12 @@ function () {
     _classCallCheck(this, InfiniteCarousel);
 
     this.$wrap = document.querySelector(options.wrapSelector);
+
+    if (!this.$wrap) {
+      console.warn("The provided query selector ".concat(options.wrapSelector, " did not match any elements on the document."));
+      return false;
+    }
+
     this.$innerWrap = this.$wrap.querySelector(options.innerWrapSelector);
     this.$itemsCollection = this.$wrap.querySelectorAll(options.itemsSelector);
     this.$items = _toConsumableArray(this.$itemsCollection);
@@ -3857,6 +3875,12 @@ function () {
     _classCallCheck(this, ContactValidation);
 
     this.$form = document.querySelector(options.formSelector);
+
+    if (!this.$form) {
+      console.warn("The provided query selector ".concat(options.formSelector, " did not match any elements on the document."));
+      return false;
+    }
+
     this.fields = options.fields;
     this.errorSelector = options.errorSelector;
     this.$form.noValidate = true;
@@ -3987,6 +4011,11 @@ window.addEventListener('load', function () {
 window.addEventListener('load', function () {
   var layerElements = _toConsumableArray(document.querySelectorAll('.bg-layer'));
 
+  if (!document.querySelectorAll('.bg-layer')[0]) {
+    console.warn("The provided query selector .bg-layer did not match any elements on the document.");
+    return false;
+  }
+
   var layers = layerElements.map(function (layer) {
     return {
       element: layer,
@@ -4027,6 +4056,11 @@ window.addEventListener('load', function () {
 });
 window.addEventListener('load', function () {
   var layerElements = _toConsumableArray(document.querySelectorAll('.plx-layer'));
+
+  if (!document.querySelectorAll('.plx-layer')[0]) {
+    console.warn("The provided query selector .plx-layer did not match any elements on the document.");
+    return false;
+  }
 
   var layers = layerElements.map(function (layer) {
     return {
@@ -4073,6 +4107,12 @@ function () {
 
     this.elements = elements;
     this.$banner = document.querySelector(elements.banner);
+
+    if (!this.$banner) {
+      console.warn("The provided query selector ".concat(elements.banner, " did not match any elements on the document."));
+      return false;
+    }
+
     this.bannerHt = this.$banner.offsetHeight;
     this.onInit = elements.onInit ? elements.onInit.bind(this) : function () {
       return null;
@@ -4122,7 +4162,13 @@ function () {
 
     // the element wrapping the loading screen content
     this.$body = document.querySelector('body');
-    this.$loadingScreen = this.$body.querySelector(selector); // bind all methods' contexts to created instance
+    this.$loadingScreen = this.$body.querySelector(selector);
+
+    if (!this.$loadingScreen) {
+      console.warn("The provided query selector ".concat(selector, " did not match any elements on the document."));
+      return false;
+    } // bind all methods' contexts to created instance
+
 
     this.init = this.init.bind(this); // this.simulateLoading = this.simulateLoading.bind( this );
 
@@ -4185,6 +4231,12 @@ function () {
 
     this.$button = document.querySelector(options.buttonSelector);
     this.$currentSection = document.querySelector(options.currentSectionSelector);
+
+    if (!this.$button) {
+      console.warn("The provided query selector ".concat(options.buttonSelector, " did not match any elements on the document."));
+      return false;
+    }
+
     this.animationDuration = options.animationDuration || 2;
     this.init = this.init.bind(this);
     this.bindEvents = this.bindEvents.bind(this);
@@ -4232,6 +4284,12 @@ function () {
     _classCallCheck(this, SlideshowFade);
 
     this.$wrapper = document.querySelector(options.wrapperSelector);
+
+    if (!this.$wrapper) {
+      console.warn("The provided query selector ".concat(options.wrapperSelector, " did not match any elements on the document."));
+      return false;
+    }
+
     this.$slides = _toConsumableArray(this.$wrapper.querySelectorAll(options.slideSelector));
     this.interval = options.interval || 7500;
     this.animationDuration = options.animationDuration || 0.3;
@@ -4312,6 +4370,12 @@ function () {
     this.$nav = document.querySelector(options.navSelector); // wrapper element for all content under nav
 
     this.$mainWrap = document.querySelector(options.mainWrapSelector);
+
+    if (!this.$mainWrap) {
+      console.warn("The provided query selector ".concat(options.mainWrapSelector, " did not match any elements on the document."));
+      return false;
+    }
+
     this.$splash = this.$mainWrap.querySelector('.splash'); // Y coordinate of point where nav should become sticky
 
     this.stickPoint = 0; //this.$splash.offsetHeight - this.$nav.offsetHeight;

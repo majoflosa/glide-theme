@@ -2,9 +2,15 @@ class FadeInOnscroll {
     constructor( options ) {
         // the element that wraps content with fade in effect
         this.$element = document.querySelector( options.contentSelector );
+        if ( !this.$element ) {
+            console.warn( `The provided query selector ${options.contentSelector} did not match any elements on the document.` );
+
+            return false;
+        }
+        
         // wrapper's child elements, which will have the successive fadeIn animation
         this.fadeInSections = [...this.$element.querySelectorAll( options.fadeInSectionsSelector )];
-        
+
         // duration of animation in seconds; defaults to 1
         this.duration = options.animationDuration === undefined ? 1 : options.animationDuration;
         // amount of pixels the content should slide

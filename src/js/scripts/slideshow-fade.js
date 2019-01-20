@@ -1,7 +1,12 @@
 class SlideshowFade {
     constructor( options ) {
         this.$wrapper = document.querySelector( options.wrapperSelector );
+        if ( !this.$wrapper ) {
+            console.warn( `The provided query selector ${options.wrapperSelector} did not match any elements on the document.` );
+            return false;
+        }
         this.$slides = [...this.$wrapper.querySelectorAll( options.slideSelector )];
+
 
         this.interval = options.interval || 7500;
         this.animationDuration = options.animationDuration || 0.3;

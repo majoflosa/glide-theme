@@ -3,6 +3,10 @@ class LoadingScreen {
         // the element wrapping the loading screen content
         this.$body = document.querySelector('body');
         this.$loadingScreen = this.$body.querySelector( selector );
+        if ( !this.$loadingScreen ) {
+            console.warn( `The provided query selector ${selector} did not match any elements on the document.` );
+            return false;
+        }
 
         // bind all methods' contexts to created instance
         this.init = this.init.bind( this );

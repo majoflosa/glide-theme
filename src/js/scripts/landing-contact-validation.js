@@ -1,8 +1,14 @@
 class ContactValidation {
     constructor( options ) {
         this.$form = document.querySelector( options.formSelector );
+        if ( !this.$form ) {
+            console.warn( `The provided query selector ${options.formSelector} did not match any elements on the document.` );
+
+            return false;
+        }
         this.fields = options.fields;
         this.errorSelector = options.errorSelector;
+
 
         this.$form.noValidate = true;
         this.formIsValid = true;

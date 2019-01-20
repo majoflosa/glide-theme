@@ -1,5 +1,10 @@
 window.addEventListener('load', () => {
     const layerElements = [...document.querySelectorAll('.plx-layer')];
+    if ( !document.querySelectorAll('.plx-layer')[0] ) {
+        console.warn( `The provided query selector .plx-layer did not match any elements on the document.` );
+        return false;
+    }
+
     const layers = layerElements.map( layer => {
         return {
             element: layer,
