@@ -508,20 +508,28 @@ select {
   opacity: 0;
 }
 
-.radio-label input[type="radio"] + span::before {
+.radio-label input[type="radio"] + .radio-selector, .radio-label input[type="radio"] + .checkbox-selector {
   display: inline-block;
-  vertical-align: middle;
-  content: " ";
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
+  padding: 3px 5px 1px;
+  font-size: 0.8em;
+  font-size: 0.8rem;
+  color: #ffffff;
+  box-sizing: border-box;
+  border: 2px solid #15D683;
   border-radius: 50%;
-  border: 2px solid #aaaaaa;
+  margin: 0 5px 0 0;
 }
 
-.radio-label input[type="radio"]:checked + span::before {
-  background: #64a5f9;
-  border-color: #64a5f9;
+.radio-label input[type="radio"]:checked + .radio-selector, .radio-label input[type="radio"]:checked + .checkbox-selector {
+  border: none;
+  display: inline-block;
+  background: #33eb9c;
+  color: #ffffff;
+  padding: 5px 7px 3px;
+  font-size: 0.8em;
+  font-size: 0.8rem;
+  border-radius: 50%;
+  margin: 0 5px 0 0;
 }
 
 .checkbox-label {
@@ -536,20 +544,28 @@ select {
   opacity: 0;
 }
 
-.checkbox-label input[type="checkbox"] + span::before {
+.checkbox-label input[type="checkbox"] + .radio-selector, .checkbox-label input[type="checkbox"] + .checkbox-selector {
   display: inline-block;
-  vertical-align: middle;
-  content: " ";
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
-  border-radius: 10px;
-  border: 2px solid #aaaaaa;
+  padding: 3px 5px 1px;
+  font-size: 0.8em;
+  font-size: 0.8rem;
+  color: #ffffff;
+  box-sizing: border-box;
+  border: 2px solid #15D683;
+  border-radius: 3px;
+  margin: 0 5px 0 0;
 }
 
-.checkbox-label input[type="checkbox"]:checked + span::before {
-  background: #64a5f9;
-  border-color: #64a5f9;
+.checkbox-label input[type="checkbox"]:checked + .radio-selector, .checkbox-label input[type="checkbox"]:checked + .checkbox-selector {
+  border: none;
+  display: inline-block;
+  background: #33eb9c;
+  color: #ffffff;
+  padding: 5px 7px 3px;
+  font-size: 0.8em;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  margin: 0 5px 0 0;
 }
 
 .file-label {
@@ -2153,7 +2169,7 @@ input[type="reset"]:hover {
   font-size: 0.9rem;
 }
 
-.main-nav-link:hover, .main-nav a:hover {
+.main-nav-link:hover, .main-nav-link.active, .main-nav a:hover, .main-nav a.active {
   text-decoration: none;
   color: #dfecfe;
 }

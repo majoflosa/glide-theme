@@ -63,19 +63,19 @@
     width: 0.1px
     height: 0.1px
     opacity: 0
-    & + span::before
+    & + .radio-selector, & + .checkbox-selector
         display: inline-block
-        vertical-align: middle
-        content: " "
-        width: 20px
-        height: 20px
-        margin-right: 8px
+        padding: 3px 5px 1px
+        font-size: 0.8em
+        font-size: 0.8rem
+        color: #ffffff
+        box-sizing: border-box
+        border: 2px solid $primaryColor
         border-radius: $radius
-        border: 2px solid $midGrey
-    &:checked + span::before
-        // +checkmark($lightPrimaryColor, $primaryColor, 99px)
-        background: $secondaryColor
-        border-color: $secondaryColor
+        margin: 0 5px 0 0
+    &:checked + .radio-selector, &:checked + .checkbox-selector
+        border: none
+        +checkmark($primaryColor, #ffffff, $radius)
 
 =fileInput($bg: $secondaryColor, $color: #ffffff, $border: $secondaryColor)
     +btnGenerals

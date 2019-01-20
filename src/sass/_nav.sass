@@ -29,7 +29,7 @@
         font-family: $headerFont
         font-size: 0.9em
         font-size: 0.9rem
-        &:hover
+        &:hover, &.active
             text-decoration: none
             color: lighten($secondaryColor, 25%)
         &.download-theme
@@ -37,6 +37,7 @@
             color: $darkSecondaryColor
             padding: 5px 10px
             border-radius: $boxRadius
+        &.active
 
     &.sticky
         padding-top: 20px
