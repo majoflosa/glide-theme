@@ -3994,6 +3994,17 @@ window.addEventListener('load', function () {
   });
 });
 window.addEventListener('load', function () {
+  var landingModal = new ModalBox({
+    wrapperSelector: '.landing-modal',
+    togglerSelectors: ['.modal-close', '.splash-cta', '.cancel-modal-action'],
+    // closeSelector: '.modal-close',
+    // triggerSelector: '.splash-cta',
+    hiddenClass: 'hidden',
+    visibleClass: 'visible',
+    animationDuration: 0.5
+  });
+});
+window.addEventListener('load', function () {
   var portfolio = new FadeInOnscroll({
     contentSelector: '.landing-portfolio-list',
     fadeInSectionsSelector: '.landing-portfolio-item',
@@ -4223,6 +4234,65 @@ window.addEventListener('load', function () {
   var loadingScreen = new LoadingScreen('#loading-screen');
 });
 
+var ModalBox =
+/*#__PURE__*/
+function () {
+  function ModalBox(options) {
+    _classCallCheck(this, ModalBox);
+
+    this.$modal = document.querySelector(options.wrapperSelector);
+
+    if (!this.$modal) {
+      console.warn("The provided query selector ".concat(options.wrapperSelector, " did not match any element on the document."));
+      return false;
+    }
+
+    this.$togglers = [];
+    this.hiddenClass = options.hiddenClass;
+    this.visibleClass = options.visibleClass;
+    this.displaying = false;
+    this.setTogglers = this.setTogglers.bind(this);
+    this.bindEvents = this.bindEvents.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
+    this.setTogglers(options.togglerSelectors);
+    this.bindEvents();
+  }
+
+  _createClass(ModalBox, [{
+    key: "setTogglers",
+    value: function setTogglers(selectors) {
+      for (var i = 0; i < selectors.length; i++) {
+        var $toggler = document.querySelector(selectors[i]);
+        if ($toggler) this.$togglers.push($toggler);
+      }
+    }
+  }, {
+    key: "bindEvents",
+    value: function bindEvents() {
+      var _this9 = this;
+
+      this.$togglers.forEach(function ($toggler) {
+        return $toggler.addEventListener('click', _this9.toggleModal);
+      });
+    }
+  }, {
+    key: "toggleModal",
+    value: function toggleModal() {
+      if (this.displaying) {
+        this.$modal.classList.remove('showing');
+        this.$modal.classList.add('hidden');
+      } else {
+        this.$modal.classList.remove('hidden');
+        this.$modal.classList.add('showing');
+      }
+
+      this.displaying = !this.displaying;
+    }
+  }]);
+
+  return ModalBox;
+}();
+
 var ScrollDownButton =
 /*#__PURE__*/
 function () {
@@ -4279,7 +4349,7 @@ var SlideshowFade =
 /*#__PURE__*/
 function () {
   function SlideshowFade(options) {
-    var _this9 = this;
+    var _this10 = this;
 
     _classCallCheck(this, SlideshowFade);
 
@@ -4300,7 +4370,7 @@ function () {
     this.fadeOutSlide = this.fadeOutSlide.bind(this);
     this.play();
     window.addEventListener('resize', function () {
-      return _this9.$wrapper.style.height = _this9.$slides[0].offsetHeight + 'px';
+      return _this10.$wrapper.style.height = _this10.$slides[0].offsetHeight + 'px';
     });
   }
 
@@ -4316,12 +4386,12 @@ function () {
   }, {
     key: "play",
     value: function play() {
-      var _this10 = this;
+      var _this11 = this;
 
       if (this.$slides.length > 1) {
         this.setWrapperHeight();
         setInterval(function () {
-          return _this10.fadeOutSlide(_this10.fadeInSlide);
+          return _this11.fadeOutSlide(_this11.fadeInSlide);
         }, this.interval);
       }
     }

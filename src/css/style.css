@@ -76,17 +76,6 @@ strong {
   color: #5e5e5e;
 }
 
-.modal-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-  box-sizing: border-box;
-  background: #ffffff;
-}
-
 .separator-title-center::after {
   display: block;
   content: " ";
@@ -450,6 +439,7 @@ select:focus {
   outline: none;
   border-color: #a7f6d4;
   border-width: 4px;
+  box-sizing: border-box;
 }
 
 input[type="text"].error-field,
@@ -2124,6 +2114,103 @@ input[type="reset"]:hover {
   color: #555555;
 }
 
+.modal {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: initial;
+  height: 0;
+  width: 0;
+}
+
+.modal.hidden {
+  animation: fadeOutModal 0.5s ease-in-out 1 forwards;
+}
+
+.modal.showing {
+  width: 100%;
+  height: 100%;
+  animation: fadeInModal 0.3s ease-in-out 1 forwards;
+}
+
+.modal-inner {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.modal-close, .modal a.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+  background: #f7f7f7;
+  color: #aaaaaa;
+  padding: 5px 9px 3px;
+  font-size: 0.8em;
+  font-size: 0.8rem;
+  border-radius: 3px;
+  margin: 0 5px 0 0;
+  transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+}
+
+.modal-close:hover, .modal a.modal-close:hover {
+  background: #9d9d9d;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.modal-buttons button {
+  margin-bottom: 5px;
+}
+
+@keyframes fadeInModal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutModal {
+  0% {
+    opacity: 1;
+    height: 100%;
+    width: 100%;
+  }
+  50% {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+  }
+  100% {
+    height: 0;
+    width: 0;
+    opacity: 0;
+  }
+}
+
 .main-nav {
   position: fixed;
   z-index: 3;
@@ -2193,12 +2280,16 @@ input[type="reset"]:hover {
 }
 
 .main-nav.sticky-link:hover, .main-nav.sticky a:hover {
-  color: #aed0fc;
+  color: #1a7af6;
 }
 
 .main-nav.sticky-link.download-theme, .main-nav.sticky a.download-theme {
   background: #1a7af6;
   color: #ffffff;
+}
+
+.main-nav.sticky-link.active, .main-nav.sticky a.active {
+  color: #1a7af6;
 }
 
 .mobile-menu-button {

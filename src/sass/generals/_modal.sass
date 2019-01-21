@@ -1,0 +1,60 @@
+.modal
+    overflow: hidden
+    +outerModal(rgba(255,255,255,0.95))
+    height: 0
+    width: 0
+    
+    &.hidden
+        animation: fadeOutModal 0.5s ease-in-out 1 forwards
+    
+    &.showing
+        width: 100%
+        height: 100%
+        animation: fadeInModal 0.3s ease-in-out 1 forwards
+
+    &-inner
+        width: 90%
+        max-width: 600px
+        margin: 0 auto
+        padding: 20px
+        box-sizing: border-box
+        border-radius: $boxRadius
+        background: #ffffff
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1)
+        position: relative
+
+    &-close, a.modal-close
+        position: absolute
+        top: 10px
+        right: 10px
+        +xmark(darken($lightGrey, 10%), $midGrey, 3px)
+        +mainTransition
+        &:hover
+            background: darken($midGrey, 5%)
+            color: #ffffff
+            text-decoration: none
+
+    &-buttons
+        button
+            margin-bottom: 5px
+
+
+@keyframes fadeInModal
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
+@keyframes fadeOutModal
+    0%
+        opacity: 1
+        height: 100%
+        width: 100%
+    50%
+        height: 100%
+        width: 100%
+        opacity: 0
+    100%
+        height: 0
+        width: 0
+        opacity: 0

@@ -47,10 +47,12 @@
         &-link, a
             color: $secondaryColor
             &:hover
-                color: lighten($secondaryColor, 15%)
+                color: $darkSecondaryColor // lighten($secondaryColor, 15%)
             &.download-theme
                 background: $darkSecondaryColor
                 color: #ffffff
+            &.active
+                color: $darkSecondaryColor
 
 .mobile-menu-button
     /* Customize your menu button */
