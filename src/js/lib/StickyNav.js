@@ -34,6 +34,7 @@ export default class StickyNav {
 
         // run all initial functionality
         this.init();
+        this.stick();
     }
 
     init() {

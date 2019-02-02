@@ -8,9 +8,9 @@ export default class FormValidation {
 
             return false;
         }
+
         this.fields = options.fields;
         this.errorSelector = options.errorSelector;
-
 
         this.$form.noValidate = true;
         this.formIsValid = true;
