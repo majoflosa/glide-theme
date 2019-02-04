@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <nav class="main-nav">
+    <nav class="main-nav sticky">
         <div class="main-nav-logo"><a href="index.html">Glide</a></div>
 
         <button class="mobile-menu-button btn--white">
@@ -39,42 +39,73 @@
     </nav>
 
     <div class="page-wrap">
-        <header>
-            <div class="hero-banner no-overlay">
-                <div class="hero-banner__content">
-                    <h1 class="hero-banner__title no-margin-top">Portfolio</h1>
+        <header class="splash">
+            <div class="splash-content">
+                <div class="splash-content-left">
+                    <h1 class="splash-title">Portfolio</h1>
+                    <h4 class="splash-tagline">Mauris nulla quam, auctor eu orci non, lacinia pulvinar augue. Morbi sodales, augue sed blandit scelerisque, quam eros lobortis enim.</h4>
+                    <div><a href="#" class="btn--third-dark splash-cta">Call To Action</a></div>
                 </div>
             </div>
         </header>
 
         <main>
-            <section class="portfolio-main page-section portfolio-section">
+            <section class="portfolio-featured page-section portfolio-section">
+                <div class="portfolio-section-inner page-section-inner">
+                    
+                    <h2 class="portfolio-section-title section-main-title">Featured Projects</h2>
+                    <div class="portfolio-featured-list">
+                        <div class="portfolio-featured-item">
+                            <div class="portfolio-featured-item-gallery">
+                                <div class="portfolio-featured-item-inner-gallery">
+                                    <div><img src="img/conference-700.png" alt=""></div>
+                                    <div><img src="img/open-floor-office-700.png" alt=""></div>
+                                    <div><img src="img/team-notes-700.png" alt=""></div>
+                                </div>
+                                <div class="gallery-bullets">
+                                    <span class="gallery-bullet selected-bullet"></span>
+                                    <span class="gallery-bullet"></span>
+                                    <span class="gallery-bullet"></span>
+                                </div>
+                            </div>
+                            <div class="portfolio-featured-item-content">
+                                <h3 class="separator-title-left">Lobortis</h3>
+                                <p>Quisque lacinia sed augue id dictum. Praesent varius venenatis congue. In quis est ut metus sollicitudin varius. Sed sodales suscipit urna non porta. Sed euismod sodales sollicitudin. In rhoncus, risus eget egestas sagittis, mauris sapien commodo quam, id cursus felis tellus vulputate nisl. Proin ultricies nunc non justo consectetur, dignissim lobortis nunc egestas.</p>
+                                <a href="#" class="portfolio-featured-item-cta btn--primary">Call to Action</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="portfolio-all page-section portfolio-section">
                 <div class="portfolio-section-inner page-section-inner">
                     <!-- <h2 class="portfolio-main-content-title section-main-title">Portfolio</h2> -->
-                    <h1 class="portfolio-section-title section-main-title">Our Work</h1>
-                    <div class="portfolio-main-list image-gallery">
-                        <div class="portfolio-main-item image-gallery-item">
-                            <div class="portfolio-main-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
+                    <h2 class="portfolio-section-title section-main-title">All Projects</h2>
+                    <div class="portfolio-all-list image-gallery">
+                        <div class="portfolio-all-item image-gallery-item">
+                            <div class="portfolio-all-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
                             <a href="#"><img class="portfolio-img image-gallery-item-img" src="img/portfolio/flower-in-pond-square.png" alt=""></a>
                         </div>
-                        <div class="portfolio-main-item image-gallery-item">
-                            <div class="portfolio-main-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
+                        <div class="portfolio-all-item image-gallery-item">
+                            <div class="portfolio-all-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
                             <a href="#"><img class="portfolio-img image-gallery-item-img" src="img/portfolio/orange-tunnel-square.png" alt=""></a>
                         </div>
-                        <div class="portfolio-main-item image-gallery-item">
-                            <div class="portfolio-main-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
+                        <div class="portfolio-all-item image-gallery-item">
+                            <div class="portfolio-all-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
                             <a href="#"><img class="portfolio-img image-gallery-item-img" src="img/portfolio/layered-green-plant-square.png" alt=""></a>
                         </div>
-                        <div class="portfolio-main-item image-gallery-item">
-                            <div class="portfolio-main-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
+                        <div class="portfolio-all-item image-gallery-item">
+                            <div class="portfolio-all-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
                             <a href="#"><img class="portfolio-img image-gallery-item-img" src="img/portfolio/strawberries-square.png" alt=""></a>
                         </div>
-                        <div class="portfolio-main-item image-gallery-item">
-                            <div class="portfolio-main-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
+                        <div class="portfolio-all-item image-gallery-item">
+                            <div class="portfolio-all-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
                             <a href="#"><img class="portfolio-img image-gallery-item-img" src="img/portfolio/sea-sky-square.png" alt=""></a>
                         </div>
-                        <div class="portfolio-main-item image-gallery-item">
-                            <div class="portfolio-main-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
+                        <div class="portfolio-all-item image-gallery-item">
+                            <div class="portfolio-all-item-overlay image-gallery-item-overlay"><a href="#" class="btn--white">See Project</a></div>
                             <a href="#"><img class="portfolio-img image-gallery-item-img" src="img/portfolio/umbrellas-square.png" alt=""></a>
                         </div>
                     </div>

@@ -1,0 +1,63 @@
+.portfolio-featured
+    background: linear-gradient( to bottom, #ffffff, lighten($lightSecondaryColor, 13%) )
+    padding: 100px 0
+    .page-section-inner
+        max-width: none
+    &-list
+
+    &-item
+        +mainFlex(center, stretch)
+        flex-wrap: wrap
+        border-radius: $boxRadius
+        box-shadow: 0 2px 2px rgba(0,0,0,0.1)
+        overflow: hidden
+        background: #ffffff
+
+        &-gallery
+            flex: 0 0 60%
+            box-sizing: border-box
+            position: relative
+            // +mainFlex(space-between, center, column)
+
+            .gallery-bullets
+                padding: 0 10px 10px
+                box-sizing: border-box
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 100%
+                text-align: center
+
+                span
+                    display: inline-block
+                    vertical-align: middle
+                    width: 15px
+                    height: 15px
+                    margin: 0 3px 0 0
+                    box-sizing: border-box
+                    border: 2px solid lighten($lightPrimaryColor, 10%)
+                    border-radius: 50%
+                    cursor: pointer
+                    &.selected-bullet
+                        border-color: $primaryColor
+                        background: $primaryColor
+
+        &-inner-gallery
+            position: relative
+
+            div
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+
+                img
+                    width: 100%
+
+        &-content
+            flex: 1 0 40%
+            box-sizing: border-box
+            padding: 5%
+            +mainFlex(center, flex-start, column)
+
+        &-cta

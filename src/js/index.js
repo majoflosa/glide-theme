@@ -29,3 +29,8 @@ landingPricingPlx();
 landingServicesFadeIn();
 landingTestimonialSlideshow();
 landingSplashPlx();
+
+// portfolio
+import portfolioGalleryFadeIn from './scripts/portfolio/portfolio-gallery-fadein';
+
+portfolioGalleryFadeIn();
