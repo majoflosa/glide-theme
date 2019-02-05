@@ -32,5 +32,7 @@ landingSplashPlx();
 
 // portfolio
 import portfolioGalleryFadeIn from './scripts/portfolio/portfolio-gallery-fadein';
+import portfolioFeaturedGallery from './scripts/portfolio/portfolio-featured-gallery';
 
 portfolioGalleryFadeIn();
+portfolioFeaturedGallery();
