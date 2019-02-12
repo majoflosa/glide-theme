@@ -11,6 +11,7 @@ export default class FormValidation {
 
         this.fields = options.fields;
         this.errorSelector = options.errorSelector;
+        this.errors = [];
 
         this.$form.noValidate = true;
         this.formIsValid = true;
@@ -31,7 +32,7 @@ export default class FormValidation {
     }
 
     validate( event ) {
-        const errors = [];
+        this.errors = [];
 
         this.fields.forEach( field => {
             const $field = document.querySelector( field.selector );
@@ -41,9 +42,9 @@ export default class FormValidation {
             field.errors = [];
             this.checkRules( $field.value, field.rules, field.errors );
             
-            errors.push( ...field.errors )
-
-            if ( errors.length ) {
+            this.errors.push( ...field.errors );
+            
+            if ( this.errors.length ) {
                 this.formIsValid = false;
                 
                 if ( field.errors.length ) $field.classList.add( 'error-field' );
@@ -52,12 +53,12 @@ export default class FormValidation {
                 $fieldError.innerText = field.errors.join(' | ');
             } else {
                 this.formIsValid = true;
-
+                
                 $field.classList.remove( 'error-field' );
             }
             
         });
-
+        
         if ( !this.formIsValid ) event.preventDefault();
     }
 
@@ -103,7 +104,9 @@ export default class FormValidation {
             const $fieldError = $field.parentElement.querySelector( this.errorSelector );
             
             $fieldError.innerText = '';
+            $field.classList.remove( 'error-field' );
             field.errors = [];
+            this.errors = [];
         });
     }
 }

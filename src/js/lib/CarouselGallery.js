@@ -18,16 +18,10 @@ export default class CarouselGallery {
         this.bulletClass = options.bulletSelector;
         this.animationDuration = options.animationDuration === undefined ? 0.5 : options.animationDuration;
 
-        this.init = this.init.bind( this );
         this.bindEvents = this.bindEvents.bind( this );
         this.shiftCarousel = this.shiftCarousel.bind( this );
         this.calculateSizes = this.calculateSizes.bind( this );
 
-        this.init();
-        console.log(this.$items[2].offsetLeft)
-    }
-
-    init() {
         this.calculateSizes();
         this.bindEvents();
     }
@@ -42,8 +36,6 @@ export default class CarouselGallery {
 
         this.$bullets.forEach( $bullet => $bullet.classList.remove( this.selectedBulletClass) );
         event.target.classList.add( this.selectedBulletClass );
-
-        console.log(this.$items[0].offsetWidth + (this.$items[0].offsetLeft*2))
 
         TweenMax.to( 
             this.$innerWrapper, 
