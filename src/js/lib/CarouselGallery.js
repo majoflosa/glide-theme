@@ -11,8 +11,8 @@ export default class CarouselGallery {
         }
 
         this.$innerWrapper = this.$outerWrapper.querySelector( options.innerWrapperSelector );
-        this.$items = [...this.$outerWrapper.querySelectorAll( options.itemSelector)];
-        this.$bullets = [...this.$outerWrapper.querySelectorAll( options.bulletSelector)];
+        this.$items = [...this.$outerWrapper.querySelectorAll( options.itemSelector )];
+        this.$bullets = [...this.$outerWrapper.querySelectorAll( options.bulletSelector )];
 
         this.selectedBulletClass = options.selectedBulletClass;
         this.bulletClass = options.bulletSelector;
@@ -24,6 +24,7 @@ export default class CarouselGallery {
         this.calculateSizes = this.calculateSizes.bind( this );
 
         this.init();
+        console.log(this.$items[2].offsetLeft)
     }
 
     init() {
@@ -41,6 +42,8 @@ export default class CarouselGallery {
 
         this.$bullets.forEach( $bullet => $bullet.classList.remove( this.selectedBulletClass) );
         event.target.classList.add( this.selectedBulletClass );
+
+        console.log(this.$items[0].offsetWidth + (this.$items[0].offsetLeft*2))
 
         TweenMax.to( 
             this.$innerWrapper, 
