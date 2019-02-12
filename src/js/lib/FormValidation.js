@@ -31,6 +31,8 @@ export default class FormValidation {
     }
 
     validate( event ) {
+        const errors = [];
+
         this.fields.forEach( field => {
             const $field = document.querySelector( field.selector );
             const $fieldError = $field.parentElement.querySelector( this.errorSelector );
@@ -38,13 +40,22 @@ export default class FormValidation {
             $fieldError.innerText = '';
             field.errors = [];
             this.checkRules( $field.value, field.rules, field.errors );
+            
+            errors.push( ...field.errors )
 
-            if ( field.errors.length ) {
+            if ( errors.length ) {
                 this.formIsValid = false;
+                
+                if ( field.errors.length ) $field.classList.add( 'error-field' );
+                else $field.classList.remove( 'error-field' );
+                
                 $fieldError.innerText = field.errors.join(' | ');
             } else {
                 this.formIsValid = true;
+
+                $field.classList.remove( 'error-field' );
             }
+            
         });
 
         if ( !this.formIsValid ) event.preventDefault();
