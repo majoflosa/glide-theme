@@ -1,3 +1,38 @@
+=formSelectors($radius: $boxRadius)
+    display: inline-block
+    width: 0.1px
+    height: 0.1px
+    opacity: 0
+    & + .radio-selector, & + .checkbox-selector
+        display: inline-block
+        padding: 3px 5px 1px
+        font-size: 0.8em
+        font-size: 0.8rem
+        color: #ffffff
+        box-sizing: border-box
+        border: 2px solid $primaryColor
+        border-radius: $radius
+        margin: 0 5px 0 0
+    &:checked + .radio-selector, &:checked + .checkbox-selector
+        border: none
+        +checkmark($primaryColor, #ffffff, $radius)
+
+=fileInput($bg: $secondaryColor, $color: #ffffff, $border: $secondaryColor)
+    +btnGenerals
+    border-color: $border
+    border-radius: $boxRadius
+    background: $bg
+    color: $color
+    input[type="file"]
+        display: inline-block
+        width: 0.1px
+        height: 0.1px
+        opacity: 0
+    &:hover
+        background: lighten($bg, 10%)
+        border-color: lighten($bg, 10%)
+    
+    
 .form__item
     display: inline-block
     margin: 0 10px 20px 0

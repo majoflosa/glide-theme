@@ -1,3 +1,16 @@
+=outerModal($bg: #ffffff)
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    overflow: scroll
+    box-sizing: border-box
+    background: $bg
+    z-index: 9
+    +mainFlex(center, center)
+    
+    
 .modal
     overflow: hidden
     +outerModal(rgba(255,255,255,0.95))
