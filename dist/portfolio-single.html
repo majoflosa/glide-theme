@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio - Glide Theme</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <style>
+        #loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #ffffff; color: #dddddd; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 99; } #loading-screen .loading-message { margin: 0 auto; transition: all 1.25s ease-in-out; -webkit-transition: all 1.25s ease-in-out; -moz-transition: all 1.25s ease-in-out; -ms-transition: all 1.25s ease-in-out; -o-transition: all 1.25s ease-in-out; } #loading-screen.fulfilled { overflow: hidden; animation-name: fadeOut; animation-duration: 0.5s; animation-iteration-count: 1; animation-timing-function: ease-in-out; animation-fill-mode: forwards; animation-delay: 1s; } #loading-screen.fulfilled .loading-message { opacity: 0; } @keyframes pageLoaded { 0% { height: 6px; width: 150px; opacity: 1; } 70% { height: 0px; width: 70%; opacity: 0; } 100% { height: 0px; width: 70%; opacity: 0; } } @keyframes fadeOut { 0% { height: 100vh; opacity: 1; } 90% { height: 100vh; opacity: 0; } 100% { height: 0; opacity: 0; }} #spinner-3-dots { border: 10px solid transparent; height: 30px; width: 30px; margin: 30px auto; border-radius: 50%; text-align: center; position: relative; animation-name: spinner3dots; animation-duration: 3.3s; animation-timing-function: ease-in-out; animation-direction: alternate; animation-iteration-count: infinite; } #spinner-3-dots .dot { position: absolute; display: inline-block; height: 10px; width: 10px; border-radius: 50%; transform-origin: center; } #spinner-3-dots .dot-1 { background: #15D683; transform: translate(-50%, -10px); } #spinner-3-dots .dot-2 { background: #64a5f9; left: -7px; transform: translate(0, 200%); } #spinner-3-dots .dot-3 { background: #f3878d; right: -7px; transform: translate(0, 200%); } @keyframes spinner3dots {0% {transform: rotate(0) scale(1); } 100% {transform: rotate(1080deg) scale(0.2); }}
+    </style>
+</head>
+<body class="portfolio-template no-splash">
+    <div id="loading-screen">
+        <div id="spinner-3-dots">
+            <span class="dot dot-1"></span>
+            <span class="dot dot-2"></span>
+            <span class="dot dot-3"></span>
+        </div>
+    </div>
+
+    <nav class="main-nav sticky">
+        <div class="main-nav-logo"><a href="index.html">Glide</a></div>
+
+        <button class="mobile-menu-button btn--white">
+            <i class="fas fa-bars"></i> Menu
+        </button>
+        <div class="main-nav-links">
+            <span class="menu-header">
+                <a href="index.html">Glide</a>
+            </span>
+            <a class="main-nav-link" href="index.html">Home</a>
+            <a class="main-nav-link" href="generic-page.html">Generic</a>
+            <a class="main-nav-link active" href="portfolio.html">Portfolio</a>
+            <a class="main-nav-link" href="#">Blog</a>
+            <a class="main-nav-link" href="elements-ref.html">Elements Reference</a>
+            <!-- <a class="main-nav-link" href="#">Docs</a> -->
+            <!-- <a class="main-nav-link" href="#">About</a> -->
+            <a class="main-nav-link download-theme" href="#">Download</a>
+        </div>
+    </nav>
+
+    <div class="page-wrap">
+        <!-- <header class="page-header">
+            <h1 class="page-title">Portfolio Article</h1>
+        </header> -->
+
+        <main>
+            <section class="pfs-head portfolio-single-section page-section">
+                <div class="pfs-section-inner page-section-inner">
+
+                    <h2 class="pfs-section-title section-main-title">Portfolio Article</h2>
+                    <p class="pfs-intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quia laborum voluptate ducimus autem provident perspiciatis, ad itaque fugit rem corrupti optio. Harum id sunt dolorem suscipit, cupiditate autem quibusdam.</p>
+                    <div class="pfs-head-thumbnails thumbnail-gallery">
+                        <article class="pfs-head-thumbnail" data-index="0">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                        <article class="pfs-head-thumbnail" data-index="1">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                        <article class="pfs-head-thumbnail" data-index="2">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                        <article class="pfs-head-thumbnail" data-index="3">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                        <article class="pfs-head-thumbnail" data-index="4">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                        <article class="pfs-head-thumbnail" data-index="5">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                        <article class="pfs-head-thumbnail" data-index="6">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                        <article class="pfs-head-thumbnail" data-index="7">
+                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <section class="footer-widgets">
+                <article class="footer-widgets-item footer-widgets-logo">
+                    <h3>GLIDE Theme</h3>
+                    <div class="footer-subscription">
+                        <form action="">
+                            <div class="form__item-block"><input type="text" placeholder="Name"></div>
+                            <div class="form__item-block"><input type="email" placeholder="Email"></div>
+                            <div class="form__item-block"><input type="submit" value="Subscribe"></div>
+                        </form>
+                    </div>
+                    <div class="footer-widgets-legal">
+                        <p>Built with Glide Theme, designed and developed by&nbsp; 
+                            <strong><a href="http://maurojflores.com" target="">Mauricio J Flores</a></strong>
+                        </p>
+                        <p>2019 &copy; All rights reserved.</p>
+                    </div>
+                </article>
+                <article class="footer-widgets-item footer-widgets-nav">
+                    <h3>Navigate</h3>
+                    <nav>
+                        <a class="" href="index">Home</a>
+                        <a class="" href="generic-page.html">Generic</a>
+                        <a class="" href="portfolio.html">Portfolio</a>
+                        <a class="" href="#">Blog</a>
+                        <a class="" href="#">About</a>
+                        <a class="" href="elements-ref.html">Elements Reference</a>
+                        <a class="" href="#">Download Theme</a>
+                    </nav>
+                </article>
+                <article class="footer-widgets-item footer-widgets-contact">
+                    <h3>Contact</h3>
+                    <div class="footer-widgets-contact-info">
+                        <p>555 Main Street, Cityville, NY</p>
+                        <p><a herf="#">987-123-4567</a></p>
+                        <p><a href="#">info@business.com</a></p>
+                        <p class="social-media">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </footer>
+    </div>
+    
+        <script src="./js/script.js"></script>
+</body>
+</html>
