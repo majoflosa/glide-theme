@@ -6,7 +6,10 @@ export default function portfolioSingleLightbox() {
         const lightbox = new LightboxGallery({
             lightboxSelector: '.lightbox',
             thumbnailSelector: '.lightbox-thumbnail',
-            imageContainerSelector: '.lightbox-image'
+            imageWrapSelector: '.lightbox-image-wrap',
+            imageSelector: '.lightbox-image',
+            nextButtonSelector: '.lightbox-nav-next',
+            prevButtonSelector: '.lightbox-nav-prev'
         });
     });
 

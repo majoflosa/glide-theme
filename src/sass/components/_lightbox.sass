@@ -45,11 +45,14 @@
         &.loading
             #spinner-3-dots
                 opacity: 1
+            img
+                opacity: 0
     
     &-image
         position: relative
         opacity: 0
         max-height: 100%
+        +mainTransition
             
     &-caption
         text-align: center
