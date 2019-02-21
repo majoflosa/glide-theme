@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Portfolio - Glide Theme</title>
+    <title>Portfolio Project - Glide Theme</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <style>
         #loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: #ffffff; color: #dddddd; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 99; } #loading-screen .loading-message { margin: 0 auto; transition: all 1.25s ease-in-out; -webkit-transition: all 1.25s ease-in-out; -moz-transition: all 1.25s ease-in-out; -ms-transition: all 1.25s ease-in-out; -o-transition: all 1.25s ease-in-out; } #loading-screen.fulfilled { overflow: hidden; animation-name: fadeOut; animation-duration: 0.5s; animation-iteration-count: 1; animation-timing-function: ease-in-out; animation-fill-mode: forwards; animation-delay: 1s; } #loading-screen.fulfilled .loading-message { opacity: 0; } @keyframes pageLoaded { 0% { height: 6px; width: 150px; opacity: 1; } 70% { height: 0px; width: 70%; opacity: 0; } 100% { height: 0px; width: 70%; opacity: 0; } } @keyframes fadeOut { 0% { height: 100vh; opacity: 1; } 90% { height: 100vh; opacity: 0; } 100% { height: 0; opacity: 0; }} #spinner-3-dots { border: 10px solid transparent; height: 30px; width: 30px; margin: 30px auto; border-radius: 50%; text-align: center; position: relative; animation-name: spinner3dots; animation-duration: 3.3s; animation-timing-function: ease-in-out; animation-direction: alternate; animation-iteration-count: infinite; } #spinner-3-dots .dot { position: absolute; display: inline-block; height: 10px; width: 10px; border-radius: 50%; transform-origin: center; } #spinner-3-dots .dot-1 { background: #15D683; transform: translate(-50%, -10px); } #spinner-3-dots .dot-2 { background: #64a5f9; left: -7px; transform: translate(0, 200%); } #spinner-3-dots .dot-3 { background: #f3878d; right: -7px; transform: translate(0, 200%); } @keyframes spinner3dots {0% {transform: rotate(0) scale(1); } 100% {transform: rotate(1080deg) scale(0.2); }}
@@ -49,34 +49,60 @@
             <section class="pfs-head portfolio-single-section page-section">
                 <div class="pfs-section-inner page-section-inner">
 
-                    <h2 class="pfs-section-title section-main-title">Portfolio Article</h2>
+                    <h2 class="pfs-section-title section-main-title">Single Project</h2>
                     <p class="pfs-intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam quia laborum voluptate ducimus autem provident perspiciatis, ad itaque fugit rem corrupti optio. Harum id sunt dolorem suscipit, cupiditate autem quibusdam.</p>
-                    <div class="pfs-head-thumbnails thumbnail-gallery">
-                        <article class="pfs-head-thumbnail" data-index="0">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                    <div class="pfs-head-thumbnails lightbox-gallery">
+                        <article class="pfs-head-thumbnail lightbox-thumbnail" data-index="0">
+                            <a href="#" data-image="img/portfolio/flower-in-pond-square.png">
+                                <img src="https://via.placeholder.com/150x150.png" />
+                            </a>
                         </article>
-                        <article class="pfs-head-thumbnail" data-index="1">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        <article class="pfs-head-thumbnail lightbox-thumbnail" data-index="1">
+                            <a href="#" data-image="img/portfolio/foliage-brick-wall-square.png">
+                                <img src="https://via.placeholder.com/150x150.png" />
+                            </a>
                         </article>
-                        <article class="pfs-head-thumbnail" data-index="2">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        <article class="pfs-head-thumbnail lightbox-thumbnail" data-index="2">
+                            <a href="#" data-image="img/portfolio/layered-green-plant-square.png">
+                                <img src="https://via.placeholder.com/150x150.png" />
+                            </a>
                         </article>
-                        <article class="pfs-head-thumbnail" data-index="3">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        <article class="pfs-head-thumbnail lightbox-thumbnail" data-index="3">
+                            <a href="#" data-image="img/portfolio/orange-tunnel-square.png">
+                                <img src="https://via.placeholder.com/150x150.png" />
+                            </a>
                         </article>
-                        <article class="pfs-head-thumbnail" data-index="4">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        <article class="pfs-head-thumbnail lightbox-thumbnail" data-index="4">
+                            <a href="#" data-image="img/portfolio/sea-sky-square.png">
+                                <img src="https://via.placeholder.com/150x150.png" />
+                            </a>
                         </article>
-                        <article class="pfs-head-thumbnail" data-index="5">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        <article class="pfs-head-thumbnail lightbox-thumbnail" data-index="5">
+                            <a href="#" data-image="img/portfolio/strawberries-square.png">
+                                <img src="https://via.placeholder.com/150x150.png" />
+                            </a>
                         </article>
-                        <article class="pfs-head-thumbnail" data-index="6">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
-                        </article>
-                        <article class="pfs-head-thumbnail" data-index="7">
-                            <a href=""><img src="https://via.placeholder.com/80x80.png" /></a>
+                        <article class="pfs-head-thumbnail lightbox-thumbnail" data-index="6">
+                            <a href="#" data-image="img/portfolio/umbrellas-square.png">
+                                <img src="https://via.placeholder.com/150x150.png" />
+                            </a>
                         </article>
                     </div>
+                </div>
+            </section>
+
+            <section class="pfs-about portfolio-single-section page-section">
+                <div class="pfs-section-inner page-section-inner">
+
+                    <h3>About the Client</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minima voluptates reprehenderit odio vel adipisci pariatur soluta quis aperiam officiis magnam! Odit sunt expedita illo debitis dolorem eum ducimus iure voluptates.</p>
+
+                    <h3>About the Project</h3>
+                    <p>Incidunt asperiores, aliquid impedit veniam omnis id quia labore consequatur ea odit quisquam nemo illo natus consectetur. Amet impedit quisquam aliquam dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>In posuere sapien eu neque porta, vel efficitur metus cursus. Vestibulum pretium interdum dictum. Donec vitae dapibus augue, at congue felis. Quisque ut nibh nec orci fermentum convallis sit amet sed tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis et leo dolor. Duis tincidunt pretium nisi vel pulvinar. Cras sagittis in ante sit amet dictum. Aliquam ultricies odio sed leo sollicitudin, id varius quam aliquam. Nunc sed suscipit leo. Nullam mollis eu neque non suscipit. Donec quis dui mauris. Ut eget tempus lacus. Maecenas et bibendum ligula, ut molestie lectus.</p>
+
+                    <h3>The Challenge</h3>
+                    <p>Ut euismod lectus ac pharetra euismod. In pellentesque, risus vitae dictum lacinia, est dui condimentum leo, suscipit accumsan turpis quam nec magna. Aenean eu venenatis nisl. Sed nec felis sit amet arcu iaculis egestas ac id lorem. Aenean convallis augue sed neque vulputate eleifend. Ut elit libero, rhoncus convallis dolor non, aliquam vulputate sapien. Fusce eget odio et diam scelerisque malesuada. Phasellus tincidunt iaculis tortor, eget eleifend neque. Etiam dignissim ut libero et rhoncus. Aliquam scelerisque ultrices auctor. Vestibulum a consequat turpis. Curabitur rutrum odio lorem, sed cursus augue convallis at.</p>
                 </div>
             </section>
         </main>
@@ -128,7 +154,26 @@
             </section>
         </footer>
     </div>
+
+    <section class="lightbox">
+        <div class="lightbox-nav">
+            <button class="lightbox-nav-arrow lightbox-nav-prev">Prev</button>
+            <button class="lightbox-nav-arrow lightbox-nav-next">Next</button>
+            <a href="#" class="lightbox-close">Close</a>
+        </div>
+        <div class="lightbox-inner">
+            
+            <!-- <h2>Testing</h2> -->
+            <div class="lightbox-content lightbox-image-wrap">
+                <img class="centered lightbox-image" src="img/portfolio/foliage-brick-wall-square.png" alt="">
+            </div>
+            <div class="lightbox-caption">
+                <p>Caption goes here</p>
+            </div>
+
+        </div>
+    </section>
     
-        <script src="./js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

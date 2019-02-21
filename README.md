@@ -3,6 +3,22 @@
 A multi-purpose theme of HTML, CSS, and JS templates.
 [See live demo](http://ui.maurojflores.com/glide/dist/)
 
+## Setup
+* Download, or fork & clone repo
+
+* Install dependencies
+```text 
+npm install
+``` 
+* Create bundle for production
+```text 
+npm run build
+```
+* Start development server 
+```text
+npm start
+```
+
 ## File structure
 ```text
 root
@@ -28,7 +44,7 @@ root
     * generals
       * _vars.sass
       * _mixins.sass
-      * (all partials for general styles)
+      * (all partials for general styles and utility classes)
     * elements-ref
       * (all partials for elements reference page)
     * landing-page

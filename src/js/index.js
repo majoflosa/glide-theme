@@ -36,3 +36,8 @@ import portfolioFeaturedGallery from './scripts/portfolio/portfolio-featured-gal
 
 portfolioGalleryFadeIn();
 portfolioFeaturedGallery();
+
+// portfolio single
+import portfolioSingleLightbox from './scripts/portfolio-single/portfolio-single-lightbox';
+
+portfolioSingleLightbox();
