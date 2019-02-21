@@ -6,6 +6,8 @@ export default function portfolioSingleLightbox() {
         const lightbox = new LightboxGallery({
             lightboxSelector: '.lightbox',
             thumbnailSelector: '.lightbox-thumbnail',
+            imageContainerSelector: '.lightbox-image'
         });
     });
+
 }

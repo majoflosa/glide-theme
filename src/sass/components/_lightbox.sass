@@ -19,8 +19,8 @@
 
     &-nav
         position: absolute
-        top: 0
-        right: 0
+        top: 10px
+        right: 10px
     &-close
         // position: absolute
         // top: 15px
@@ -34,7 +34,22 @@
 
     &-image-wrap
         text-align: center
-        max-height: 85vh
+        height: 80vh
         overflow-y: scroll
+        #spinner-3-dots
+            position: absolute
+            left: 50%
+            top: 50%
+            opacity: 0
+            +mainTransition
+        &.loading
+            #spinner-3-dots
+                opacity: 1
+    
+    &-image
+        position: relative
+        opacity: 0
+        max-height: 100%
+            
     &-caption
         text-align: center
