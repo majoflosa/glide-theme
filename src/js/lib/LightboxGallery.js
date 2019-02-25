@@ -24,7 +24,7 @@ export default class LightboxGallery {
 
         this.$nextButton = this.$lightbox.querySelector( options.nextButtonSelector );
         this.$prevButton = this.$lightbox.querySelector( options.prevButtonSelector );
-        this.$close = this.$lightbox.querySelector( '.lightbox-close' );
+        this.$close = this.$lightbox.querySelector( '.lightbox-nav-close' );
 
         this.displaying = false;
         this.currentIndex = 0;
@@ -54,6 +54,16 @@ export default class LightboxGallery {
         this.currentImageCaption = $thumbnailLink.dataset.caption;
         this.currentIndex = this.$thumbnails.indexOf( $thumbnailLink.parentElement );
 
+        
+        if ( this.currentIndex === 0 ) {
+            this.$prevButton.classList.add( 'disabled' );
+        } else if ( this.currentIndex === this.$thumbnails.length - 1 ) {
+            this.$nextButton.classList.add( 'disabled' );
+        } else {
+            this.$prevButton.classList.remove( 'disabled' );
+            this.$nextButton.classList.remove( 'disabled' );
+        }
+
         this.changeSlide( this.currentImageSrc, this.currentImageCaption );
         this.toggleLightbox( event );
     }
@@ -77,20 +87,26 @@ export default class LightboxGallery {
         }
     }
 
-    prevSlide() {
+    prevSlide( event ) {
         if ( this.currentIndex === 0 ) return false;
 
         this.currentIndex--;
+        if ( this.currentIndex === this.$thumbnails.length - 2 ) this.$nextButton.classList.remove( 'disabled' );
+        if ( this.currentIndex === 0 ) this.$prevButton.classList.add( 'disabled' );
+        
         const newSrc = this.$thumbnails[this.currentIndex].querySelector('a').dataset.image;
         const newCaption = this.$thumbnails[this.currentIndex].querySelector('a').dataset.caption;
         
         this.changeSlide( newSrc, newCaption );
     }
 
-    nextSlide() {
-        if ( this.currentIndex >= this.$thumbnails.length ) return false;
-
+    nextSlide( event ) {
+        if ( this.currentIndex >= this.$thumbnails.length - 1 ) return false;
+        
         this.currentIndex++;
+        if ( this.currentIndex === 1 ) this.$prevButton.classList.remove( 'disabled' );
+        if ( this.currentIndex === this.$thumbnails.length - 1 ) this.$nextButton.classList.add( 'disabled' );
+        
         const newSrc = this.$thumbnails[this.currentIndex].querySelector('a').dataset.image;
         const newCaption = this.$thumbnails[this.currentIndex].querySelector('a').dataset.caption;
         
