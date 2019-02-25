@@ -50,7 +50,7 @@ export default class FormValidation {
                 if ( field.errors.length ) $field.classList.add( 'error-field' );
                 else $field.classList.remove( 'error-field' );
                 
-                $fieldError.innerText = field.errors.join(' | ');
+                $fieldError.innerText = field.errors.join(' \n ');
             } else {
                 this.formIsValid = true;
                 
@@ -79,21 +79,21 @@ export default class FormValidation {
     tests() {
         return {
             'required': function( value, errors ) {
-                if ( !value.length ) errors.push( 'This field is required. ' );
+                if ( !value.length ) errors.push( '* This field is required. ' );
             },
             'min': function( value, errors, params ) {
                 if ( value.length < +params[0] ) 
-                    errors.push( `This field must be at least ${params[0]} characters long. `)
+                    errors.push( `* This field must be at least ${params[0]} characters long. `)
             },
             'max': function( value, errors, params ) {
                 if ( value.length > +params[0] )
-                    errors.push( `This field cannot exceed ${params[0]} characters. `)
+                    errors.push( `* This field cannot exceed ${params[0]} characters. `)
             },
             'email': function( value, errors ) {
                 let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
                 if ( !re.test(value.toLowerCase()) )
-                    errors.push( 'This field must be a valid email address.' );
+                    errors.push( '* This field must be a valid email address.' );
             }
         }
     }

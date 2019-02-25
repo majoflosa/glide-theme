@@ -8,6 +8,7 @@ export default function portfolioSingleLightbox() {
             thumbnailSelector: '.lightbox-thumbnail',
             imageWrapSelector: '.lightbox-image-wrap',
             imageSelector: '.lightbox-image',
+            captionSelector: '.lightbox-caption-text',
             nextButtonSelector: '.lightbox-nav-next',
             prevButtonSelector: '.lightbox-nav-prev'
         });

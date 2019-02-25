@@ -12,6 +12,7 @@ export default class LightboxGallery {
 
         this.$imageWrap = this.$lightbox.querySelector( options.imageWrapSelector );
         this.$image = this.$lightbox.querySelector( options.imageSelector );
+        this.$caption = this.$lightbox.querySelector( options.captionSelector );
 
         this.$thumbnails = [...document.querySelectorAll( '.lightbox-thumbnail' )];
         if ( !this.$thumbnails.length ) {
@@ -50,18 +51,20 @@ export default class LightboxGallery {
     handleThumbnailClick( event ) {
         const $thumbnailLink = event.target.parentElement;
         this.currentImageSrc = $thumbnailLink.dataset.image;
+        this.currentImageCaption = $thumbnailLink.dataset.caption;
         this.currentIndex = this.$thumbnails.indexOf( $thumbnailLink.parentElement );
 
-        this.changeSlide( this.currentImageSrc );
+        this.changeSlide( this.currentImageSrc, this.currentImageCaption );
         this.toggleLightbox( event );
     }
 
-    changeSlide( src ) {
+    changeSlide( src, caption ) {
         this.$imageWrap.classList.add('loading');
         this.$image.src = '';
 
         if ( this.imagesCache.includes(src) ) {
             this.updateImageSrc( src );
+            this.$caption.innerText = caption;
         } else {
             const $newImage = document.createElement('img');
             $newImage.src = src;
@@ -69,6 +72,7 @@ export default class LightboxGallery {
     
             $newImage.addEventListener('load', () => {
                 this.updateImageSrc( src );
+                this.$caption.innerText = caption;
             });
         }
     }
@@ -78,8 +82,9 @@ export default class LightboxGallery {
 
         this.currentIndex--;
         const newSrc = this.$thumbnails[this.currentIndex].querySelector('a').dataset.image;
+        const newCaption = this.$thumbnails[this.currentIndex].querySelector('a').dataset.caption;
         
-        this.changeSlide( newSrc );
+        this.changeSlide( newSrc, newCaption );
     }
 
     nextSlide() {
@@ -87,8 +92,9 @@ export default class LightboxGallery {
 
         this.currentIndex++;
         const newSrc = this.$thumbnails[this.currentIndex].querySelector('a').dataset.image;
+        const newCaption = this.$thumbnails[this.currentIndex].querySelector('a').dataset.caption;
         
-        this.changeSlide( newSrc );
+        this.changeSlide( newSrc, newCaption );
     }
 
     updateImageSrc( src ) {
