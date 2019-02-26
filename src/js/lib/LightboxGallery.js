@@ -57,8 +57,10 @@ export default class LightboxGallery {
         
         if ( this.currentIndex === 0 ) {
             this.$prevButton.classList.add( 'disabled' );
+            this.$nextButton.classList.remove( 'disabled' );
         } else if ( this.currentIndex === this.$thumbnails.length - 1 ) {
             this.$nextButton.classList.add( 'disabled' );
+            this.$prevButton.classList.remove( 'disabled' );
         } else {
             this.$prevButton.classList.remove( 'disabled' );
             this.$nextButton.classList.remove( 'disabled' );
@@ -98,6 +100,7 @@ export default class LightboxGallery {
         const newCaption = this.$thumbnails[this.currentIndex].querySelector('a').dataset.caption;
         
         this.changeSlide( newSrc, newCaption );
+        event.preventDefault();
     }
 
     nextSlide( event ) {
@@ -111,6 +114,7 @@ export default class LightboxGallery {
         const newCaption = this.$thumbnails[this.currentIndex].querySelector('a').dataset.caption;
         
         this.changeSlide( newSrc, newCaption );
+        event.preventDefault();
     }
 
     updateImageSrc( src ) {
